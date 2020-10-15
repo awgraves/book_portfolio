@@ -95,8 +95,8 @@ export default {
         border-radius: 0 3px 3px 0;
         box-shadow: inset 4px 0 5px rgba(0, 0, 0, 0.1);
         z-index: 10;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
+        /* -webkit-backface-visibility: hidden;
+        backface-visibility: hidden; */
         border-radius: 2px 5px 5px 2px;
     }
     .back-cover {
