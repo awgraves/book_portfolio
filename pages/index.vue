@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #whole-page {
   margin: 0 auto;
   min-height: 100vh;
@@ -58,6 +58,7 @@ export default {
   background-color: oldlace;
   box-shadow: 0px 10px 15px rgba(0,0,0,0.3);
   z-index: 1;
+  padding: 1em;
 }
 
 #main-area {

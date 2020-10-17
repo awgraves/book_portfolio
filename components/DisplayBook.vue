@@ -5,10 +5,10 @@
         @mouseenter="initPerspective"
         @mousemove="trackMouse" @mouseleave="clearPersp">
         <!--- book itself --->
-        <div class="bk-book book-1" ref="book" :style="perspectiveCSS">
-            <div class="bk-front">
-                <div class="bk-cover-back"></div>
-                <div class="bk-cover">
+        <div class="book book--1" ref="book" :style="perspectiveCSS">
+            <div class="book__front">
+                <div class="book__cover-back"></div>
+                <div class="book__cover">
                     <h2>
                         <span>({{x}}, {{y}})</span>
                         <span>A. Graves</span>
@@ -16,18 +16,18 @@
                     </h2>
                 </div>
             </div>
-            <div class="bk-back">
+            <div class="book__back">
                 <p>In this nightmare vision of cats in revolt, fifteen-year-old Alex and his friends set out on a diabolical orgy of robbery, rape, torture and murder. Alex is jailed for his teenage delinquency and the State tries to reform him - but at what cost?</p>
             </div>
-            <div class="bk-right"></div>
-            <div class="bk-left">
+            <div class="book__right"></div>
+            <div class="book__left">
                 <h2>
                     <span>Anthony Burghiss</span>
                     <span>A Catwork Orange</span>
                 </h2>
             </div>
-            <div class="bk-top"></div>
-            <div class="bk-bottom"></div>
+            <div class="book__top"></div>
+            <div class="book__bottom"></div>
         </div>
     </div>
 </template>
@@ -91,42 +91,52 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     /* minimum screen size width mobile: 320px; */
 
-    .book-wrapper {
-        position: relative;
-        width: 300px;
-        height: 400px;
-        z-index: 100;
-        margin: 2em;
-        -webkit-perspective: 1800px;
-        perspective: 1800px;
-        cursor: pointer;
-    }
-    .book-wrapper .bk-book {
-        position: absolute;
-        width: 100%;
-        height: 400px;
-        -webkit-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-        -webkit-transition: -webkit-transform .5s;
-        transition: transform linear .5s;
-    }
+.book-wrapper {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    z-index: 100;
+    margin: 2em;
+    -webkit-perspective: 1800px;
+    perspective: 1800px;
+    cursor: pointer;
+}
+.book {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform .3s;
+    transition: transform linear .3s;
 
-    /* hover animations */
-    /* .book-wrapper .bk-book:hover {
-        -webkit-transform: rotate3d(0,1,0,-35deg);
-        transform: rotate3d(0,1,0,-35deg);
-    } */
-
-    .book-wrapper .bk-book > div,
-    .book-wrapper .bk-front > div {
+    div, &__front > div {
         display: block;
         position: absolute;
     }
 
-    .book-wrapper .bk-front {
+    &__front, &__back {
+        width: 300px;
+        height: 400px;
+    }
+
+    &__left, &__right {
+        width: 40px;
+        left: -20px;
+    }
+
+    &__top, &__bottom {
+        width: 295px;
+        height: 40px;
+        top: -15px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    &__front {
         -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
         -webkit-transform-origin: 0% 50%;
@@ -136,64 +146,32 @@ export default {
         -webkit-transform: translate3d(0,0,20px);
         transform: translate3d(0,0,20px);
         z-index: 10;
+
+        div {
+            z-index: 1;
+            width: 300px;
+            height: 400px;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
     }
 
-    .book-wrapper .bk-front > div {
-        z-index: 1;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-    }
-
-    .book-wrapper .bk-page {
-        -webkit-transform: translate3d(0,0,19px);
-        transform: translate3d(0,0,19px);
-        display: none;
-        width: 295px;
-        height: 390px;
-        top: 5px;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        z-index: 9;
-    }
-
-    .book-wrapper .bk-front,
-    .book-wrapper .bk-back,
-    .book-wrapper .bk-front > div {
-        width: 300px;
-        height: 400px;
-    }
-
-    .book-wrapper .bk-left,
-    .book-wrapper .bk-right {
-        width: 40px;
-        left: -20px;
-    }
-
-    .book-wrapper .bk-top,
-    .book-wrapper .bk-bottom {
-        width: 295px;
-        height: 40px;
-        top: -15px;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
-
-    .book-wrapper .bk-back {
+    &__back {
         -webkit-transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
         transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
         box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
         border-radius: 3px 0 0 3px;
     }
 
-    .book-wrapper .bk-cover-back {
+    &__cover-back {
         background-color: #000;
         -webkit-transform: rotate3d(0,1,0,-179deg);
         transform: rotate3d(0,1,0,-179deg);
     }
 
-    .book-wrapper .bk-right {
+    &__right {
         height: 390px;
         top: 5px;
         -webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
@@ -203,37 +181,34 @@ export default {
         backface-visibility: hidden;
     }
 
-    .book-wrapper .bk-left {
+    &__left {
         height: 400px;
         -webkit-transform: rotate3d(0,1,0,-90deg);
         transform: rotate3d(0,1,0,-90deg);
     }
 
-    .book-wrapper .bk-top {
+    &__top {
         -webkit-transform: rotate3d(1,0,0,90deg);
         transform: rotate3d(1,0,0,90deg);
     }
 
-    .book-wrapper .bk-bottom {
+    &__bottom {
         -webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
         transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
     }
-    /* Main colors and content */
-
-    .book-wrapper .bk-page,
-    .book-wrapper .bk-right,
-    .book-wrapper .bk-top,
-    .book-wrapper .bk-bottom {
+    // colors and content
+    &__page, &__right,
+    &__top, &__bottom {
         background-color: #fff;
     }
 
-    .book-wrapper .bk-front > div {
+    &__front > div {
         border-radius: 0 3px 3px 0;
         box-shadow: 
             inset 4px 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .book-wrapper .bk-front:after {
+    &__front:after {
         content: '';
         position: absolute;
         top: 1px;
@@ -242,8 +217,8 @@ export default {
         width: 1px;
     }
 
-    .book-wrapper .bk-cover:after,
-    .book-wrapper .bk-back:after {
+    &__cover:after,
+    &__back:after {
         content: '';
         position: absolute;
         top: 0;
@@ -254,12 +229,12 @@ export default {
         box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
     }
 
-    .book-wrapper .bk-back:after {
+    &__back:after {
         left: auto;
         right: 10px;
     }
 
-    .bk-left h2 {
+    &__left h2 {
         width: 400px;
         height: 40px;
         -webkit-transform-origin: 0 0;
@@ -269,7 +244,7 @@ export default {
         transform: rotate(90deg) translateY(-40px);
     }
 
-    .bk-content {
+    &__content {
         position: absolute;
         top: 30px;
         left: 20px;
@@ -285,94 +260,78 @@ export default {
         -webkit-transition: opacity 0.3s ease-in-out;
         transition: opacity 0.3s ease-in-out;
         cursor: default;
+
+        p {
+            padding: 0 0 10px;
+            -webkit-font-smoothing: antialiased;
+            color: #000;
+            font-size: 13px;
+            line-height: 20px;
+            text-align: justify;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
     }
 
-    .bk-content-current {
+    &__content-current {
         opacity: 1;
         pointer-events: auto;
     }
+}
 
-    .bk-content p {
-        padding: 0 0 10px;
-        -webkit-font-smoothing: antialiased;
-        color: #000;
-        font-size: 13px;
-        line-height: 20px;
-        text-align: justify;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    .bk-page nav {
-        display: block;
-        text-align: center;
-        margin-top: 20px;
-        position: relative;
-        z-index: 100;
-        cursor: pointer;
-    }
-
-    .bk-page nav span {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        color: #aaa;
-        background: #f0f0f0;
-        border-radius: 50%;
-    }
-
-    /* Individual style & artwork */
-    /* Book 1 */
-    .book-1 .bk-front > div,
-    .book-1 .bk-back,
-    .book-1 .bk-left,
-    .book-1 .bk-front:after {
+/* Individual style & artwork */
+/* Book 1 */
+.book--1 {
+    .book__front > div,
+    .book__back,
+    .book__left,
+    .book__front:after {
         background-color: #ff924a;
     }
 
-    .book-1 .bk-cover {
+    .book__cover {
         /* background-image: url(../images/1.png);	
         background-repeat: no-repeat; */
         background-position: 10px 40px;
+
+        h2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            padding: 30px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+        }
     }
 
-    .book-1 .bk-cover h2 {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        padding: 30px;
-        background: rgba(255,255,255,0.2);
-        color: #fff;
-        text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
-    }
-
-    .book-1 .bk-cover h2 span:first-child,
-    .book-1 .bk-left h2 span:first-child {
+    .book__cover h2 span:first-child,
+    .book__left h2 span:first-child {
         text-transform: uppercase;
         font-weight: 400;
         font-size: 13px;
         padding-right: 20px;
     }
 
-    .book-1 .bk-cover h2 span:first-child {
+    .book__cover h2 span:first-child {
         display: block;
     }
 
-    .book-1 .bk-cover h2 span:last-child,
-    .book-1 .bk-left h2 span:last-child {
+    .book__cover h2 span:last-child,
+    .book__left h2 span:last-child {
         font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
     } 
 
-    .book-1 .bk-content p {
+    .book__content p {
         font-family: Georgia, Times, "Times New Roman", serif;
     }
 
-    .book-1 .bk-left h2 {
+    .book__left h2 {
         color: #fff;
         font-size: 15px;
         line-height: 40px;
@@ -380,11 +339,31 @@ export default {
         text-align: right;
     }
 
-    .book-1 .bk-back p {
+    .book__back p {
         color: #fff;
         font-size: 13px;
         padding: 40px;
         text-align: center;
         font-weight: 700;
     }
+}
+    
+    /* hover animations */
+    /* .book-wrapper .bk-book:hover {
+        -webkit-transform: rotate3d(0,1,0,-35deg);
+        transform: rotate3d(0,1,0,-35deg);
+    } */
+
+    /* !!! come back for page */
+    // .book-wrapper .bk-page {
+    //     -webkit-transform: translate3d(0,0,19px);
+    //     transform: translate3d(0,0,19px);
+    //     display: none;
+    //     width: 295px;
+    //     height: 390px;
+    //     top: 5px;
+    //     -webkit-backface-visibility: hidden;
+    //     backface-visibility: hidden;
+    //     z-index: 9;
+    // }
 </style>
