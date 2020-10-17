@@ -14,6 +14,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  margin: 0;
+  min-width: 100vw;
+}
+body {
+  margin: 0;
+  min-width: 100%;
 }
 /* *,
 *::before,

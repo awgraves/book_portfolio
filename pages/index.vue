@@ -5,10 +5,7 @@
       <h3>by Andrew Graves</h3>
     </div>
     <div id="main-area">
-        <DisplayBook :key="1"></DisplayBook>
-        <DisplayBook :key="2"></DisplayBook>
-        <DisplayBook :key="3"></DisplayBook>
-        <DisplayBook :key="4"></DisplayBook>
+      <DisplayBook v-for="book, idx in books" :title="book.title" :key="idx"></DisplayBook>
     </div>
   </div>
 </template>
@@ -18,6 +15,16 @@ import DisplayBook from '~/components/DisplayBook.vue';
 export default {
   name: 'app',
   components: {'DisplayBook': DisplayBook},
+  data() {
+    return {
+      books: [
+        {'title': 'Clinical Trial Recommender'},
+        {'title': 'Help Desk System'},
+        {'title': 'Sign-Out QAs'},
+        {'title': 'Genetic Search DB'}
+      ]
+    }
+  },
   head() {
     return {
       title: "Works by Andrew Graves",
@@ -40,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 #whole-page {
-  margin: 0 auto;
+  margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -58,7 +65,6 @@ export default {
   background-color: oldlace;
   box-shadow: 0px 10px 15px rgba(0,0,0,0.3);
   z-index: 1;
-  padding: 1em;
 }
 
 #main-area {

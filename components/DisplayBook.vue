@@ -10,20 +10,18 @@
                 <div class="book__cover-back"></div>
                 <div class="book__cover">
                     <h2>
-                        <span>({{x}}, {{y}})</span>
-                        <span>A. Graves</span>
-                        <span>A Clinical Trial Recommender</span>
+                        <!-- <span>({{x}}, {{y}})</span> -->
+                        <span></span>
+                        <span>{{ title }}</span>
                     </h2>
                 </div>
             </div>
-            <div class="book__back">
-                <p>In this nightmare vision of cats in revolt, fifteen-year-old Alex and his friends set out on a diabolical orgy of robbery, rape, torture and murder. Alex is jailed for his teenage delinquency and the State tries to reform him - but at what cost?</p>
-            </div>
+            <div class="book__back"></div>
             <div class="book__right"></div>
             <div class="book__left">
                 <h2>
-                    <span>Anthony Burghiss</span>
-                    <span>A Catwork Orange</span>
+                    <span>{{ title }}</span>
+                    <span>A. Graves</span>
                 </h2>
             </div>
             <div class="book__top"></div>
@@ -35,6 +33,7 @@
 <script>
 export default {
     name: "DisplayBook",
+    props: ['title'],
     data() {
         return {
             requiresOriginSet: true, // will have pause before recalc
@@ -44,7 +43,8 @@ export default {
             y: 0,
             perspectiveCSS: {
                 "transform": "",
-                "webkitTransform": ""
+                "-webkit-transform": "",
+                "-ms-transform": "",
             }
         }
     },
@@ -240,8 +240,8 @@ export default {
         -webkit-transform-origin: 0 0;
         -moz-transform-origin: 0 0;
         transform-origin: 0 0;
-        -webkit-transform: rotate(90deg) translateY(-40px);
-        transform: rotate(90deg) translateY(-40px);
+        -webkit-transform: rotate(90deg) translateY(-40px) translateX(-40px);
+        transform: rotate(90deg) translateY(-40px) translateX(-40px);
     }
 
     &__content {
@@ -296,7 +296,7 @@ export default {
     .book__cover {
         /* background-image: url(../images/1.png);	
         background-repeat: no-repeat; */
-        background-position: 10px 40px;
+        // background-position: 10px 40px;
 
         h2 {
             position: absolute;
@@ -307,6 +307,11 @@ export default {
             background: rgba(255,255,255,0.2);
             color: #fff;
             text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+            text-align: center;
+
+            span {
+                display: block;
+            }
         }
     }
 
