@@ -13,17 +13,12 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  height: 100%;
-  position: relative;
+  box-sizing: border-box;
 }
-body {
-  padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  min-height: 100%;
-  position: relative;
-}
-body > div, body > div > div {
-  min-height: 100vh;
-  position: relative;
 }
 </style>

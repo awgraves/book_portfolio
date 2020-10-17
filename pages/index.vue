@@ -1,5 +1,5 @@
 <template>
-  <div class="whole-page">
+  <div id="whole-page">
     <div id="title-area">
       <h1>A Collection of Work(s)</h1>
       <h3>by Andrew Graves</h3>
@@ -40,15 +40,13 @@ export default {
 
 <style scoped>
 #whole-page {
-  margin: 0;
-  min-height: 100%;
-  min-width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: yellow;
 }
 
 #title-area {
@@ -69,7 +67,7 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   height: 100%;
+  width: 100%;
   background-color: burlywood;
-  padding: 2em;
 }
 </style>
