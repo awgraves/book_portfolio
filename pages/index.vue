@@ -5,7 +5,7 @@
       <h3>by Andrew Graves</h3>
     </div>
     <div id="main-area">
-      <DisplayBook v-for="book, idx in books" :title="book.title" :key="idx"></DisplayBook>
+      <DisplayBook v-for="book, idx in books" :title="book.title" :key="'bk-' + idx"></DisplayBook>
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@
 <script>
 import DisplayBook from '~/components/DisplayBook.vue';
 export default {
-  name: 'app',
+  name: 'index',
   components: {'DisplayBook': DisplayBook},
   data() {
     return {

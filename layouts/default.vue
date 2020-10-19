@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="position: relative; height: 100%; width: 100%;">
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <Nuxt />
   </div>
@@ -15,11 +15,16 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   margin: 0;
-  min-width: 100vw;
+  width: 100vw;
+  height: 100%;
+  position: relative;
 }
 body {
   margin: 0;
-  min-width: 100%;
+  width: 100vw;
+  height: 100vh;
+  background-color: burlywood;
+  position: relative;
 }
 /* *,
 *::before,
