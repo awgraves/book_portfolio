@@ -55,6 +55,7 @@ $flipSpeed: 1s;
     transform-style: preserve-3d;
     transform-origin: left;
     cursor: pointer;
+    font-size: 16pt;
 
     &__front, &__back {
         position: absolute;

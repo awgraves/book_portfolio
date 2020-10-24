@@ -1,15 +1,17 @@
 <template>
-    <div class="wrapper">
-        <div class="fullbook">
-            <Page :pageIndex="0">
-                <template v-slot:front>
-                    Some different front
-                </template>
-                <template v-slot:back>
-                    AND DIFF BACK TOO!
-                </template>
-            </Page>
-            <Page :pageIndex="1"/>
+    <div id="scaling-wrapper">
+        <div id="wrapper" ref="bookWrapper" :style="{'transform': 'scale(' + bookScale + ')'}">
+            <div class="fullbook">
+                <Page :pageIndex="0">
+                    <template v-slot:front>
+                        Some different front
+                    </template>
+                    <template v-slot:back>
+                        AND DIFF BACK TOO!
+                    </template>
+                </Page>
+                <Page :pageIndex="1"/>
+            </div>
         </div>
     </div>
 </template>
@@ -20,31 +22,50 @@ import Page from './Page.vue';
 export default {
     name: 'FullBook',
     components: {'Page': Page},
+    data() {
+        return {
+            bookScale: 1,
+        }
+    },
+    mounted() {
+        // attach this func to fire on page resize to adjust whole book proportionally
+        window.addEventListener('resize', this.scaleBook);
+        // initialize the scale
+        this.scaleBook()
+    },
+    methods: {
+        scaleBook(){
+            let wrapper = this.$refs.bookWrapper;
+            this.bookScale = Math.min(
+                window.innerHeight / wrapper.offsetHeight * .8,
+                window.innerWidth / wrapper.offsetWidth * .8
+            )
+        }
+    }
 }
 </script>
 
 <style lang="scss">
-:root {
-    --book-height: 600px;
-    --book-width: 900px;
-}
 
+$bookHeight: 600px;
+$bookWidth: 900px;
 $coverColor:  #ff924a;
 
-.wrapper {
+#wrapper {
     // background-color: yellow;
     position: relative;
+    resize: both;
     box-shadow: 0 0 100px rgba(0, 0, 0, .3);
-    // width: var(--book-width);
-    // height: var(--book-height);
+    width: $bookWidth;
+    height: $bookHeight;
     display: flex;
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
-    height: calc(75vw * (2/3));
-    max-height: 90vh;
-    width: 75vw;
-    max-width: 125vh;
+    // height: calc(75vw * (2/3));
+    // max-height: 90vh;
+    // width: 75vw;
+    // max-width: 125vh;
 }
 .fullbook {
     background-color:  $coverColor;  // color of the cover
