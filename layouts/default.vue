@@ -18,6 +18,7 @@ html {
   width: 100vw;
   height: 100%;
   position: relative;
+  /* overflow-x: hidden; */
 }
 body {
   margin: 0;
@@ -25,6 +26,7 @@ body {
   height: 100vh;
   background-color: burlywood;
   position: relative;
+  overflow-x: hidden;
 }
 /* *,
 *::before,

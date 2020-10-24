@@ -17,11 +17,6 @@ export default {
           hid: "description",
           name: "description",
           content: "A collection of work projects by Andrew Graves."
-        },
-        {
-          hid: "viewport",
-          name: "viewport",
-          content: "width=device-width, initial-scale=1.0"
         }
       ]
     }
@@ -29,7 +24,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #whole-page {
   height: 100vh;
   width: 100vw;

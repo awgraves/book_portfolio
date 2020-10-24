@@ -1,5 +1,5 @@
 <template>
-  <div id="whole-page">
+  <div id="whole-index-page">
     <div id="title-area">
       <h1>A Collection of Work(s)</h1>
       <h3>by Andrew Graves</h3>
@@ -33,11 +33,6 @@ export default {
           hid: "description",
           name: "description",
           content: "A collection of work projects by Andrew Graves."
-        },
-        {
-          hid: "viewport",
-          name: "viewport",
-          content: "width=device-width, initial-scale=1.0"
         }
       ]
     }
@@ -45,8 +40,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-#whole-page {
+<style lang="scss">
+#whole-index-page {
   margin: 0;
   min-height: 100vh;
   display: flex;
