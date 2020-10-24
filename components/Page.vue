@@ -2,12 +2,12 @@
     <div class="page" :class="{'page--flipped': isFlipped}" :style="{'z-index': pageZIndex}">
         <div class="page__front" @click="flipPage">
             <div>
-                front here
+                <slot name="front"></slot>
             </div>
         </div>
         <div class="page__back" @click="flipPage">
             <div>
-                back here
+                <slot name="back"></slot>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@ export default {
         flipPage(){
             this.isFlipped = !this.isFlipped;
             if(this.isFlipped){
-                setTimeout(()=>{this.pageZIndex = this.pageIndex;}, 1000);
+                setTimeout(()=>{this.pageZIndex = this.pageIndex;}, 500);
             }else{
                 this.pageZIndex = 999 - this.pageIndex;
             }
@@ -48,7 +48,9 @@ $flipSpeed: 1s;
     top: 0;
     left: 50%;
     height: 100%;
+    min-height: 100%;
     width: 50%;
+    min-width: 50%;
     transition: transform $flipSpeed;
     transform-style: preserve-3d;
     transform-origin: left;

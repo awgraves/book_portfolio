@@ -33,7 +33,7 @@ export default {
 #whole-page {
   height: 100vh;
   width: 100vw;
-  background-color: green;
+  background-color: burlywood;
   position: relative;
   display: flex;
   align-items: center;

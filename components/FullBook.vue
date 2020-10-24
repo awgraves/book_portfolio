@@ -1,7 +1,14 @@
 <template>
     <div class="wrapper">
         <div class="fullbook">
-            <Page :pageIndex="0"/>
+            <Page :pageIndex="0">
+                <template v-slot:front>
+                    Some different front
+                </template>
+                <template v-slot:back>
+                    AND DIFF BACK TOO!
+                </template>
+            </Page>
             <Page :pageIndex="1"/>
         </div>
     </div>
@@ -22,27 +29,34 @@ export default {
     --book-width: 900px;
 }
 
+$coverColor:  #ff924a;
+
 .wrapper {
-    background-color: yellow;
+    // background-color: yellow;
     position: relative;
     box-shadow: 0 0 100px rgba(0, 0, 0, .3);
-    width: var(--book-width);
-    height: var(--book-height);
+    // width: var(--book-width);
+    // height: var(--book-height);
     display: flex;
     align-items: center;
     justify-content: center;
-    // width: min(60%, 300);
-    // padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    transform-style: preserve-3d;
+    height: calc(75vw * (2/3));
+    max-height: 90vh;
+    width: 75vw;
+    max-width: 125vh;
 }
 .fullbook {
-    background-color: blue;  // color of the cover
+    background-color:  $coverColor;  // color of the cover
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    -webkit-perspective: 1200px;
-    perspective: 1200px;
+    -webkit-perspective: 5000px;
+    perspective: 5000px;
+    border: $coverColor solid 8px;
+    border-radius: 3px;
 }
 
 </style>
