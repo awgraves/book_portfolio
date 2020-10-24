@@ -25,6 +25,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+html, body {
+  overflow: hidden;
+}
+
 #whole-page {
   height: 100vh;
   width: 100vw;
