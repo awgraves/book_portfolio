@@ -51,16 +51,6 @@ $bookHeight: 600px; // 600px;
 $bookWidth: 900px; // 900px;
 $coverColor:  #ff924a;
 
-// @media only screen and (max-height: 900px) {
-//     $bookHeight: 480px; // 600px;
-//     $bookWidth: 720px; // 900px;
-// }
-
-// @media only screen and (max-height: 720px) {
-//     $bookHeight: 384px; // 600px;
-//     $bookWidth: 576px; // 900px;
-// }
-
 #wrapper {
     // background-color: yellow;
     position: relative;

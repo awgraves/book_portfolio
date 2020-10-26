@@ -1,11 +1,11 @@
 <template>
     <div class="book-wrapper"
         ref="bookwrapper"
-        @click="openBook"
+        @click="toggleBookOpen"
         @mouseenter="initPerspective"
         @mousemove="trackMouse" @mouseleave="clearPersp">
         <!--- book itself --->
-        <div class="book book--1" ref="book" :style="perspectiveCSS">
+        <div class="book book--1" :class="[bookOpened ? 'book--opened':'',]" ref="book" :style="perspectiveCSS">
             <div class="book__front">
                 <div class="book__cover-back"></div>
                 <div class="book__cover">
@@ -15,6 +15,9 @@
                         <span>{{ title }}</span>
                     </h2>
                 </div>
+            </div>
+            <div class="book__page">
+                Hello here
             </div>
             <div class="book__back"></div>
             <div class="book__right"></div>
@@ -36,6 +39,7 @@ export default {
     props: ['title'],
     data() {
         return {
+            bookOpened: false,  // whether user is viewing the back
             requiresOriginSet: true, // will have pause before recalc
             bookOriginX: 0,  // x coord for center of book relative to viewport
             bookOriginY: 0,
@@ -49,8 +53,8 @@ export default {
         }
     },
     methods: {
-        openBook() {
-            alert("Would open the book");
+        toggleBookOpen() {
+            this.bookOpened = !this.bookOpened;
         },
         initPerspective() {
             // calc the x / y coords for the book relative to HTML doc.
@@ -94,10 +98,14 @@ export default {
 <style lang="scss" scoped>
     /* minimum screen size width mobile: 320px; */
 
+$bookHeight: 400px;
+$bookWidth: 300px;
+$bookThickness: 40px;
+
 .book-wrapper {
     position: relative;
-    width: 300px;
-    height: 400px;
+    width: $bookWidth;
+    height: $bookHeight;
     z-index: 100;
     margin: 2em;
     -webkit-perspective: 1800px;
@@ -141,8 +149,8 @@ export default {
         transform-style: preserve-3d;
         -webkit-transform-origin: 0% 50%;
         transform-origin: 0% 50%;
-        -webkit-transition: -webkit-transform .2s;
-        transition: transform .2s;
+        -webkit-transition: -webkit-transform .5s;
+        transition: transform .5s;
         -webkit-transform: translate3d(0,0,20px);
         transform: translate3d(0,0,20px);
         z-index: 10;
@@ -182,7 +190,7 @@ export default {
     }
 
     &__left {
-        height: 400px;
+        height: $bookHeight;
         -webkit-transform: rotate3d(0,1,0,-90deg);
         transform: rotate3d(0,1,0,-90deg);
     }
@@ -196,16 +204,23 @@ export default {
         -webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
         transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
     }
-    // colors and content
-    &__page, &__right,
-    &__top, &__bottom {
-        background-color: #fff;
+    // colors and content &__page, 
+    &__right, &__top, &__bottom {
+        background-color: whitesmoke;
     }
 
     &__front > div {
         border-radius: 0 3px 3px 0;
         box-shadow: 
             inset 4px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    &__page {
+        height: $bookHeight - 10px;
+        width: $bookWidth - 5px;
+        top: 5px;
+        transform: translateZ(19px);
+        background-color: white;
     }
 
     &__front:after {
@@ -244,115 +259,53 @@ export default {
         transform: rotate(90deg) translateY(-40px) translateX(-40px);
     }
 
-    &__content {
-        position: absolute;
-        top: 30px;
-        left: 20px;
-        bottom: 20px;
-        right: 20px;
-        padding: 30px;
-        overflow: hidden;
-        background: #fff;
-        opacity: 0;
-        pointer-events: none;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-transition: opacity 0.3s ease-in-out;
-        transition: opacity 0.3s ease-in-out;
-        cursor: default;
+    // &__content {
+    //     position: absolute;
+    //     top: 30px;
+    //     left: 20px;
+    //     bottom: 20px;
+    //     right: 20px;
+    //     padding: 30px;
+    //     overflow: hidden;
+    //     background: #fff;
+    //     opacity: 0;
+    //     pointer-events: none;
+    //     -webkit-backface-visibility: hidden;
+    //     backface-visibility: hidden;
+    //     -webkit-transition: opacity 0.3s ease-in-out;
+    //     transition: opacity 0.3s ease-in-out;
+    //     cursor: default;
 
-        p {
-            padding: 0 0 10px;
-            -webkit-font-smoothing: antialiased;
-            color: #000;
-            font-size: 13px;
-            line-height: 20px;
-            text-align: justify;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-    }
+    //     p {
+    //         padding: 0 0 10px;
+    //         -webkit-font-smoothing: antialiased;
+    //         color: #000;
+    //         font-size: 13px;
+    //         line-height: 20px;
+    //         text-align: justify;
+    //         -webkit-touch-callout: none;
+    //         -webkit-user-select: none;
+    //         -khtml-user-select: none;
+    //         -moz-user-select: none;
+    //         -ms-user-select: none;
+    //         user-select: none;
+    //     }
+    // }
 
-    &__content-current {
-        opacity: 1;
-        pointer-events: auto;
+    // &__content-current {
+    //     opacity: 1;
+    //     pointer-events: auto;
+    // }
+}
+
+.book--opened {
+    .book__front {
+        transition: transform linear .5s;
+        -webkit-transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg);  // translate3d(0,0,20px) 
+        transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg); // translate3d(0,0,20px) 
     }
 }
 
-/* Individual style & artwork */
-/* Book 1 */
-.book--1 {
-    .book__front > div,
-    .book__back,
-    .book__left,
-    .book__front:after {
-        background-color: #ff924a;
-    }
-
-    .book__cover {
-        /* background-image: url(../images/1.png);	
-        background-repeat: no-repeat; */
-        // background-position: 10px 40px;
-
-        h2 {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            padding: 30px;
-            background: rgba(255,255,255,0.2);
-            color: #fff;
-            text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
-            text-align: center;
-
-            span {
-                display: block;
-            }
-        }
-    }
-
-    .book__cover h2 span:first-child,
-    .book__left h2 span:first-child {
-        text-transform: uppercase;
-        font-weight: 400;
-        font-size: 13px;
-        padding-right: 20px;
-    }
-
-    .book__cover h2 span:first-child {
-        display: block;
-    }
-
-    .book__cover h2 span:last-child,
-    .book__left h2 span:last-child {
-        font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
-    } 
-
-    .book__content p {
-        font-family: Georgia, Times, "Times New Roman", serif;
-    }
-
-    .book__left h2 {
-        color: #fff;
-        font-size: 15px;
-        line-height: 40px;
-        padding-right: 10px;
-        text-align: right;
-    }
-
-    .book__back p {
-        color: #fff;
-        font-size: 13px;
-        padding: 40px;
-        text-align: center;
-        font-weight: 700;
-    }
-}
-    
     /* hover animations */
     /* .book-wrapper .bk-book:hover {
         -webkit-transform: rotate3d(0,1,0,-35deg);
