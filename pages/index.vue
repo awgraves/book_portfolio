@@ -5,7 +5,24 @@
       <h3>by Andrew Graves</h3>
     </div>
     <div id="main-area">
-      <DisplayBook v-for="book, idx in books" :title="book.title" :key="'bk-' + idx"></DisplayBook>
+      <DisplayBook
+        title="Clinical Trial Recommender">
+        <template v-slot:blurb>
+            Here i is
+        </template>
+      </DisplayBook>
+      <DisplayBook
+        title="Help Desk System">
+        
+      </DisplayBook>
+      <DisplayBook
+        title="Sign-out QAs">
+        
+      </DisplayBook>
+      <DisplayBook
+        title="Genetic Search DB">
+        
+      </DisplayBook>
     </div>
   </div>
 </template>
@@ -17,12 +34,7 @@ export default {
   components: {'DisplayBook': DisplayBook},
   data() {
     return {
-      books: [
-        {'title': 'Clinical Trial Recommender'},
-        {'title': 'Help Desk System'},
-        {'title': 'Sign-Out QAs'},
-        {'title': 'Genetic Search DB'}
-      ]
+      openedBook: null,  // which book user has clicked. only 1 open at a time.
     }
   },
   head() {

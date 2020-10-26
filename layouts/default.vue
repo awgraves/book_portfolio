@@ -15,17 +15,19 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
   width: 100vw;
-  height: 100%;
-  position: relative;
+  height: 100vh;
+  position: absolute;
   /* overflow-x: hidden; */
 }
 body {
   margin: 0;
+  padding: 0;
   width: 100vw;
   height: 100vh;
   background-color: burlywood;
-  position: relative;
+  position: absolute;
   overflow-x: hidden;
 }
 /* *,

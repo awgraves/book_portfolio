@@ -17,7 +17,9 @@
                 </div>
             </div>
             <div class="book__page">
-                Hello here
+                <div class="book__page__content">
+                    <slot name="blurb">Some blurb in here</slot>
+                </div>
             </div>
             <div class="book__back"></div>
             <div class="book__right"></div>
@@ -112,10 +114,18 @@ $bookThickness: 40px;
     perspective: 1800px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 400px) {
+    .book-wrapper {
+        margin: 5px 0px;
+        transform: scale(.8);
+    }
+}
+
 .book {
     position: absolute;
     width: 100%;
-    height: 400px;
+    height: $bookHeight;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-transition: -webkit-transform .3s;
@@ -127,18 +137,18 @@ $bookThickness: 40px;
     }
 
     &__front, &__back {
-        width: 300px;
-        height: 400px;
+        width: $bookWidth;
+        height: $bookHeight;
     }
 
     &__left, &__right {
-        width: 40px;
+        width: $bookThickness;
         left: -20px;
     }
 
     &__top, &__bottom {
         width: 295px;
-        height: 40px;
+        height: $bookThickness;
         top: -15px;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
@@ -157,8 +167,8 @@ $bookThickness: 40px;
 
         div {
             z-index: 1;
-            width: 300px;
-            height: 400px;
+            width: $bookWidth;
+            height: $bookHeight;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             -webkit-transform-style: preserve-3d;
@@ -221,6 +231,13 @@ $bookThickness: 40px;
         top: 5px;
         transform: translateZ(19px);
         background-color: white;
+        position: relative;
+
+        &__content {
+            height: 100%;
+            width: 100%;
+            padding: 10px;
+        }
     }
 
     &__front:after {
