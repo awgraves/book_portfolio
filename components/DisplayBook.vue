@@ -2,8 +2,10 @@
     <div class="book-wrapper"
         ref="bookwrapper"
         @click="toggleBookOpen"
-        @mouseenter="initPerspective"
-        @mousemove="trackMouse" @mouseleave="clearPersp">
+        @mouseenter="eventHub.e"
+        @mousemove="eventHub.m"
+        @mouseleave="eventHub.l"
+        >
         <!--- book itself --->
         <div class="book book--1" :class="[bookOpened ? 'book--opened':'',]" ref="book" :style="perspectiveCSS">
             <div class="book__front">
@@ -47,10 +49,25 @@ export default {
             bookOriginY: 0,
             x: 0,  // user's curs x coord relative to center of book
             y: 0,
-            perspectiveCSS: {
+            perspectiveCSS: {  // bound to book element for dynamic updates for rotation
                 "transform": "",
                 "-webkit-transform": "",
                 "-ms-transform": "",
+            },
+            eventHub: {  // default to empty anonymous funcs for small mobile devices
+                "e": ()=>{},
+                "m": ()=>{},
+                "l": ()=>{}
+            }
+        }
+    },
+    mounted(){
+        if(!(window.screen.availWidth < 450 || window.screen.availHeight < 450)){
+            // bind the real funcs to the eventHub if larger than mobile phone size
+            this.eventHub = {
+                "e": this.initPerspective,
+                "m": this.trackMouse,
+                "l": this.clearPersp
             }
         }
     },
@@ -60,6 +77,8 @@ export default {
         },
         initPerspective() {
             // calc the x / y coords for the book relative to HTML doc.
+            // if(this.isMobile){return}
+
             let div = this.$refs.bookwrapper;
 
             this.bookOriginX = div.offsetLeft + Math.floor(div.offsetWidth / 2);
@@ -67,6 +86,8 @@ export default {
             this.requiresOriginSet = false;
         },
         trackMouse(ev) {
+            // if(this.isMobile){return}
+
             if(!this.requiresOriginSet){
                 let book = this.$refs.book;
 
@@ -81,6 +102,8 @@ export default {
             }
         },
         updatePersp(xRotate, yRotate){
+            // if(this.isMobile){return}
+            
             // update all transform styles
             let style = `rotateX(${xRotate}deg) rotateY(${yRotate}deg)`;
             Object.keys(this.perspectiveCSS).forEach(k=>{this.perspectiveCSS[k] = style});            
@@ -115,7 +138,7 @@ $bookThickness: 40px;
     cursor: pointer;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .book-wrapper {
         margin: 5px 0px;
         transform: scale(.8);
@@ -315,11 +338,24 @@ $bookThickness: 40px;
     // }
 }
 
+@media screen and (max-width: 450px) {
+    .book{
+        -webkit-transform: rotate3D(1, 1, 0, 30deg);
+        transform: rotate3D(1, 1, 0, 30deg);
+    }
+    .book.book--opened {
+        -webkit-transform: rotate3D(1, 1, 0, 0deg) translateX(25px);
+        transform: rotate3D(1, 1, 0, 0deg) translateX(25px);
+    }
+}
+
 .book--opened {
+    z-index: 500;
+
     .book__front {
-        transition: transform linear .5s;
+        transition: transform .5s;
         -webkit-transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg);  // translate3d(0,0,20px) 
-        transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg); // translate3d(0,0,20px) 
+        transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg); // translate3d(0,0,20px)
     }
 }
 
