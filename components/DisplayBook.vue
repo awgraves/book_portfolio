@@ -12,7 +12,6 @@
                 <div class="book__cover-back"></div>
                 <div class="book__cover">
                     <h2>
-                        <span></span>
                         <span>{{ title }}</span>
                     </h2>
                 </div>
@@ -299,6 +298,7 @@ $bookThickness: 40px;
             height: 100%;
             width: 100%;
             padding: 10px;
+            word-break: break-word;
         }
     }
 
@@ -311,6 +311,7 @@ $bookThickness: 40px;
         width: 1px;
     }
 
+    // cover creases
     &__cover:after,
     &__back:after {
         content: '';
@@ -323,7 +324,7 @@ $bookThickness: 40px;
         box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
     }
     &__back:after {
-        // move to other side of book
+        // move cover crease to other side of book
         left: auto;
         right: 10px;
     }

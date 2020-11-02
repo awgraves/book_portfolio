@@ -9,23 +9,37 @@
         stylingClass="book--clinical-trials"
         title="Clinical Trial Recommender">
         <template v-slot:blurb>
-            Here i is
+          <NuxtLink to="/full" no-prefetch>
+            Read more...
+          </NuxtLink>
         </template>
       </DisplayBook>
       <DisplayBook
         stylingClass="book--help-desk"
         title="Help Desk System">
-        
+        <template v-slot:blurb>
+          <NuxtLink to="/full" no-prefetch>
+            Read more...
+          </NuxtLink>
+        </template>
       </DisplayBook>
       <DisplayBook
         stylingClass="book--signout-qa"
         title="Sign-out QAs">
-        
+        <template v-slot:blurb>
+          <NuxtLink to="/full" no-prefetch>
+            Read more...
+          </NuxtLink>
+        </template>
       </DisplayBook>
       <DisplayBook
         stylingClass="book--genetic-search"
         title="Genetic Search DB">
-        
+        <template v-slot:blurb>
+          <NuxtLink to="/full" no-prefetch>
+            Read more...
+          </NuxtLink>
+        </template>
       </DisplayBook>
     </div>
   </div>
