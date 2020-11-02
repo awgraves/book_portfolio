@@ -7,12 +7,11 @@
         @mouseleave="eventHub.l"
         >
         <!--- book itself --->
-        <div class="book book--1" :class="[bookOpened ? 'book--opened':'',]" ref="book" :style="perspectiveCSS">
+        <div class="book" :class="[stylingClass, bookOpened ? 'book--opened':'']" ref="book" :style="perspectiveCSS">
             <div class="book__front">
                 <div class="book__cover-back"></div>
                 <div class="book__cover">
                     <h2>
-                        <!-- <span>({{x}}, {{y}})</span> -->
                         <span></span>
                         <span>{{ title }}</span>
                     </h2>
@@ -40,7 +39,7 @@
 <script>
 export default {
     name: "DisplayBook",
-    props: ['title'],
+    props: ['title', 'stylingClass'],
     data() {
         return {
             bookOpened: false,  // whether user is viewing the back
@@ -54,7 +53,7 @@ export default {
                 "-webkit-transform": "",
                 "-ms-transform": "",
             },
-            eventHub: {  // default to empty anonymous funcs for small mobile devices
+            eventHub: {  // default to placeholder anonymous funcs for small mobile devices (no mouse events for rotation)
                 "e": ()=>{},
                 "m": ()=>{},
                 "l": ()=>{}
@@ -63,7 +62,7 @@ export default {
     },
     mounted(){
         if(!(window.screen.availWidth < 450 || window.screen.availHeight < 450)){
-            // bind the real funcs to the eventHub if larger than mobile phone size
+            // bind the real funcs to the eventHub if window is larger than mobile phone size
             this.eventHub = {
                 "e": this.initPerspective,
                 "m": this.trackMouse,
@@ -77,8 +76,6 @@ export default {
         },
         initPerspective() {
             // calc the x / y coords for the book relative to HTML doc.
-            // if(this.isMobile){return}
-
             let div = this.$refs.bookwrapper;
 
             this.bookOriginX = div.offsetLeft + Math.floor(div.offsetWidth / 2);
@@ -86,8 +83,7 @@ export default {
             this.requiresOriginSet = false;
         },
         trackMouse(ev) {
-            // if(this.isMobile){return}
-
+            // make sure initial origin was calculated before updating
             if(!this.requiresOriginSet){
                 let book = this.$refs.book;
 
@@ -102,9 +98,7 @@ export default {
             }
         },
         updatePersp(xRotate, yRotate){
-            // if(this.isMobile){return}
-            
-            // update all transform styles
+            // update all book transform styles
             let style = `rotateX(${xRotate}deg) rotateY(${yRotate}deg)`;
             Object.keys(this.perspectiveCSS).forEach(k=>{this.perspectiveCSS[k] = style});            
         },
@@ -139,6 +133,7 @@ $bookThickness: 40px;
 }
 
 @media screen and (max-width: 450px) {
+    // scale down the whole book in proportion to fit smaller screens
     .book-wrapper {
         margin: 5px 0px;
         transform: scale(.8);
@@ -206,6 +201,25 @@ $bookThickness: 40px;
         border-radius: 3px 0 0 3px;
     }
 
+    &__cover {
+        font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+        h2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            padding: 30px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+            text-align: center;
+
+            span {
+                display: block;
+            }
+        }
+    }
+
     &__cover-back {
         background-color: #000;
         -webkit-transform: rotate3d(0,1,0,-179deg);
@@ -226,6 +240,31 @@ $bookThickness: 40px;
         height: $bookHeight;
         -webkit-transform: rotate3d(0,1,0,-90deg);
         transform: rotate3d(0,1,0,-90deg);
+
+        h2 {
+            color: #fff;
+            font-size: 15px;
+            line-height: 40px;
+            padding-right: 10px;
+            text-align: right;
+            width: 400px;
+            height: 40px;
+            -webkit-transform-origin: 0 0;
+            -moz-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: rotate(90deg) translateY(-40px) translateX(-40px);
+            transform: rotate(90deg) translateY(-40px) translateX(-40px);
+
+            span:first-child {
+                text-transform: uppercase;
+                font-weight: 400;
+                font-size: 13px;
+                padding-right: 20px;
+            }
+            span:last-child {
+                font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+            }
+        }
     }
 
     &__top {
@@ -283,59 +322,11 @@ $bookThickness: 40px;
         background: rgba(0,0,0,0.06);
         box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
     }
-
     &__back:after {
+        // move to other side of book
         left: auto;
         right: 10px;
     }
-
-    &__left h2 {
-        width: 400px;
-        height: 40px;
-        -webkit-transform-origin: 0 0;
-        -moz-transform-origin: 0 0;
-        transform-origin: 0 0;
-        -webkit-transform: rotate(90deg) translateY(-40px) translateX(-40px);
-        transform: rotate(90deg) translateY(-40px) translateX(-40px);
-    }
-
-    // &__content {
-    //     position: absolute;
-    //     top: 30px;
-    //     left: 20px;
-    //     bottom: 20px;
-    //     right: 20px;
-    //     padding: 30px;
-    //     overflow: hidden;
-    //     background: #fff;
-    //     opacity: 0;
-    //     pointer-events: none;
-    //     -webkit-backface-visibility: hidden;
-    //     backface-visibility: hidden;
-    //     -webkit-transition: opacity 0.3s ease-in-out;
-    //     transition: opacity 0.3s ease-in-out;
-    //     cursor: default;
-
-    //     p {
-    //         padding: 0 0 10px;
-    //         -webkit-font-smoothing: antialiased;
-    //         color: #000;
-    //         font-size: 13px;
-    //         line-height: 20px;
-    //         text-align: justify;
-    //         -webkit-touch-callout: none;
-    //         -webkit-user-select: none;
-    //         -khtml-user-select: none;
-    //         -moz-user-select: none;
-    //         -ms-user-select: none;
-    //         user-select: none;
-    //     }
-    // }
-
-    // &__content-current {
-    //     opacity: 1;
-    //     pointer-events: auto;
-    // }
 }
 
 @media screen and (max-width: 450px) {
@@ -350,8 +341,6 @@ $bookThickness: 40px;
 }
 
 .book--opened {
-    z-index: 500;
-
     .book__front {
         transition: transform .5s;
         -webkit-transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg);  // translate3d(0,0,20px) 
