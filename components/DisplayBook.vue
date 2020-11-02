@@ -59,7 +59,7 @@ export default {
             }
         }
     },
-    mounted(){
+    beforeMount(){
         if(!(window.screen.availWidth < 450 || window.screen.availHeight < 450)){
             // bind the real funcs to the eventHub if window is larger than mobile phone size
             this.eventHub = {

@@ -33,6 +33,10 @@ export default {
         // initialize the scale
         this.scaleBook()
     },
+    beforeUnmount() {
+        // remove the vanilla JS event listener
+        window.removeEventListener('resize', this.scaleBook);
+    },
     methods: {
         scaleBook(){
             let wrapper = this.$refs.bookWrapper;
@@ -45,7 +49,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 $bookHeight: 600px; // 600px;
 $bookWidth: 900px; // 900px;
