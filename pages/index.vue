@@ -9,7 +9,7 @@
         stylingClass="book--clinical-trials"
         title="Clinical Trial Recommender">
         <template v-slot:blurb>
-          <a href="/full">
+          <a href="/clinicaltrials">
             Read more...
           </a>
         </template>
@@ -18,7 +18,7 @@
         stylingClass="book--help-desk"
         title="Help Desk System">
         <template v-slot:blurb>
-          <a href to="/full">
+          <a href="/helpdesk">
             Read more...
           </a>
         </template>
@@ -27,7 +27,7 @@
         stylingClass="book--signout-qa"
         title="Sign-out QAs">
         <template v-slot:blurb>
-          <a href="/full">
+          <a href="/signoutqas">
             Read more...
           </a>
         </template>
@@ -36,7 +36,7 @@
         stylingClass="book--genetic-search"
         title="Genetic Search DB">
         <template v-slot:blurb>
-          <a href="/full">
+          <a href="/geneticsearch">
             Read more...
           </a>
         </template>

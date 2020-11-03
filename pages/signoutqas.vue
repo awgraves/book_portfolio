@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
-$coverColor:  orange;
+$coverColor:  #ff924a;
 
 html, body {
   overflow: hidden;

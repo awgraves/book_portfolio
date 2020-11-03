@@ -1,7 +1,7 @@
 <template>
     <div id="scaling-wrapper" :style="{'transform': 'scale(' + bookScale + ')'}">
         <div id="wrapper" ref="bookWrapper">
-            <div class="fullbook">
+            <div class="fullbook fullbook--styled">
                 <Page :pageIndex="0">
                     <template v-slot:front>
                         Some different front
@@ -49,14 +49,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
+// Note, the styling for the book should be done in parent component
 $bookHeight: 600px; // 600px;
 $bookWidth: 900px; // 900px;
-$coverColor:  #ff924a;
 
 #wrapper {
-    // background-color: yellow;
     position: relative;
     resize: both;
     box-shadow: 0 0 100px rgba(0, 0, 0, .3);
@@ -66,13 +65,8 @@ $coverColor:  #ff924a;
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
-    // height: calc(75vw * (2/3));
-    // max-height: 90vh;
-    // width: 75vw;
-    // max-width: 125vh;
 }
 .fullbook {
-    background-color:  $coverColor;  // color of the cover
     position: absolute;
     top: 0;
     bottom: 0;
@@ -80,7 +74,6 @@ $coverColor:  #ff924a;
     right: 0;
     -webkit-perspective: 5000px;
     perspective: 5000px;
-    border: $coverColor solid 8px;
     border-radius: 3px;
 }
 

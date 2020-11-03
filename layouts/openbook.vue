@@ -1,5 +1,5 @@
 <template>
-  <div style="position: relative; height: 100%; width: 100%;">
+  <div id="whole-page">
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <Nuxt />
   </div>
@@ -14,5 +14,14 @@ body {
   background-color: burlywood;
   position: absolute;
   overflow-x: hidden;
+}
+#whole-page {
+  height: 100vh;
+  width: 100vw;
+  background-color: burlywood;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
