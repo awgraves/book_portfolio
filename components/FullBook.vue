@@ -2,7 +2,7 @@
     <div id="scaling-wrapper" :style="{'transform': 'scale(' + bookScale + ')'}">
         <div id="wrapper" ref="bookWrapper">
             <div class="fullbook fullbook--styled">
-                <Page :pageIndex="0">
+                <Page :pageIndex="0" :canFlip="true">
                     <template v-slot:front>
                         Some different front
                     </template>
@@ -10,7 +10,12 @@
                         AND DIFF BACK TOO!
                     </template>
                 </Page>
-                <Page :pageIndex="1"/>
+                <Page :pageIndex="1" :canFlip="true"/>
+                <Page :pageIndex="2" :canFlip="false">
+                    <template v-slot:front>
+                        This is the final page.
+                    </template>
+                </Page>
             </div>
         </div>
     </div>

@@ -8,7 +8,7 @@
       <DisplayBook
         stylingClass="book--clinical-trials"
         title="Clinical Trial Recommender">
-        <template v-slot:blurb>
+        <template v-slot:button>
           <a href="/clinicaltrials">
             Read more...
           </a>
@@ -17,7 +17,7 @@
       <DisplayBook
         stylingClass="book--help-desk"
         title="Help Desk System">
-        <template v-slot:blurb>
+        <template v-slot:button>
           <a href="/helpdesk">
             Read more...
           </a>
@@ -26,7 +26,7 @@
       <DisplayBook
         stylingClass="book--signout-qa"
         title="Sign-out QAs">
-        <template v-slot:blurb>
+        <template v-slot:button>
           <a href="/signoutqas">
             Read more...
           </a>
@@ -35,7 +35,7 @@
       <DisplayBook
         stylingClass="book--genetic-search"
         title="Genetic Search DB">
-        <template v-slot:blurb>
+        <template v-slot:button>
           <a href="/geneticsearch">
             Read more...
           </a>

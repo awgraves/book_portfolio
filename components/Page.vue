@@ -16,7 +16,7 @@
 <script>
 export default {
     name: 'Page',
-    props: ['pageIndex'],
+    props: ['pageIndex', 'canFlip'],
     created(){
         // when page first created, calc the beginning Z index
         this.pageZIndex = 999 - this.pageIndex;
@@ -29,11 +29,13 @@ export default {
     },
     methods: {
         flipPage(){
-            this.isFlipped = !this.isFlipped;
-            if(this.isFlipped){
-                setTimeout(()=>{this.pageZIndex = this.pageIndex;}, 500);
-            }else{
-                this.pageZIndex = 999 - this.pageIndex;
+            if(this.canFlip){
+                this.isFlipped = !this.isFlipped;
+                if(this.isFlipped){
+                    setTimeout(()=>{this.pageZIndex = this.pageIndex;}, 500);
+                }else{
+                    this.pageZIndex = 999 - this.pageIndex;
+                }
             }
         }
     }

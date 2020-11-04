@@ -18,7 +18,14 @@
             </div>
             <div class="book__page">
                 <div class="book__page__content">
-                    <slot name="blurb">Some blurb in here</slot>
+                    <div class="preview_container">
+                        <slot name="preview">
+                            <img src="/images/small/test.png" style="width: 80%;"/>
+                        </slot>
+                    </div>
+                    <div class="read_button_container">
+                        <slot name="button"></slot>
+                    </div>
                 </div>
             </div>
             <div class="book__back"></div>
@@ -148,19 +155,18 @@ $bookThickness: 40px;
     -webkit-transition: -webkit-transform .3s;
     transition: transform linear .3s;
 
-    div, &__front > div {
-        display: block;
-        position: absolute;
-    }
-
     &__front, &__back {
         width: $bookWidth;
         height: $bookHeight;
+        display: block;
+        position: absolute;
     }
 
     &__left, &__right {
         width: $bookThickness;
         left: -20px;
+        display: block;
+        position: absolute;
     }
 
     &__top, &__bottom {
@@ -169,6 +175,8 @@ $bookThickness: 40px;
         top: -15px;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+        display: block;
+        position: absolute;
     }
 
     &__front {
@@ -183,6 +191,8 @@ $bookThickness: 40px;
         z-index: 10;
 
         div {
+            display: block;
+            position: absolute;
             z-index: 1;
             width: $bookWidth;
             height: $bookHeight;
@@ -201,6 +211,8 @@ $bookThickness: 40px;
     }
 
     &__cover {
+        display: block;
+        position: absolute;
         font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
         h2 {
             position: absolute;
@@ -220,6 +232,8 @@ $bookThickness: 40px;
     }
 
     &__cover-back {
+        display: block;
+        position: absolute;
         background-color: #000;
         -webkit-transform: rotate3d(0,1,0,-179deg);
         transform: rotate3d(0,1,0,-179deg);
@@ -292,13 +306,40 @@ $bookThickness: 40px;
         top: 5px;
         transform: translateZ(19px);
         background-color: white;
-        position: relative;
+        display: block;
+        position: absolute;
 
         &__content {
+            // position: relative;
             height: 100%;
             width: 100%;
-            padding: 10px;
+            // padding: 10px;
             word-break: break-word;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .preview_container {
+                // flex: 1;
+                position: relative;
+                // background-color: red;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .read_button_container {
+                justify-self: center;
+                position: relative;
+                // background-color: gainsboro;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                margin-top: 2em;
+                font-family: 'Special Elite', cursive;
+            }
         }
     }
 
