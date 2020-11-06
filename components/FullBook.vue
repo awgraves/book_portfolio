@@ -75,5 +75,4 @@ $bookWidth: 925px; // 900px;
         width: 50%;
     }
 }
-
 </style>
