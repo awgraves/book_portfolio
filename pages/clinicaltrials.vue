@@ -197,11 +197,13 @@ html, body {
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow-x: auto;
+
       img {
         display: block;
         margin-left: auto;
         margin-right: auto;
-        max-width: 80vw;
+        max-height: 90vh;
         opacity: 1;
       }
     }
