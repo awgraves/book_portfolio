@@ -48,16 +48,16 @@ $flipSpeed: 1s;
 .page {
     position: absolute;
     top: 0;
-    left: 50%;
+    left: 0;
+    // left: 50%;
     height: 100%;
     min-height: 100%;
-    width: 50%;
-    min-width: 50%;
+    width: 100%;
+    min-width: 100%;
     transition: transform $flipSpeed;
     transform-style: preserve-3d;
     transform-origin: left;
     cursor: pointer;
-    font-size: 16pt;
 
     &__front, &__back {
         position: absolute;
@@ -72,7 +72,7 @@ $flipSpeed: 1s;
         align-items: center;
 
         div {
-            padding: 2ch;
+            padding: 10%;
         }
     }
 
@@ -83,6 +83,10 @@ $flipSpeed: 1s;
     &__back {
         transform: rotateY(180deg);
         background-image: linear-gradient(-90deg, rgba(227,227,227,1) 0%, rgba(247,247,247,0) 10%);
+    }
+
+    img {
+        width: 100%;
     }
 }
 .page--flipped {

@@ -2,31 +2,17 @@
     <div id="scaling-wrapper" :style="{'transform': 'scale(' + bookScale + ')'}">
         <div id="wrapper" ref="bookWrapper">
             <div class="fullbook fullbook--styled">
-                <Page :pageIndex="0" :canFlip="true">
-                    <template v-slot:front>
-                        Some different front
-                    </template>
-                    <template v-slot:back>
-                        AND DIFF BACK TOO!
-                    </template>
-                </Page>
-                <Page :pageIndex="1" :canFlip="true"/>
-                <Page :pageIndex="2" :canFlip="false">
-                    <template v-slot:front>
-                        This is the final page.
-                    </template>
-                </Page>
+                <div class="fullbook__page_wrapper">
+                    <slot name="content"></slot>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import Page from './Page.vue';
-
 export default {
     name: 'FullBook',
-    components: {'Page': Page},
     data() {
         return {
             bookScale: 1,
@@ -58,7 +44,7 @@ export default {
 
 // Note, the styling for the book should be done in parent component
 $bookHeight: 600px; // 600px;
-$bookWidth: 900px; // 900px;
+$bookWidth: 925px; // 900px;
 
 #wrapper {
     position: relative;
@@ -77,9 +63,17 @@ $bookWidth: 900px; // 900px;
     bottom: 0;
     left: 0;
     right: 0;
-    -webkit-perspective: 5000px;
-    perspective: 5000px;
+    -webkit-perspective: 1500px;
+    perspective: 1500px;
     border-radius: 3px;
+
+    &__page_wrapper {
+        position: relative;
+        top: 0;
+        left: 50%;
+        height: 100%;
+        width: 50%;
+    }
 }
 
 </style>

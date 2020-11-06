@@ -8,10 +8,23 @@
       <DisplayBook
         stylingClass="book--clinical-trials"
         title="Clinical Trial Recommender">
-        <template v-slot:button>
-          <a href="/clinicaltrials">
-            Read more...
-          </a>
+        <template v-slot:preview>
+          <Page :canFlip="false">
+            <template v-slot:front>
+              <span style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+                <picture>
+                  <img src="/images/clinicaltrials/search_params.png">
+                </picture>
+                <p style="text-align: center; font-size: 12pt; margin-top: 2em;">
+                  A complete system to fetch, tag, then suggest relevant clinical trials to our patients based on their age, type of cancer,
+                  and genetic alterations identified.
+                </p>
+                <a href="/clinicaltrials">
+                  <button style="margin-top: .5em;">Read More...</button>
+                </a>
+              </span>
+            </template>
+          </Page>
         </template>
       </DisplayBook>
       <DisplayBook
@@ -47,9 +60,11 @@
 
 <script>
 import DisplayBook from '~/components/DisplayBook.vue';
+import Page from '~/components/Page.vue';
+
 export default {
   name: 'index',
-  components: {'DisplayBook': DisplayBook},
+  components: {'DisplayBook': DisplayBook, 'Page': Page},
   data() {
     return {
       openedBook: null,  // which book user has clicked. only 1 open at a time.

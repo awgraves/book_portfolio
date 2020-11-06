@@ -17,16 +17,9 @@
                 </div>
             </div>
             <div class="book__page">
-                <div class="book__page__content">
-                    <div class="preview_container">
-                        <slot name="preview">
-                            <img src="/images/small/test.png" style="width: 80%;"/>
-                        </slot>
-                    </div>
-                    <div class="read_button_container">
-                        <slot name="button"></slot>
-                    </div>
-                </div>
+                <slot name="preview">
+                    <img src="/images/small/test.png" style="width: 80%;"/>
+                </slot>
             </div>
             <div class="book__back"></div>
             <div class="book__right"></div>
@@ -308,38 +301,18 @@ $bookThickness: 40px;
         background-color: white;
         display: block;
         position: absolute;
+        z-index: 1;
 
         &__content {
-            // position: relative;
+            position: relative;
             height: 100%;
             width: 100%;
-            // padding: 10px;
             word-break: break-word;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-
-            .preview_container {
-                // flex: 1;
-                position: relative;
-                // background-color: red;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .read_button_container {
-                justify-self: center;
-                position: relative;
-                // background-color: gainsboro;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                margin-top: 2em;
-                font-family: 'Special Elite', cursive;
-            }
+            padding: 3ch;
         }
     }
 
