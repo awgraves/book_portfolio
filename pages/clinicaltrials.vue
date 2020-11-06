@@ -7,10 +7,11 @@
             <picture>
               <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_params.png">
             </picture>
-            <p style="text-align: center; margin-top: 3em;">
+            <p style="margin-top: 3em;">
               I built a complete system to discover, tag, then suggest relevant clinical trials for our patients based on their age, type of cancer,
               and genetic alterations identified.
-              <br>
+              <br><br>
+              This saves our lab time by allowing users 
             </p>
         </template>
         <template v-slot:back>
@@ -18,8 +19,9 @@
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_email.png">
           </picture>
           <p style="margin-top: 3em;">
-            Every weekday morning the system automatically scans clinicaltrials.gov for new trials to add to our database.
-            <br><br>Trials must be active, focus on cancer, and discuss at least 1 genetic alteration that we test for in our lab in order to be picked up.
+            Every weekday morning the system automatically scans <a href="https://clinicaltrials.gov/" target="_blank">clinicaltrials.gov</a>
+            for new trials to add to our database.
+            <br><br>Trials must be active, cancer-related, and discuss at least 1 genetic alteration that we test for in our lab in order to be picked up.
             <br><br>Relevant trials are parsed, classified, then saved.  Non-relevant trials are added to an ignore list.
             <br><br>These actions are summarized in a daily email report that goes out to my colleagues and myself.
           </p>
@@ -31,50 +33,11 @@
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/oncotree_keyword_manager.png">
           </picture>
           <p style="margin-top: 3em;">
-            In order for our system to recommend trials appropriately, it needs to know which type of cancer a trial is targeting.
-            I wrote a text mining algorithm based on keyword mappings for this purpose.
-            <br><br>My colleagues provided me a list of words/phrases related to each oncotree level 1 tissue type that I then codified in our database.
-            The algorithm checks for the presence of keywords in specific fields in the XML doc from clinicaltrials.gov then tags the trials with the oncotree node
-            associated with those keywords.
-            <br><br>I also created an 'Oncotree Keywords Manager' UI to easily add, modify, or remove these keyword associations. 
-          </p>
-        </template>
-        <template v-slot:back>
-            <picture>
-              <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_manager.png">
-            </picture>
-            <p style="margin-top: 3em;">
-              Not all trials can be fully classif
-            </p>
-        </template>
-      </Page>
-      <Page :pageIndex="2" :canFlip="true">
-        <template v-slot:front>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/clinicaltrials/manual_review.png">
-          </picture>
-          <p style="margin-top: 3em;">
-            Reviewing
-            <br><br>
-          </p>
-        </template>
-        <template v-slot:back>
-            <picture>
-              <img @click.stop="zoom($event)" src="/images/clinicaltrials/editing_trial.png">
-            </picture>
-            <p style="margin-top: 3em;">
-              Not all trials can be fully classif
-            </p>
-        </template>
-      </Page>
-      <Page :pageIndex="3" :canFlip="true">
-        <template v-slot:front>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/clinicaltrials/adding_node.png">
-          </picture>
-          <p style="margin-top: 3em;">
-            Reviewing
-            <br><br>
+            A core element of the classifier is based on keyword mappings.
+            <br><br>I began with list of words/phrases related to each <a href="http://oncotree.mskcc.org/#/home" target="_blank">oncotree lv1</a> tissue type.  I then created database relations to store
+            these associations for the classifier to load and use.
+            <br><br>For example, if a parsed trial XML contains the term 'pheochromocytoma', it will be tagged as relevant to the adrenal gland.
+            <br><br>I also created an 'Oncotree Keywords Manager' to simplify the process of adding, editing, or removing these keyword associations. 
           </p>
         </template>
         <template v-slot:back>
@@ -82,27 +45,43 @@
               <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_params.png">
             </picture>
             <p style="margin-top: 3em;">
-              Not all trials can be fully classif
+              The interpreters and/or pathologists in our lab use this integrated widget I created to quickly search for the most relevant trials for a patient based
+              on the patient's lab results.
+              <br><br>The patient's age, sample tissue type, and any genetic alterations identified are auto-populated into the search fields.
+              <br><br>Results are organized by gene and sorted based on factors like:
+              <ul>
+                <li>Number of additional matching tags</li>
+                <li>How often this trial was included on previous lab reports</li>
+                <li>Whether the trial is available in Pittsburgh (only if the patient is from our local UPMC hospital network)</li>
+              </ul>
             </p>
         </template>
       </Page>
-      <Page :pageIndex="4" :canFlip="true">
+      <Page :pageIndex="3" :canFlip="true">
         <template v-slot:front>
           <picture>
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_NCT.png">
           </picture>
           <p style="margin-top: 3em;">
-            Reviewing
+            The widget also includes the option to search by NCT number (the unique identifier for a trial on ct.gov) instead of oncotree node & genetic tags.
             <br><br>
+            In either search method, it only takes a simple tick of the checkbox for that trial to be included in the final report.
+            <br><br>The orange-highlighted alteration(s) on a trial indicate direct relevancy to the patient.  It is possible to have multiple alterations
+            selected as relevant and displayed prominently alongside the trial info on the final report (see next page).
           </p>
         </template>
         <template v-slot:back>
-            <picture>
-              <img @click.stop="zoom($event)" src="/images/clinicaltrials/trials_on_report.png">
-            </picture>
-            <p style="margin-top: 3em;">
-              Not all trials can be fully classif
-            </p>
+          <picture>
+            <img @click.stop="zoom($event)" src="/images/clinicaltrials/trials_on_report.png">
+          </picture>
+          <p style="margin-top: 3em;">
+            This is a snapshot of the clinical trials section on one of our final reports.
+            <br><br>Each trial starts with the relevant gene(s) in bold which mirror the orange tags on the recommender widget.
+            <br><br>If the patient was from a Pittsburgh hospital and the trial is available there, the <b><i>*Available in Pittsburgh</i></b>
+            text also appears and that trial gets sorted to the top of the list.
+            <br><br>My Clinical Trial Recommender system allows our lab to find and include clinical trial information without leaving our main application
+            or typing any of this trial text manually.
+          </p>
         </template>
       </Page>
       <Page :pageIndex="100" :canFlip="false">
@@ -212,7 +191,7 @@ html, body {
 .fullbook--styled {
   background-color:  $coverColor;  // color of the cover
   border: $coverColor solid 8px;
-  font-size: 10pt;
+  font-size: 10.3pt;
 
   img {
     width: 100%;
