@@ -8,10 +8,10 @@
               <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_params.png">
             </picture>
             <p style="margin-top: 3em;">
-              I built a complete system to discover, tag, then suggest relevant clinical trials for our patients based on their age, type of cancer,
+              I built a complete system to fetch, tag, then suggest relevant clinical trials to our patients based on their age, type of cancer,
               and genetic alterations identified.
               <br><br>
-              This saves our lab time by allowing users 
+              My system has saved our lab $700 a month since we no longer need to pay a 3rd party to provide us a similar service.
             </p>
         </template>
         <template v-slot:back>
@@ -20,10 +20,8 @@
           </picture>
           <p style="margin-top: 3em;">
             Every weekday morning the system automatically scans <a href="https://clinicaltrials.gov/" target="_blank">clinicaltrials.gov</a>
-            for new trials to add to our database.
-            <br><br>Trials must be active, cancer-related, and discuss at least 1 genetic alteration that we test for in our lab in order to be picked up.
-            <br><br>Relevant trials are parsed, classified, then saved.  Non-relevant trials are added to an ignore list.
-            <br><br>These actions are summarized in a daily email report that goes out to my colleagues and myself.
+            for new trials to add to our database or existing ones to modify with updated info.
+            <br><br>A summary report is then generated and emailed to us.
           </p>
         </template>
       </Page>
@@ -32,28 +30,21 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/oncotree_keyword_manager.png">
           </picture>
-          <p style="margin-top: 3em;">
-            A core element of the classifier is based on keyword mappings.
-            <br><br>I began with list of words/phrases related to each <a href="http://oncotree.mskcc.org/#/home" target="_blank">oncotree lv1</a> tissue type.  I then created database relations to store
-            these associations for the classifier to load and use.
-            <br><br>For example, if a parsed trial XML contains the term 'pheochromocytoma', it will be tagged as relevant to the adrenal gland.
-            <br><br>I also created an 'Oncotree Keywords Manager' to simplify the process of adding, editing, or removing these keyword associations. 
+          <p style="margin-top: 1em;">
+            <br><br>An Oncotree Keywords Manager UI makes it easy to add/modify keyword associations for all
+            <a href="http://oncotree.mskcc.org/#/home" target="_blank">oncotree lv1</a> tissue types.
+            <br><br>These mappings are used when processing trial text to determine which type(s) of cancer a trial is targeting.
           </p>
         </template>
         <template v-slot:back>
             <picture>
-              <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_params.png">
+              <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_results.png">
             </picture>
             <p style="margin-top: 3em;">
-              The interpreters and/or pathologists in our lab use this integrated widget I created to quickly search for the most relevant trials for a patient based
-              on the patient's lab results.
-              <br><br>The patient's age, sample tissue type, and any genetic alterations identified are auto-populated into the search fields.
-              <br><br>Results are organized by gene and sorted based on factors like:
-              <ul>
-                <li>Number of additional matching tags</li>
-                <li>How often this trial was included on previous lab reports</li>
-                <li>Whether the trial is available in Pittsburgh (only if the patient is from our local UPMC hospital network)</li>
-              </ul>
+              A widget is embeded on each patient's case page that auto-populates the necessary search criteria.
+              <br><br>Trials can also be found via their NCT number instead (see next page).
+              <br><br>Results are organized by gene and sorted based on a variety of factors
+              (including availability in Pittsburgh if patient is from a local hospital).
             </p>
         </template>
       </Page>
@@ -63,24 +54,19 @@
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_NCT.png">
           </picture>
           <p style="margin-top: 3em;">
-            The widget also includes the option to search by NCT number (the unique identifier for a trial on ct.gov) instead of oncotree node & genetic tags.
-            <br><br>
-            In either search method, it only takes a simple tick of the checkbox for that trial to be included in the final report.
-            <br><br>The orange-highlighted alteration(s) on a trial indicate direct relevancy to the patient.  It is possible to have multiple alterations
-            selected as relevant and displayed prominently alongside the trial info on the final report (see next page).
+            Qualified users simply click a checkbox to include a trial on a patient's final report.
+            <br><br>A trial can sometimes target multiple genes.  Users click additional genes relevant to the patient and those tags become orange.
+            These genes are then specifically mentioned alongside the trial info on the final report (see next page).
           </p>
         </template>
         <template v-slot:back>
           <picture>
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/trials_on_report.png">
           </picture>
-          <p style="margin-top: 3em;">
-            This is a snapshot of the clinical trials section on one of our final reports.
-            <br><br>Each trial starts with the relevant gene(s) in bold which mirror the orange tags on the recommender widget.
+          <p style="margin-top: 1em;">
+            <br><br>Selected trials are listed below a patient's testing results summary on their report.
             <br><br>If the patient was from a Pittsburgh hospital and the trial is available there, the <b><i>*Available in Pittsburgh</i></b>
             text also appears and that trial gets sorted to the top of the list.
-            <br><br>My Clinical Trial Recommender system allows our lab to find and include clinical trial information without leaving our main application
-            or typing any of this trial text manually.
           </p>
         </template>
       </Page>
@@ -191,7 +177,7 @@ html, body {
 .fullbook--styled {
   background-color:  $coverColor;  // color of the cover
   border: $coverColor solid 8px;
-  font-size: 10.3pt;
+  font-size: 14pt;
 
   img {
     width: 100%;
