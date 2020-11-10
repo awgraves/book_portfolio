@@ -178,6 +178,7 @@ html, body {
   background-color:  $coverColor;  // color of the cover
   border: $coverColor solid 8px;
   font-size: 14pt;
+  font-family: "Times New Roman", Times, serif;
 
   img {
     width: 100%;
