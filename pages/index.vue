@@ -30,10 +30,23 @@
       <DisplayBook
         stylingClass="book--help-desk"
         title="Help Desk System">
-        <template v-slot:button>
-          <a href="/helpdesk">
-            Read more...
-          </a>
+        <template v-slot:preview>
+          <Page :canFlip="false">
+            <template v-slot:front>
+              <span style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+                <picture>
+                  <img src="/images/helpdesk/helpdesk_dash.png">
+                </picture>
+                <p style="text-align: center; font-size: 12pt; margin-top: 2em;">
+                  A fully integrated Help Desk system to report and track technical issues inside our application.
+                  Includes both email and in-app notifications.
+                </p>
+                <a href="/helpdesk">
+                  <button style="margin-top: .5em;">Read More...</button>
+                </a>
+              </span>
+            </template>
+          </Page>
         </template>
       </DisplayBook>
       <DisplayBook

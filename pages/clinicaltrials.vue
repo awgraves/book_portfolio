@@ -30,8 +30,8 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/oncotree_keyword_manager.png">
           </picture>
-          <p style="margin-top: 1em;">
-            <br><br>An Oncotree Keywords Manager UI makes it easy to add/modify keyword associations for all
+          <p style="margin-top: 3em;">
+            An Oncotree Keywords Manager UI makes it easy to add/modify keyword associations for all
             <a href="http://oncotree.mskcc.org/#/home" target="_blank">oncotree lv1</a> tissue types.
             <br><br>These mappings are used when processing trial text to determine which type(s) of cancer a trial is targeting.
           </p>
@@ -40,7 +40,7 @@
             <picture>
               <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_results.png">
             </picture>
-            <p style="margin-top: 3em;">
+            <p style="margin-top: 2em;">
               A widget is embeded on each patient's case page that auto-populates the necessary search criteria.
               <br><br>Trials can also be found via their NCT number instead (see next page).
               <br><br>Results are organized by gene and sorted based on a variety of factors
@@ -48,7 +48,7 @@
             </p>
         </template>
       </Page>
-      <Page :pageIndex="3" :canFlip="true">
+      <Page :pageIndex="2" :canFlip="true">
         <template v-slot:front>
           <picture>
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_NCT.png">
@@ -63,8 +63,8 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/trials_on_report.png">
           </picture>
-          <p style="margin-top: 1em;">
-            <br><br>Selected trials are listed below a patient's testing results summary on their report.
+          <p style="margin-top: 3em;">
+            Selected trials are listed below a patient's testing results summary on their report.
             <br><br>If the patient was from a Pittsburgh hospital and the trial is available there, the <b><i>*Available in Pittsburgh</i></b>
             text also appears and that trial gets sorted to the top of the list.
           </p>
