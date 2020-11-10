@@ -52,10 +52,22 @@
       <DisplayBook
         stylingClass="book--signout-qa"
         title="Sign-out QAs">
-        <template v-slot:button>
-          <a href="/signoutqas">
-            Read more...
-          </a>
+        <template v-slot:preview>
+          <Page :canFlip="false">
+            <template v-slot:front>
+              <span style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+                <picture>
+                  <img src="/images/signoutqas/main_QA_results.png">
+                </picture>
+                <p style="text-align: center; font-size: 12pt; margin-top: 2em;">
+                  An electronic QA system for pathologists and fellows to review difficult cases and record their feedback to one another.
+                </p>
+                <a href="/signoutqas">
+                  <button style="margin-top: .5em;">Read More...</button>
+                </a>
+              </span>
+            </template>
+          </Page>
         </template>
       </DisplayBook>
       <DisplayBook
