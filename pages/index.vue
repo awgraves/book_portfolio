@@ -15,7 +15,7 @@
                 <picture>
                   <img src="/images/clinicaltrials/search_params.png">
                 </picture>
-                <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif; margin-top: 2em;">
+                <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
                   A complete system to fetch, tag, then suggest relevant clinical trials to our patients based on their age, type of cancer,
                   and genetic alterations identified.
                 </p>
@@ -37,7 +37,7 @@
                 <picture>
                   <img src="/images/helpdesk/helpdesk_dash.png">
                 </picture>
-                <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif; margin-top: 2em;">
+                <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
                   A fully integrated Help Desk system to report and track technical issues inside our application.
                   Includes both email and in-app notifications.
                 </p>
@@ -59,7 +59,7 @@
                 <picture>
                   <img src="/images/signoutqas/main_QA_results.png">
                 </picture>
-                <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif; margin-top: 2em;">
+                <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
                   An electronic QA system for pathologists and fellows to review difficult cases and record their feedback to one another.
                 </p>
                 <a href="/signoutqas">

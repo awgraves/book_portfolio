@@ -301,7 +301,7 @@ $bookThickness: 40px;
         background-color: white;
         display: block;
         position: absolute;
-        z-index: 1;
+        // z-index: 1;
 
         &__content {
             position: relative;

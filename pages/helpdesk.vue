@@ -211,7 +211,7 @@ html, body {
 .fullbook--styled {
   background-color:  $coverColor;  // color of the cover
   border: $coverColor solid 8px;
-  font-size: 1.2em;
+  font-size: 14pt;
   font-family: "Times New Roman", Times, serif;
 
   img {
