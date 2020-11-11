@@ -9,7 +9,7 @@
         stylingClass="book--clinical-trials"
         title="Clinical Trial Recommender">
         <template v-slot:preview>
-          <Page :canFlip="false">
+          <Page :pageIndex="0" :canFlip="false">
             <template v-slot:front>
               <span style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
                 <picture>
@@ -31,7 +31,7 @@
         stylingClass="book--help-desk"
         title="Help Desk System">
         <template v-slot:preview>
-          <Page :canFlip="false">
+          <Page :pageIndex="0" :canFlip="false">
             <template v-slot:front>
               <span style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
                 <picture>
@@ -53,7 +53,7 @@
         stylingClass="book--signout-qa"
         title="Sign-out QAs">
         <template v-slot:preview>
-          <Page :canFlip="false">
+          <Page :pageIndex="0" :canFlip="false">
             <template v-slot:front>
               <span style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
                 <picture>

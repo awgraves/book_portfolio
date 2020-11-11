@@ -186,7 +186,7 @@ $bookThickness: 40px;
         div {
             display: block;
             position: absolute;
-            z-index: 1;
+            z-index: 100;
             width: $bookWidth;
             height: $bookHeight;
             -webkit-backface-visibility: hidden;
@@ -297,7 +297,7 @@ $bookThickness: 40px;
         height: $bookHeight - 10px;
         width: $bookWidth - 5px;
         top: 5px;
-        transform: translateZ(19px);
+        transform: translateZ(18px);
         background-color: white;
         display: block;
         position: absolute;
