@@ -181,7 +181,7 @@ $bookThickness: 40px;
         transition: transform .5s;
         -webkit-transform: translate3d(0,0,20px);
         transform: translate3d(0,0,20px);
-        z-index: 10;
+        z-index: 100;
 
         div {
             display: block;
