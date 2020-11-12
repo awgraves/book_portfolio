@@ -73,10 +73,22 @@
       <DisplayBook
         stylingClass="book--genetic-search"
         title="Genetic Search DB">
-        <template v-slot:button>
-          <a href="/geneticsearch">
-            Read more...
-          </a>
+        <template v-slot:preview>
+          <Page :pageIndex="0" :canFlip="false">
+            <template v-slot:front>
+              <span style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+                <picture>
+                  <img src="/images/geneticsearch/TDB_home.png">
+                </picture>
+                <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
+                  A custom-built search engine and interface to find patient testing results by demographic, genetic, and/or administrative criteria.
+                </p>
+                <a href="/geneticsearch">
+                  <button style="margin-top: .5em;">Read More...</button>
+                </a>
+              </span>
+            </template>
+          </Page>
         </template>
       </DisplayBook>
     </div>
