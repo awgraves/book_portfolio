@@ -13,6 +13,7 @@
               This was built specifically for our lab's flagship test <a href="https://www.thyroseq.com/" target="_blank">ThyroSeq</a>, which
               is a thyroid cancer test utilizing Next Generation Sequencing.
             </p>
+            <div class="page__number">1 of 6</div>
         </template>
         <template v-slot:back>
           <picture>
@@ -22,6 +23,7 @@
             Query filters are grouped under general category boxes that expand/collapse.
             <br><br>Uses can add as many or as few criteria as they wish.
           </p>
+          <div class="page__number">2 of 6</div>
         </template>
       </Page>
       <Page :pageIndex="1" :canFlip="true">
@@ -33,6 +35,7 @@
             Each type of genetic alteration category can have multiple entries, such as multiple variants.
             <br><br>Users can fill out the appropriate subfields to describe each alteration then add it to the query list.
           </p>
+          <div class="page__number">3 of 6</div>
         </template>
         <template v-slot:back>
             <picture>
@@ -43,6 +46,7 @@
               <br><br>Icons are still present to remind the user which and how many search parameters they selected.
               <br><br>Hovering over the icons provides the full description of active filters under each grouping.
             </p>
+            <div class="page__number">4 of 6</div>
         </template>
       </Page>
       <Page :pageIndex="2" :canFlip="true">
@@ -54,6 +58,7 @@
             The query panel can expand out again for the user to tweak their search.
             <br><br>There are a total of 48 query fields & subfields that can be combined to build a search.
           </p>
+          <div class="page__number">5 of 6</div>
         </template>
         <template v-slot:back>
           <picture>
@@ -64,6 +69,7 @@
             on the results table.
             <br><br>Larger results (greather than 20 cases) take longer to compile, so a download link is sent to the user once the file is prepared.
           </p>
+          <div class="page__number">6 of 6</div>
         </template>
       </Page>
       <Page :pageIndex="100" :canFlip="false">

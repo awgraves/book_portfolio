@@ -13,6 +13,7 @@
               <br><br>
               My system has saved our lab $700 a month since we no longer need to pay a 3rd party to provide us a similar service.
             </p>
+            <div class="page__number">1 of 6</div>
         </template>
         <template v-slot:back>
           <picture>
@@ -23,6 +24,7 @@
             for new trials to add to our database or existing ones to modify with updated info.
             <br><br>A summary report is then generated and emailed to us.
           </p>
+          <div class="page__number">2 of 6</div>
         </template>
       </Page>
       <Page :pageIndex="1" :canFlip="true">
@@ -35,6 +37,7 @@
             <a href="http://oncotree.mskcc.org/#/home" target="_blank">oncotree lv1</a> tissue types.
             <br><br>These mappings are used when processing trial text to determine which type(s) of cancer a trial is targeting.
           </p>
+          <div class="page__number">3 of 6</div>
         </template>
         <template v-slot:back>
             <picture>
@@ -46,6 +49,7 @@
               <br><br>Results are organized by gene and sorted based on a variety of factors
               (including availability in Pittsburgh if patient is from a local hospital).
             </p>
+            <div class="page__number">4 of 6</div>
         </template>
       </Page>
       <Page :pageIndex="2" :canFlip="true">
@@ -58,6 +62,7 @@
             <br><br>A trial can sometimes target multiple genes.  Users click additional genes relevant to the patient and those tags become orange.
             These genes are then specifically mentioned alongside the trial info on the final report (see next page).
           </p>
+          <div class="page__number">5 of 6</div>
         </template>
         <template v-slot:back>
           <picture>
@@ -68,6 +73,7 @@
             <br><br>If the patient was from a Pittsburgh hospital and the trial is available there, the <b><i>*Available in Pittsburgh</i></b>
             text also appears and that trial gets sorted to the top of the list.
           </p>
+          <div class="page__number">6 of 6</div>
         </template>
       </Page>
       <Page :pageIndex="100" :canFlip="false">

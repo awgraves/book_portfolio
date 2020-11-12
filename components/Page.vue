@@ -1,14 +1,10 @@
 <template>
     <div class="page" :class="{'page--flipped': isFlipped}" :style="{'z-index': pageZIndex}">
         <div class="page__front" @click="flipPage">
-            <div>
-                <slot name="front"></slot>
-            </div>
+            <slot name="front"></slot>
         </div>
         <div class="page__back" @click="flipPage">
-            <div>
-                <slot name="back"></slot>
-            </div>
+            <slot name="back"></slot>
         </div>
     </div>
 </template>
@@ -59,6 +55,15 @@ $flipSpeed: 1s;
     transform-origin: left;
     cursor: pointer;
 
+    &__number {
+        position: absolute;
+        font-size: 9pt;
+        bottom: 5%;
+        right: 50%;
+        left: 50%;
+        white-space: nowrap;
+    }
+
     &__front, &__back {
         position: absolute;
         width: 100%;
@@ -70,10 +75,8 @@ $flipSpeed: 1s;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-
-        div {
-            padding: 10%;
-        }
+        box-sizing: border-box;
+        padding: 10%;
     }
 
     &__front {

@@ -14,6 +14,7 @@
               My system offers greatly streamlined issue communication and monitoring to save time for both our users and our BI team.
               Prior to my system, email had been the only means for us.
             </p>
+            <div class="page__number">1 of 9</div>
         </template>
         <template v-slot:back>
           <picture>
@@ -24,6 +25,7 @@
             <br><br>Selecting 'Submit a Ticket' while on a case page automatically detects which case the user is viewing.
             This often spares the user from copy/pasting or typing the case name when reporting an issue.
           </p>
+          <div class="page__number">2 of 9</div>
         </template>
       </Page>
       <Page :pageIndex="1" :canFlip="true">
@@ -35,6 +37,7 @@
             The ticket submission process asks a series of questions and includes 'speed dial' like options for known, relatively common issues.
             <br><br>This design (coupled with automated inclusion of details behind the scenes) allows users to quickly provide us all the info we need with just a few simple clicks.
           </p>
+          <div class="page__number">3 of 9</div>
         </template>
         <template v-slot:back>
             <picture>
@@ -45,6 +48,7 @@
               <br><br>Users can opt to include further details with their ticket by clicking a button at the bottom and entering their message
               in a text box.
             </p>
+            <div class="page__number">4 of 9</div>
         </template>
       </Page>
       <Page :pageIndex="2" :canFlip="true">
@@ -57,6 +61,7 @@
             <br><br>An active ticket for a case is displayed at the top of that case page.  Any user accessing that case can see it and click to
             monitor it if they too want to be notified when it has been resolved.
           </p>
+          <div class="page__number">5 of 9</div>
         </template>
         <template v-slot:back>
           <picture>
@@ -67,6 +72,7 @@
             <br><br>One of us assigns the ticket to ourselves which then triggers another email just to our team so we all know who is handling it.
             <br><br>Once we fix the issue, we change the ticket status to 'completed'.
           </p>
+          <div class="page__number">6 of 9</div>
         </template>
       </Page>
       <Page :pageIndex="3" :canFlip="true">
@@ -80,6 +86,7 @@
             <br><br>Confirming closes the ticket and notifies any subscribers. Rejecting provides a text box to explain, kicks back the ticket, then 
             emails the BI team with the message.
           </p>
+          <div class="page__number">7 of 9</div>
         </template>
         <template v-slot:back>
           <picture>
@@ -89,6 +96,7 @@
             The BI team can access the statistics page on the admin dashboard to view trends.  Time periods range from 7 days to 1 calendar year.
             <br><br>Clicking on a bar from the barchart will provide more details (see next page).
           </p>
+          <div class="page__number">8 of 9</div>
         </template>
       </Page>
       <Page :pageIndex="4" :canFlip="true">
@@ -100,6 +108,7 @@
             A details screen appears with all tickets from that category during the specified time period.
             <br><br>The table has sortable columns and a search bar to filter more granular issue descriptions.
           </p>
+          <div class="page__number">9 of 9</div>
         </template>
         <template v-slot:back>
         </template>

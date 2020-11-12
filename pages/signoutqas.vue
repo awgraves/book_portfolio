@@ -4,15 +4,16 @@
       <template v-slot:content>
       <Page :pageIndex="0" :canFlip="true">
         <template v-slot:front>
-            <picture>
-              <img @click.stop="zoom($event)" src="/images/signoutqas/main_QA_results.png">
-            </picture>
-            <p style="margin-top: 3em;">
-              An electronic QA system for pathologists and fellows to review difficult cases and record their feedback to one another.
-              <br><br>
-              My system replaced their previous paper-based records and gave them a faster, more robust way to provide feedback,
-              bookmark interesting cases, and export full data for documentation.
-            </p>
+          <picture>
+            <img @click.stop="zoom($event)" src="/images/signoutqas/main_QA_results.png">
+          </picture>
+          <p style="margin-top: 3em;">
+            An electronic QA system for pathologists and fellows to review difficult cases and record their feedback to one another.
+            <br><br>
+            My system replaced their previous paper-based records and gave them a faster, more robust way to provide feedback,
+            bookmark interesting cases, and export full data for documentation.
+          </p>
+          <div class="page__number">1 of 8</div>
         </template>
         <template v-slot:back>
           <picture>
@@ -23,6 +24,7 @@
             <br><br>QAs are completed either person to person, or as a group at a weekly meeting called 'Consensus'.
             <br><br>Any existing QAs entered for that case can be accessed from this dropdown as well.
           </p>
+          <div class="page__number">2 of 8</div>
         </template>
       </Page>
       <Page :pageIndex="1" :canFlip="true">
@@ -35,16 +37,18 @@
             <br><br>A conclusion category is always selected and further comment is usually provided.
             <br><br>If the reviewer believes this case should be bookmarked for wider discussion, he/she can click the star icon at the top to flag it.
           </p>
+          <div class="page__number">3 of 8</div>
         </template>
         <template v-slot:back>
-            <picture>
-              <img @click.stop="zoom($event)" src="/images/signoutqas/view_existing_on_case.png">
-            </picture>
-            <p style="margin-top: 3em;">
-              Here is an example of a QA on a case entered during Consensus.
-              <br><br>It had been entered after the pathologist had signed out that case (meaning the patient's report had been finalized)
-              and the case itself was marked as interesting.
-            </p>
+          <picture>
+            <img @click.stop="zoom($event)" src="/images/signoutqas/view_existing_on_case.png">
+          </picture>
+          <p style="margin-top: 3em;">
+            Here is an example of a QA on a case entered during Consensus.
+            <br><br>It had been entered after the pathologist had signed out that case (meaning the patient's report had been finalized)
+            and the case itself was marked as interesting.
+          </p>
+          <div class="page__number">4 of 8</div>
         </template>
       </Page>
       <Page :pageIndex="2" :canFlip="true">
@@ -58,6 +62,7 @@
             <br><br>Our pathologists sometimes offer feedback on special cases not available in our application.
             These can be entered here on a popup form similar to the usual one found on the case pages.
           </p>
+          <div class="page__number">5 of 8</div>
         </template>
         <template v-slot:back>
           <picture>
@@ -67,6 +72,7 @@
             Sometimes the pathologists look for only the bookmarked cases as shown earlier.  Clicking the star next to the date filters does this for them.
             <br><br>They can then click the name of a case from the list to open it in a new tab.
           </p>
+          <div class="page__number">6 of 8</div>
         </template>
       </Page>
       <Page :pageIndex="3" :canFlip="true">
@@ -78,6 +84,7 @@
             Results can be refined even further with the searchbar in the top right.
             <br><br>In this example, we can see the bookmarked cases that discussed the MET gene.
           </p>
+          <div class="page__number">7 of 8</div>
         </template>
         <template v-slot:back>
           <picture>
@@ -87,6 +94,7 @@
             Lastly, the lab management often desires a comprehensive list of QAs that had been performed.
             <br><br>The QA Manager makes this quick and easy for them with options to export a specific date range or a total data export.
           </p>
+          <div class="page__number">8 of 8</div>
         </template>
       </Page>
       <Page :pageIndex="100" :canFlip="false">
