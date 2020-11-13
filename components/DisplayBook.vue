@@ -17,9 +17,7 @@
                 </div>
             </div>
             <div class="book__page">
-                <slot name="preview">
-                    <img src="/images/small/test.png" style="width: 80%;"/>
-                </slot>
+                <slot name="preview"></slot>
             </div>
             <div class="book__back"></div>
             <div class="book__right"></div>

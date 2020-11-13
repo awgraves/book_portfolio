@@ -11,7 +11,7 @@
             <p>
               Email just wasn't cutting it.  We needed a better way to communicate and track technical issues.
               <br><br>
-              I designed an in-house ticketing system with speed and efficiency in mind.  It is directly integrated in our main application.
+              I designed an in-house ticketing system with speed and efficiency in mind.  It is directly integrated inside our main application.
             </p>
             <div class="page__number">1 of 8</div>
         </template>
