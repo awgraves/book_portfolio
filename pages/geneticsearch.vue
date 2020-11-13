@@ -62,7 +62,7 @@
         </template>
         <template v-slot:back>
           <picture>
-            <img @click.stop="zoom($event)" src="/images/signoutqas/only_interesting_QAs_cropped.png">
+            <img @click.stop="zoom($event)" src="/images/geneticsearch/export_reports.png">
           </picture>
           <p style="margin-top: 5%;">
             The full case data for any search results can be exported to excel.  Full case data includes many other fields in addition to the ones visible

@@ -51,17 +51,16 @@
         <template v-slot:preview>
           <Page :pageIndex="0" :canFlip="false">
             <template v-slot:front>
-              <span style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
-                <picture>
-                  <img src="/images/signoutqas/main_QA_results.png">
-                </picture>
-                <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
-                  An electronic QA system for pathologists and fellows to review difficult cases and record their feedback to one another.
-                </p>
-                <a href="/signoutqas">
-                  <button style="margin-top: .5em;">Read More...</button>
-                </a>
-              </span>
+              <div class="page__title">Introduction</div>
+              <picture>
+                <img src="/images/signoutqas/main_QA_results.png">
+              </picture>
+              <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
+                Why use paper to record case QAs when we can make them electronic and fully integrated?
+              </p>
+              <a href="/signoutqas">
+                <button style="margin-top: .5em;">Read More...</button>
+              </a>
             </template>
           </Page>
         </template>

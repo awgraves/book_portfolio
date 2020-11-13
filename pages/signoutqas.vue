@@ -4,95 +4,102 @@
       <template v-slot:content>
       <Page :pageIndex="0" :canFlip="true">
         <template v-slot:front>
+          <div class="page__title">Introduction</div>
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/main_QA_results.png">
           </picture>
-          <p style="margin-top: 5%;">
-            An electronic QA system for pathologists and fellows to review difficult cases and record their feedback to one another.
+          <p>
+            Why use paper to record case QAs when we can make them electronic and fully integrated?
             <br><br>
-            My system replaced their previous paper-based records and gave them a faster, more robust way to provide feedback,
-            bookmark interesting cases, and export full data for documentation.
+            Our pathologists consult one another on difficult cases.  My system lets them record, search, and export
+            their feedback from within our application.
           </p>
           <div class="page__number">1 of 8</div>
         </template>
         <template v-slot:back>
+          <div class="page__title">Available Directly on Case Pages</div>
           <picture>
-            <img @click.stop="zoom($event)" src="/images/signoutqas/QA_options_case_page.png">
+            <img @click.stop="zoom($event)" src="/images/signoutqas/signout_qa_dropdown.png">
           </picture>
-          <p style="margin-top: 5%;">
-            Pathologists and fellows in our lab have a 'Signout QA' button on each case.
-            <br><br>QAs are completed either person to person, or as a group at a weekly meeting called 'Consensus'.
-            <br><br>Any existing QAs entered for that case can be accessed from this dropdown as well.
+          <p>
+            Pathologists and fellows in our lab have a 'Signout QA' button available at the top of each case.
+            <br><br>Users simply click to start recording feedback about the case they are on.
           </p>
           <div class="page__number">2 of 8</div>
         </template>
       </Page>
       <Page :pageIndex="1" :canFlip="true">
         <template v-slot:front>
+          <div class="page__title">Entering a QA</div>
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/selecting_agree.png">
           </picture>
-          <p style="margin-top: 5%;">
-            The only difference in appearance between the 2 types of QAs are who is listed as the reviewer (either an individual or the Consensus group).
-            <br><br>A conclusion category is always selected and further comment is usually provided.
-            <br><br>If the reviewer believes this case should be bookmarked for wider discussion, he/she can click the star icon at the top to flag it.
+          <p>
+            Reviewers can be a single person or the 'Consensus' group of pathologists who meet every week to discuss cases together.
+            <br><br>The reviewer(s) also have the ability to mark a case as 'interesting' by
+            clicking the star (more on this later).
           </p>
           <div class="page__number">3 of 8</div>
         </template>
         <template v-slot:back>
+          <div class="page__title">Viewing a QA</div>
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/view_existing_on_case.png">
           </picture>
-          <p style="margin-top: 5%;">
-            Here is an example of a QA on a case entered during Consensus.
-            <br><br>It had been entered after the pathologist had signed out that case (meaning the patient's report had been finalized)
-            and the case itself was marked as interesting.
+          <p>
+            Viewing a QA is as easy as entering one.  They can be accessed via the same button menu at the top of the page.
+            <br><br>QA details also specify whether the QA happened before or after the final report was signed out and sent to the physician.
           </p>
           <div class="page__number">4 of 8</div>
         </template>
       </Page>
       <Page :pageIndex="2" :canFlip="true">
         <template v-slot:front>
+          <div class="page__title">All QAs Together</div>
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/main_QA_results.png">
           </picture>
-          <p style="margin-top: 5%;">
-            I also created a 'Signout QA Manager' as the main location to search and export the QA data.
-            Users can view <u>all</u> QAs entered in our system during a given time span.
-            <br><br>Our pathologists sometimes offer feedback on special cases not available in our application.
-            These can be entered here on a popup form similar to the usual one found on the case pages.
+          <p>
+            QAs not only appear on each individual case but also collectively in a centralized 'QA Manager'.
+            Clicking a case from the list will open it in a new tab.
+            <br><br>Users can alse enter special additional QAs on cases not in our system (from other tests/labs).
           </p>
           <div class="page__number">5 of 8</div>
         </template>
         <template v-slot:back>
+          <div class="page__title">'Interesting' Cases</div>
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/only_interesting_QAs_cropped.png">
           </picture>
-          <p style="margin-top: 5%;">
-            Sometimes the pathologists look for only the bookmarked cases as shown earlier.  Clicking the star next to the date filters does this for them.
-            <br><br>They can then click the name of a case from the list to open it in a new tab.
+          <p>
+            Sometimes the pathologists bookmark special cases to bring up for future discussion.
+            <br><br>Clicking the star at the top next to the 
+            date range will filter for these.
           </p>
           <div class="page__number">6 of 8</div>
         </template>
       </Page>
       <Page :pageIndex="3" :canFlip="true">
         <template v-slot:front>
+          <div class="page__title">Refined Searches</div>
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/filtered_MET.png">
           </picture>
-          <p style="margin-top: 5%;">
+          <p>
             Results can be refined even further with the searchbar in the top right.
-            <br><br>In this example, we can see the bookmarked cases that discussed the MET gene.
+            <br><br>In this example, we can see the bookmarked cases within our date range that discussed the MET gene.
           </p>
           <div class="page__number">7 of 8</div>
         </template>
         <template v-slot:back>
+          <div class="page__title">Exporting</div>
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/export_options.png">
           </picture>
-          <p style="margin-top: 5%;">
-            Lastly, the lab management often desires a comprehensive list of QAs that had been performed.
-            <br><br>The QA Manager makes this quick and easy for them with options to export a specific date range or a total data export.
+          <p>
+            Pathologists sometimes desire a printed out list of cases to reference, and lab management sometimes wants to have QA data for 
+            internal reporting.
+            <br><br>Whatever the scenario, users can easily download the data as a CSV file.
           </p>
           <div class="page__number">8 of 8</div>
         </template>
