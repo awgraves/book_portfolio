@@ -2,6 +2,10 @@
     <div id="scaling-wrapper" :style="{'transform': 'scale(' + bookScale + ')'}">
         <div id="wrapper" ref="bookWrapper">
             <div class="fullbook fullbook--styled">
+                <div id="instructions">
+                    Tap a pic to view fullscreen.
+                    <br><br>Click a page to flip it.
+                </div>
                 <div class="fullbook__page_wrapper">
                     <slot name="content"></slot>
                 </div>
@@ -57,6 +61,7 @@ $bookWidth: 925px; // 900px;
     justify-content: center;
     transform-style: preserve-3d;
 }
+
 .fullbook {
     position: absolute;
     top: 0;
@@ -76,5 +81,17 @@ $bookWidth: 925px; // 900px;
         height: 100%;
         width: 50%;
     }
+}
+#instructions {
+    font-style: italic;
+    color: oldlace;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 </style>

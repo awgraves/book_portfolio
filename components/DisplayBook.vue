@@ -360,23 +360,4 @@ $bookThickness: 40px;
         transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg); // translate3d(0,0,20px)
     }
 }
-
-    /* hover animations */
-    /* .book-wrapper .bk-book:hover {
-        -webkit-transform: rotate3d(0,1,0,-35deg);
-        transform: rotate3d(0,1,0,-35deg);
-    } */
-
-    /* !!! come back for page */
-    // .book-wrapper .bk-page {
-    //     -webkit-transform: translate3d(0,0,19px);
-    //     transform: translate3d(0,0,19px);
-    //     display: none;
-    //     width: 295px;
-    //     height: 390px;
-    //     top: 5px;
-    //     -webkit-backface-visibility: hidden;
-    //     backface-visibility: hidden;
-    //     z-index: 9;
-    // }
 </style>
