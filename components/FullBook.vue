@@ -66,6 +66,8 @@ $bookWidth: 925px; // 900px;
     -webkit-perspective: 1500px;
     perspective: 1500px;
     border-radius: 3px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
 
     &__page_wrapper {
         position: relative;

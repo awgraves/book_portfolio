@@ -55,9 +55,15 @@ $flipSpeed: 1s;
     transform-origin: left;
     cursor: pointer;
 
+    &__title {
+        font-style: italic;
+        text-decoration: underline;
+        margin-bottom: 2%;
+    }
+
     &__number {
         position: absolute;
-        font-size: 9pt;
+        font-size: 14px;
         bottom: 5%;
         right: 50%;
         left: 50%;

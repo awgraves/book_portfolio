@@ -7,7 +7,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/main_QA_results.png">
           </picture>
-          <p style="margin-top: 3em;">
+          <p style="margin-top: 5%;">
             An electronic QA system for pathologists and fellows to review difficult cases and record their feedback to one another.
             <br><br>
             My system replaced their previous paper-based records and gave them a faster, more robust way to provide feedback,
@@ -19,7 +19,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/QA_options_case_page.png">
           </picture>
-          <p style="margin-top: 3em;">
+          <p style="margin-top: 5%;">
             Pathologists and fellows in our lab have a 'Signout QA' button on each case.
             <br><br>QAs are completed either person to person, or as a group at a weekly meeting called 'Consensus'.
             <br><br>Any existing QAs entered for that case can be accessed from this dropdown as well.
@@ -32,7 +32,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/selecting_agree.png">
           </picture>
-          <p style="margin-top: 1em;">
+          <p style="margin-top: 5%;">
             The only difference in appearance between the 2 types of QAs are who is listed as the reviewer (either an individual or the Consensus group).
             <br><br>A conclusion category is always selected and further comment is usually provided.
             <br><br>If the reviewer believes this case should be bookmarked for wider discussion, he/she can click the star icon at the top to flag it.
@@ -43,7 +43,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/view_existing_on_case.png">
           </picture>
-          <p style="margin-top: 3em;">
+          <p style="margin-top: 5%;">
             Here is an example of a QA on a case entered during Consensus.
             <br><br>It had been entered after the pathologist had signed out that case (meaning the patient's report had been finalized)
             and the case itself was marked as interesting.
@@ -56,7 +56,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/main_QA_results.png">
           </picture>
-          <p style="margin-top: 1em;">
+          <p style="margin-top: 5%;">
             I also created a 'Signout QA Manager' as the main location to search and export the QA data.
             Users can view <u>all</u> QAs entered in our system during a given time span.
             <br><br>Our pathologists sometimes offer feedback on special cases not available in our application.
@@ -68,7 +68,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/only_interesting_QAs_cropped.png">
           </picture>
-          <p style="margin-top: 3em;">
+          <p style="margin-top: 5%;">
             Sometimes the pathologists look for only the bookmarked cases as shown earlier.  Clicking the star next to the date filters does this for them.
             <br><br>They can then click the name of a case from the list to open it in a new tab.
           </p>
@@ -80,7 +80,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/filtered_MET.png">
           </picture>
-          <p style="margin-top: 3em;">
+          <p style="margin-top: 5%;">
             Results can be refined even further with the searchbar in the top right.
             <br><br>In this example, we can see the bookmarked cases that discussed the MET gene.
           </p>
@@ -90,7 +90,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/export_options.png">
           </picture>
-          <p style="margin-top: 3em;">
+          <p style="margin-top: 5%;">
             Lastly, the lab management often desires a comprehensive list of QAs that had been performed.
             <br><br>The QA Manager makes this quick and easy for them with options to export a specific date range or a total data export.
           </p>
@@ -204,8 +204,6 @@ html, body {
 .fullbook--styled {
   background-color:  $coverColor;  // color of the cover
   border: $coverColor solid 8px;
-  font-size: 14pt;
-  font-family: "Times New Roman", Times, serif;
 
   img {
     width: 100%;

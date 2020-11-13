@@ -11,18 +11,16 @@
         <template v-slot:preview>
           <Page :pageIndex="0" :canFlip="false">
             <template v-slot:front>
-              <span style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+                <div class="page__title">Introduction</div>
                 <picture>
                   <img src="/images/clinicaltrials/search_params.png">
                 </picture>
                 <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
-                  A complete system to fetch, tag, then suggest relevant clinical trials to our patients based on their age, type of cancer,
-                  and genetic alterations identified.
+                  Our lab needed a fast, easy way to provide our patients with relevant clinical trials on their reports.
                 </p>
                 <a href="/clinicaltrials">
                   <button style="margin-top: .5em;">Read More...</button>
                 </a>
-              </span>
             </template>
           </Page>
         </template>
@@ -33,18 +31,16 @@
         <template v-slot:preview>
           <Page :pageIndex="0" :canFlip="false">
             <template v-slot:front>
-              <span style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
-                <picture>
-                  <img src="/images/helpdesk/helpdesk_dash.png">
-                </picture>
-                <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
-                  A fully integrated Help Desk system to report and track technical issues inside our application.
-                  Includes both email and in-app notifications.
-                </p>
-                <a href="/helpdesk">
-                  <button style="margin-top: .5em;">Read More...</button>
-                </a>
-              </span>
+              <div class="page__title">Introduction</div>
+              <picture>
+                <img src="/images/helpdesk/helpdesk_dash.png">
+              </picture>
+              <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
+                Email just wasn't cutting it.  We needed a better way to communicate and track technical issues.
+              </p>
+              <a href="/helpdesk">
+                <button style="margin-top: .5em;">Read More...</button>
+              </a>
             </template>
           </Page>
         </template>

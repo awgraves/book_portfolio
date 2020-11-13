@@ -7,7 +7,7 @@
             <picture>
               <img @click.stop="zoom($event)" src="/images/geneticsearch/TDB_home.png">
             </picture>
-            <p style="margin-top: 3rem;">
+            <p style="margin-top: 5%;">
               A custom-built search engine and interface to find patient testing results by demographic, genetic, and/or administrative criteria.
               <br><br>
               This was built specifically for our lab's flagship test <a href="https://www.thyroseq.com/" target="_blank">ThyroSeq</a>, which
@@ -19,7 +19,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/geneticsearch/uncollapsed_section.png">
           </picture>
-          <p style="margin-top: 3rem;">
+          <p style="margin-top: 5%;">
             Query filters are grouped under general category boxes that expand/collapse.
             <br><br>Uses can add as many or as few criteria as they wish.
           </p>
@@ -31,7 +31,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/geneticsearch/opened_variants.png">
           </picture>
-          <p style="margin-top: 3rem;">
+          <p style="margin-top: 5%;">
             Each type of genetic alteration category can have multiple entries, such as multiple variants.
             <br><br>Users can fill out the appropriate subfields to describe each alteration then add it to the query list.
           </p>
@@ -41,7 +41,7 @@
             <picture>
               <img @click.stop="zoom($event)" src="/images/geneticsearch/results_tooltip_case.png">
             </picture>
-            <p style="margin-top: 3rem;">
+            <p style="margin-top: 5%;">
               The query panel collapses once the server sends back the search results.
               <br><br>Icons are still present to remind the user which and how many search parameters they selected.
               <br><br>Hovering over the icons provides the full description of active filters under each grouping.
@@ -54,7 +54,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/geneticsearch/reopened_params.png">
           </picture>
-          <p style="margin-top: 3rem;">
+          <p style="margin-top: 5%;">
             The query panel can expand out again for the user to tweak their search.
             <br><br>There are a total of 48 query fields & subfields that can be combined to build a search.
           </p>
@@ -64,7 +64,7 @@
           <picture>
             <img @click.stop="zoom($event)" src="/images/signoutqas/only_interesting_QAs_cropped.png">
           </picture>
-          <p style="margin-top: 3rem;">
+          <p style="margin-top: 5%;">
             The full case data for any search results can be exported to excel.  Full case data includes many other fields in addition to the ones visible
             on the results table.
             <br><br>Larger results (greather than 20 cases) take longer to compile, so a download link is sent to the user once the file is prepared.
@@ -179,8 +179,6 @@ html, body {
 .fullbook--styled {
   background-color:  $coverColor;  // color of the cover
   border: $coverColor solid 8px;
-  font-size: 14pt;
-  font-family: "Times New Roman", Times, serif;
 
   img {
     width: 100%;

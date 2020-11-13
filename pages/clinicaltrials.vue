@@ -4,24 +4,25 @@
       <template v-slot:content>
       <Page :pageIndex="0" :canFlip="true">
         <template v-slot:front>
+            <div class="page__title">Introduction</div>
             <picture>
               <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_params.png">
             </picture>
-            <p style="margin-top: 3em;">
-              I built a complete system to fetch, tag, then suggest relevant clinical trials to our patients based on their age, type of cancer,
-              and genetic alterations identified.
+            <p style="margin-top: 5%;">
+              Our lab needed a fast, easy way to provide our patients with relevant clinical trials on their reports.
               <br><br>
-              My system has saved our lab $700 a month since we no longer need to pay a 3rd party to provide us a similar service.
+              I built a system from the ground up that has saved our lab $700 a month since we no longer need to pay a 3rd party for a similar service.
             </p>
             <div class="page__number">1 of 6</div>
         </template>
         <template v-slot:back>
+          <div class="page__title">Automated Email Reports</div>
           <picture>
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_email.png">
           </picture>
-          <p style="margin-top: 3em;">
-            Every weekday morning the system automatically scans <a href="https://clinicaltrials.gov/" target="_blank">clinicaltrials.gov</a>
-            for new trials to add to our database or existing ones to modify with updated info.
+          <p>
+            Every morning the system automatically scans <a href="https://clinicaltrials.gov/" target="_blank">clinicaltrials.gov</a>
+            for new trials to add or existing ones to modify in our database.
             <br><br>A summary report is then generated and emailed to us.
           </p>
           <div class="page__number">2 of 6</div>
@@ -29,49 +30,51 @@
       </Page>
       <Page :pageIndex="1" :canFlip="true">
         <template v-slot:front>
+          <div class="page__title">Keyword Mappings</div>
           <picture>
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/oncotree_keyword_manager.png">
           </picture>
-          <p style="margin-top: 3em;">
-            An Oncotree Keywords Manager UI makes it easy to add/modify keyword associations for all
+          <p>
+            The core text mining algorithm relies on keywords to determine which type(s) of cancer a trial is targeting.
+            <br><br>An Oncotree Keywords Manager UI makes it easy to add/modify keyword associations for all
             <a href="http://oncotree.mskcc.org/#/home" target="_blank">oncotree lv1</a> tissue types.
-            <br><br>These mappings are used when processing trial text to determine which type(s) of cancer a trial is targeting.
           </p>
           <div class="page__number">3 of 6</div>
         </template>
         <template v-slot:back>
+            <div class="page__title">Embedded Search Widget</div>
             <picture>
               <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_results.png">
             </picture>
-            <p style="margin-top: 2em;">
-              A widget is embeded on each patient's case page that auto-populates the necessary search criteria.
-              <br><br>Trials can also be found via their NCT number instead (see next page).
-              <br><br>Results are organized by gene and sorted based on a variety of factors
-              (including availability in Pittsburgh if patient is from a local hospital).
+            <p style="margin-top: 5%;">
+              Each patient's case page has a trials widget.  Their age, sample tissue type, and genetic alterations are 
+              autopopulated as search params.
+              <br><br>Results are sorted according to popularity in our system and local availability if patient is from UPMC.
             </p>
             <div class="page__number">4 of 6</div>
         </template>
       </Page>
       <Page :pageIndex="2" :canFlip="true">
         <template v-slot:front>
+          <div class="page__title">Single-Click Inclusion</div>
           <picture>
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_NCT.png">
           </picture>
-          <p style="margin-top: 3em;">
+          <p style="margin-top: 5%;">
             Qualified users simply click a checkbox to include a trial on a patient's final report.
-            <br><br>A trial can sometimes target multiple genes.  Users click additional genes relevant to the patient and those tags become orange.
-            These genes are then specifically mentioned alongside the trial info on the final report (see next page).
+            <br><br>Orange genes signify relevancy to the patient.  At least one will be orange, but multiple can be specified if appropriate.
           </p>
           <div class="page__number">5 of 6</div>
         </template>
         <template v-slot:back>
+          <div class="page__title">Seamless Report Integration</div>
           <picture>
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/trials_on_report.png">
           </picture>
-          <p style="margin-top: 3em;">
-            Selected trials are listed below a patient's testing results summary on their report.
-            <br><br>If the patient was from a Pittsburgh hospital and the trial is available there, the <b><i>*Available in Pittsburgh</i></b>
-            text also appears and that trial gets sorted to the top of the list.
+          <p style="margin-top: 5%;">
+            Selected trials are listed on a patient's final report.
+            <br><br>If both the patient and the trial are local, the <b><i>*Available in Pittsburgh</i></b>
+            text appears next to that trial and it gets sorted to the top of the list.
           </p>
           <div class="page__number">6 of 6</div>
         </template>
@@ -183,8 +186,6 @@ html, body {
 .fullbook--styled {
   background-color:  $coverColor;  // color of the cover
   border: $coverColor solid 8px;
-  font-size: 14pt;
-  font-family: "Times New Roman", Times, serif;
 
   img {
     width: 100%;
