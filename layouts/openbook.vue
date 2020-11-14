@@ -1,6 +1,5 @@
 <template>
   <div id="whole-page">
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <div class="rotatemsg">
         <span>Try viewing in landscape mode!</span><img src="/images/rotate_device.gif">
     </div>
@@ -38,7 +37,8 @@ body {
   position: absolute;
   z-index: 100;
   color: #494949;
-  padding: 10px 5px 0px 5px;
+  padding: 10px 10px 0px 10px;
+  box-sizing:border-box;
   border-radius: 4px;
   border: #494949 solid 2px;
   width: 90%;
@@ -59,7 +59,7 @@ body {
   }
 
   img {
-    width: 40vw;
+    width: 55vw;
   }
 }
 @media screen and (max-width: 450px) {

@@ -71,7 +71,7 @@ $bookWidth: 925px; // 900px;
     -webkit-perspective: 1500px;
     perspective: 1500px;
     border-radius: 3px;
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Times", Times, serif;
     font-size: 18px;
 
     &__page_wrapper {
@@ -83,7 +83,8 @@ $bookWidth: 925px; // 900px;
     }
 }
 #instructions {
-    font-style: italic;
+    font-size: 23px;
+    font-family: "Courier New", Courier, monospace;
     color: oldlace;
     position: absolute;
     height: 100%;
