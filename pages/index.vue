@@ -18,9 +18,7 @@
                 <p style="text-align: center; font-size: 12pt; font-family: 'Times', Times, serif;">
                   Our lab needed a fast, easy way to provide our patients with relevant clinical trials on their reports.
                 </p>
-                <a href="/clinicaltrials">
-                  <button style="margin-top: .5em;">Read More...</button>
-                </a>
+                <ReadBtn to="/clinicaltrials"></ReadBtn>
             </template>
           </Page>
         </template>
@@ -38,9 +36,7 @@
               <p style="text-align: center; font-size: 12pt; font-family: 'Times', Times, serif;">
                 Email just wasn't cutting it.  We needed a better way to communicate and track technical issues.
               </p>
-              <a href="/helpdesk">
-                <button style="margin-top: .5em;">Read More...</button>
-              </a>
+              <ReadBtn to="/helpdesk"></ReadBtn>
             </template>
           </Page>
         </template>
@@ -58,9 +54,7 @@
               <p style="text-align: center; font-size: 12pt; font-family: 'Times', Times, serif;">
                 Why use paper to record case QAs when we can make them electronic and fully integrated?
               </p>
-              <a href="/signoutqas">
-                <button style="margin-top: .5em;">Read More...</button>
-              </a>
+              <ReadBtn to="/signoutqas"></ReadBtn>
             </template>
           </Page>
         </template>
@@ -78,24 +72,24 @@
               <p style="text-align: center; font-size: 12pt; font-family: 'Times', Times, serif;">
                 Our lab had no way to search our full ThyroSeq case archive for specific genetic or demographic criteria; at least until now!
               </p>
-              <a href="/geneticsearch">
-                <button style="margin-top: .5em;">Read More...</button>
-              </a>
+              <ReadBtn to="/geneticsearch"></ReadBtn>
             </template>
           </Page>
         </template>
       </DisplayBook>
     </div>
+    <!-- <fa-icon id="infobtn" class="optbtn" icon="info"></fa-icon> -->
   </div>
 </template>
 
 <script>
 import DisplayBook from '~/components/DisplayBook.vue';
 import Page from '~/components/Page.vue';
+import ReadBtn from '~/components/Buttons/ReadBtn.vue';
 
 export default {
   name: 'index',
-  components: {'DisplayBook': DisplayBook, 'Page': Page},
+  components: {'DisplayBook': DisplayBook, 'Page': Page, 'ReadBtn':ReadBtn},
   head() {
     return {
       title: "Works by Andrew Graves",
@@ -104,6 +98,12 @@ export default {
           hid: "description",
           name: "description",
           content: "A collection of work projects by Andrew Graves."
+        }
+      ],
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Special+Elite&display=swap'
         }
       ]
     }

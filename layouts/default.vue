@@ -1,6 +1,5 @@
 <template>
   <div style="position: relative; height: 100%; width: 100%;">
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <Nuxt />
   </div>
 </template>

@@ -11,7 +11,9 @@
             <p>
               Our lab had no way to search our full ThyroSeq* case archive for specific genetic or demographic criteria; at least until now!
               <br><br>
-              * <a href="https://www.thyroseq.com/" target="_blank">ThyroSeq</a> is our lab's flagship product and 
+              * <a href="https://www.thyroseq.com/" target="_blank">
+              ThyroSeq <fa-icon icon="external-link-alt" style="font-size: small;"></fa-icon>
+              </a> is our lab's flagship product and 
               a thyroid cancer test utilizing Next Generation Sequencing.
             </p>
             <div class="page__number">1 of 6</div>
@@ -77,11 +79,7 @@
           <div class="page__number">6 of 6</div>
         </template>
       </Page>
-      <Page :pageIndex="100" :canFlip="false">
-          <template v-slot:front>
-              This is the final page.
-          </template>
-      </Page>
+      <AuthorPage></AuthorPage>
       </template>
     </FullBook>
     <div @click="closeModal" v-if="zoomedPicURL !== null" class="pic-modal-wrapper">
@@ -100,10 +98,11 @@
 <script>
 import FullBook from '~/components/FullBook.vue';
 import Page from '~/components/Page.vue';
+import AuthorPage from '~/components/AuthorPage.vue';
 
 export default {
   name: 'app',
-  components: {'FullBook': FullBook, 'Page': Page},
+  components: {'FullBook': FullBook, 'Page': Page, 'AuthorPage': AuthorPage},
   layout: 'openbook',
   head() {
     return {

@@ -21,7 +21,10 @@
             <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_email.png">
           </picture>
           <p>
-            Every morning the system automatically scans <a href="https://clinicaltrials.gov/" target="_blank">clinicaltrials.gov</a>
+            Every morning the system automatically scans 
+            <a href="https://clinicaltrials.gov/" target="_blank">
+              clinicaltrials.gov <fa-icon icon="external-link-alt" style="font-size: small;"></fa-icon>
+            </a>
             for new trials to add or existing ones to modify in our database.
             <br><br>A summary report is then generated and emailed to us.
           </p>
@@ -37,7 +40,9 @@
           <p>
             The core text mining algorithm relies on keywords to determine which type(s) of cancer a trial is targeting.
             <br><br>An Oncotree Keywords Manager UI makes it easy to add/modify keyword associations for all
-            <a href="http://oncotree.mskcc.org/#/home" target="_blank">oncotree lv1</a> tissue types.
+            <a href="http://oncotree.mskcc.org/#/home" target="_blank">
+              oncotree lv1 <fa-icon icon="external-link-alt" style="font-size: small;"></fa-icon>
+            </a> tissue types.
           </p>
           <div class="page__number">3 of 6</div>
         </template>
@@ -79,11 +84,7 @@
           <div class="page__number">6 of 6</div>
         </template>
       </Page>
-      <Page :pageIndex="100" :canFlip="false">
-          <template v-slot:front>
-              This is the final page.
-          </template>
-      </Page>
+      <AuthorPage></AuthorPage>
       </template>
     </FullBook>
     <div @click="closeModal" v-if="zoomedPicURL !== null" class="pic-modal-wrapper">
@@ -102,10 +103,11 @@
 <script>
 import FullBook from '~/components/FullBook.vue';
 import Page from '~/components/Page.vue';
+import AuthorPage from '~/components/AuthorPage.vue';
 
 export default {
   name: 'app',
-  components: {'FullBook': FullBook, 'Page': Page},
+  components: {'FullBook': FullBook, 'Page': Page, 'AuthorPage': AuthorPage},
   layout: 'openbook',
   head() {
     return {

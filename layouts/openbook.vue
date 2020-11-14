@@ -1,8 +1,6 @@
 <template>
   <div id="whole-page">
-    <a href="/"><fa-icon id="homebtn" class="optbtn" icon="home"></fa-icon></a>
-    <!-- <fa-icon icon="external-link-alt"></fa-icon> -->
-    <!-- <fa-icon id="infobtn" class="optbtn" icon="info"></fa-icon> -->
+    <a href="/"><fa-icon id="homebtn" class="optbtn" icon="home" title="Go to the Collection"></fa-icon></a>
     <div class="rotatemsg">
         <span>Try viewing in landscape mode!</span><img src="/images/rotate_device.gif">
     </div>
