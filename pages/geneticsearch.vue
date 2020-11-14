@@ -79,7 +79,7 @@
           <div class="page__number">6 of 6</div>
         </template>
       </Page>
-      <AuthorPage></AuthorPage>
+      <AuthorPage @zoom="zoom($event)"></AuthorPage>
       </template>
     </FullBook>
     <div @click="closeModal" v-if="zoomedPicURL !== null" class="pic-modal-wrapper">

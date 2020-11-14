@@ -25,7 +25,12 @@
 import Page from '~/components/Page.vue';
 export default {
     name: 'Author',
-    components: {'Page': Page}
+    components: {'Page': Page},
+    methods: {
+        zoom(ev){
+            this.$emit("zoom", ev);
+        }
+    }
 }
 </script>
 
