@@ -1,5 +1,8 @@
 <template>
   <div id="whole-page">
+    <a href="/"><fa-icon id="homebtn" class="optbtn" icon="home"></fa-icon></a>
+    <!-- <fa-icon icon="external-link-alt"></fa-icon> -->
+    <!-- <fa-icon id="infobtn" class="optbtn" icon="info"></fa-icon> -->
     <div class="rotatemsg">
         <span>Try viewing in landscape mode!</span><img src="/images/rotate_device.gif">
     </div>
@@ -67,5 +70,33 @@ body {
   .rotatemsg {
       display: flex;
   }
+}
+
+.optbtn {
+  position: absolute;
+  color: #494949;
+  font-size: 2.5rem;
+  font-size: clamp(1rem, 8vmin, 2.5rem);
+  cursor: pointer;
+  background-color: oldlace;
+  border-radius: 50%;
+  padding: 5px;
+  box-sizing: border-box;
+  opacity: .5;
+
+  &:hover {
+    background-color: #494949;
+    color: oldlace;
+  }
+}
+
+#homebtn {
+  top: 2.5vmin;
+  right: 2.5vmin;
+}
+
+#infobtn {
+  top: 2.5vmin;
+  right: 2.5vmin;
 }
 </style>

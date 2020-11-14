@@ -15,7 +15,7 @@
                 <picture>
                   <img src="/images/clinicaltrials/search_params.png">
                 </picture>
-                <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
+                <p style="text-align: center; font-size: 12pt; font-family: 'Times', Times, serif;">
                   Our lab needed a fast, easy way to provide our patients with relevant clinical trials on their reports.
                 </p>
                 <a href="/clinicaltrials">
@@ -35,7 +35,7 @@
               <picture>
                 <img src="/images/helpdesk/helpdesk_dash.png">
               </picture>
-              <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
+              <p style="text-align: center; font-size: 12pt; font-family: 'Times', Times, serif;">
                 Email just wasn't cutting it.  We needed a better way to communicate and track technical issues.
               </p>
               <a href="/helpdesk">
@@ -55,7 +55,7 @@
               <picture>
                 <img src="/images/signoutqas/main_QA_results.png">
               </picture>
-              <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
+              <p style="text-align: center; font-size: 12pt; font-family: 'Times', Times, serif;">
                 Why use paper to record case QAs when we can make them electronic and fully integrated?
               </p>
               <a href="/signoutqas">
@@ -75,7 +75,7 @@
               <picture>
                 <img src="/images/geneticsearch/TDB_home.png">
               </picture>
-              <p style="text-align: center; font-size: 12pt; font-family: 'Times New Roman', Times, serif;">
+              <p style="text-align: center; font-size: 12pt; font-family: 'Times', Times, serif;">
                 Our lab had no way to search our full ThyroSeq case archive for specific genetic or demographic criteria; at least until now!
               </p>
               <a href="/geneticsearch">
@@ -96,11 +96,6 @@ import Page from '~/components/Page.vue';
 export default {
   name: 'index',
   components: {'DisplayBook': DisplayBook, 'Page': Page},
-  data() {
-    return {
-      openedBook: null,  // which book user has clicked. only 1 open at a time.
-    }
-  },
   head() {
     return {
       title: "Works by Andrew Graves",
@@ -149,8 +144,7 @@ export default {
   background-color: burlywood;
 }
 
-/* Individual style & artwork */
-/* Book 1 */
+/* Individual book styles */
 .book--clinical-trials {
     .book__front > div,
     .book__back,
@@ -160,9 +154,6 @@ export default {
     }
 
     .book__cover {
-        /* background-image: url(../images/1.png);	
-        background-repeat: no-repeat; */
-        // background-position: 10px 40px;
         font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
         h2 {
             position: absolute;
@@ -194,9 +185,6 @@ export default {
     }
 
     .book__cover {
-        /* background-image: url(../images/1.png);	
-        background-repeat: no-repeat; */
-        // background-position: 10px 40px;
         font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
         h2 {
             position: absolute;
@@ -228,9 +216,6 @@ export default {
     }
 
     .book__cover {
-        /* background-image: url(../images/1.png);	
-        background-repeat: no-repeat; */
-        // background-position: 10px 40px;
         font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
         h2 {
             position: absolute;
@@ -262,9 +247,6 @@ export default {
     }
 
     .book__cover {
-        /* background-image: url(../images/1.png);	
-        background-repeat: no-repeat; */
-        // background-position: 10px 40px;
         font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
         h2 {
             position: absolute;
