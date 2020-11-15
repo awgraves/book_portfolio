@@ -12,3 +12,29 @@ html {
     height: 100vh;
     position: relative;
 }
+
+/* These need to be loaded first before rest of page*/
+@keyframes flash {
+  0% {opacity: 1;}
+  50% {opacity: .4}
+  100% {opacity: 1}
+}
+
+#loading-overlay {
+  position: absolute;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  background-color: oldlace;
+  color: #494949;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#loading-icon {
+    font-size: 25vw;
+    animation: flash linear 2s infinite;
+}

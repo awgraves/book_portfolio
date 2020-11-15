@@ -5,7 +5,7 @@
       <h2>Opening...</h2>
     </div>
     <template v-show="!loading">
-      <a href="/"><fa-icon id="homebtn" icon="home" title="Go to the Collection"></fa-icon></a>
+      <HomeBtn/>
       <div id="rotatemsg">
           <span>Try viewing in landscape mode!</span><img src="/images/rotate_device.gif">
       </div>
@@ -14,8 +14,11 @@
   </div>
 </template>
 <script>
+import HomeBtn from '~/components/Buttons/HomeBtn.vue';
+
 export default {
   name: 'openbook',
+  components: {'HomeBtn': HomeBtn},
   data(){
     return {
       loading: true, // let css scale happen first, then remove loading screen
@@ -47,51 +50,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-#homebtn {
-  top: 2.5vmin;
-  right: 2.5vmin;
-  position: absolute;
-  color: #494949;
-  font-size: 2.5rem;
-  font-size: clamp(1rem, 8vmin, 2.5rem);
-  cursor: pointer;
-  background-color: oldlace;
-  border-radius: 50%;
-  padding: 5px;
-  box-sizing: border-box;
-  opacity: .5;
-
-  &:hover {
-    background-color: #494949;
-    color: oldlace;
-  }
-}
-
-// Loading
-@keyframes flash {
-  0% {opacity: 1;}
-  50% {opacity: .4}
-  100% {opacity: 1}
-}
-
-#loading-overlay {
-  position: absolute;
-  z-index: 999;
-  height: 100%;
-  width: 100%;
-  background-color: oldlace;
-  color: #494949;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: "Courier New", Courier, monospace;
-
-  #loading-icon {
-    font-size: 25vw;
-    animation: flash linear 2s infinite;
-  }
 }
 
 // Mobile Msg

@@ -3,6 +3,9 @@
     <div id="title-area">
       <h1>A Collection of Work(s)</h1>
       <h3>by Andrew Graves</h3>
+      <div id="top-about-btn">
+        <AboutBtn key="top-about"></AboutBtn>
+      </div>
     </div>
     <div id="main-area">
       <DisplayBook
@@ -78,7 +81,9 @@
         </template>
       </DisplayBook>
     </div>
-    <!-- <fa-icon id="infobtn" class="optbtn" icon="info"></fa-icon> -->
+    <div id="bottom-about-btn">
+      <AboutBtn key="bottom-about">Site Info</AboutBtn>
+    </div>
   </div>
 </template>
 
@@ -86,10 +91,16 @@
 import DisplayBook from '~/components/DisplayBook.vue';
 import Page from '~/components/Page.vue';
 import ReadBtn from '~/components/Buttons/ReadBtn.vue';
+import AboutBtn from '~/components/Buttons/AboutBtn.vue';
 
 export default {
   name: 'index',
-  components: {'DisplayBook': DisplayBook, 'Page': Page, 'ReadBtn':ReadBtn},
+  components: {
+    'DisplayBook': DisplayBook,
+    'Page': Page,
+    'ReadBtn': ReadBtn,
+    'AboutBtn': AboutBtn
+  },
   head() {
     return {
       title: "Works by Andrew Graves",
@@ -142,6 +153,25 @@ export default {
   height: 100%;
   width: 100%;
   background-color: burlywood;
+}
+
+#top-about-btn {
+  display: flex;
+  position: absolute;
+  top: 2.5vmin;
+  right: 2.5vmin;
+}
+#bottom-about-btn {
+  display: none;
+}
+@media screen and (max-width: 8in) {
+    // scale down the whole book in proportion to fit smaller screens
+    #top-about-btn {
+        display: none;
+    }
+    #bottom-about-btn {
+      display: flex;
+    }
 }
 
 /* Individual book styles */
