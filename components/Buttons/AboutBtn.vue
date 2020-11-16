@@ -18,7 +18,6 @@ a.nounderline:link {
     text-decoration: none;
 }
 .aboutbtn {
-    margin-bottom: 2em;
     cursor: pointer;
     color: #494949;
     background-color:white;

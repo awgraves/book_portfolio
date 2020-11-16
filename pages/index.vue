@@ -7,6 +7,9 @@
         <AboutBtn key="top-about">Info</AboutBtn>
       </div>
     </div>
+    <div id="bottom-about-btn">
+      <AboutBtn key="bottom-about">Site Info</AboutBtn>
+    </div>
     <div id="main-area">
       <DisplayBook
         stylingClass="book--clinical-trials"
@@ -80,9 +83,6 @@
           </Page>
         </template>
       </DisplayBook>
-    </div>
-    <div id="bottom-about-btn">
-      <AboutBtn key="bottom-about">Site Info</AboutBtn>
     </div>
   </div>
 </template>
@@ -170,7 +170,8 @@ export default {
         display: none;
     }
     #bottom-about-btn {
-      display: flex;
+      display: inline-block;
+      margin-top: 2em;
     }
 }
 
