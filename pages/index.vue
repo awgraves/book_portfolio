@@ -4,7 +4,7 @@
       <h1>A Collection of Work(s)</h1>
       <h3>by Andrew Graves</h3>
       <div id="top-about-btn">
-        <AboutBtn key="top-about"></AboutBtn>
+        <AboutBtn key="top-about">Info</AboutBtn>
       </div>
     </div>
     <div id="main-area">
