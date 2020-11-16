@@ -19,7 +19,7 @@ a.nounderline:link {
 }
 .aboutbtn {
     cursor: pointer;
-    color: #494949;
+    color: black;
     background-color:white;
     border:  #494949 solid 1px;
     border-radius: 5px;
