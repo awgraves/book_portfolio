@@ -114,19 +114,24 @@ export default {
     margin: 1em 0;
 }
 
+.homebtn-container {
+    z-index: 100;
+}
 // fix home button on mobile devices
 @media screen and (max-width: 450px) {
     .homebtn-container {
         width: 100%;
+        height: max-content;
         text-align: right;
         padding: 2.5vmin;
         box-sizing: border-box;
         display: inline-block;
-    }
-    .homebtn {
-        position: relative;
-        top: unset;
-        right: unset;
+
+        .homebtn {
+            position: relative;
+            top: unset;
+            right: unset;
+        }
     }
 }
 
