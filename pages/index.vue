@@ -84,6 +84,11 @@
         </template>
       </DisplayBook>
     </div>
+    <div class="copyright copyright--rel">
+      <small>
+        2020 © Andrew Graves
+      </small>
+    </div>
   </div>
 </template>
 
@@ -174,6 +179,7 @@ export default {
       margin-top: 2em;
     }
 }
+
 
 /* Individual book styles */
 .book--clinical-trials {

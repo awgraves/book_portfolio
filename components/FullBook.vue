@@ -5,6 +5,11 @@
                 <div id="instructions">
                     Tap a pic to view fullscreen.
                     <br><br>Click a page to flip it.
+                    <div id="in-book-copyright" class="copyright copyright--abs">
+                        <small>
+                            2020 © Andrew Graves
+                        </small>
+                    </div>
                 </div>
                 <div class="fullbook__page_wrapper">
                     <slot name="content"></slot>
@@ -60,6 +65,11 @@ $bookWidth: 925px; // 900px;
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
+    z-index: 1;
+}
+
+#in-book-copyright {
+    font-size: 14px;
 }
 
 .fullbook {
@@ -73,6 +83,7 @@ $bookWidth: 925px; // 900px;
     border-radius: 3px;
     font-family: "Times", Times, serif;
     font-size: 18px;
+    z-index: 1;
 
     &__page_wrapper {
         position: relative;
@@ -82,6 +93,7 @@ $bookWidth: 925px; // 900px;
         width: 50%;
     }
 }
+
 #instructions {
     font-size: 23px;
     font-family: "Courier New", Courier, monospace;

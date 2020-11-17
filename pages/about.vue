@@ -3,69 +3,78 @@
     <div class="homebtn-container">
         <home-btn/>
     </div>
-    <div class="paper">
-        <div class="paper__header">
-            <h1>A Collection of Work(s)</h1>
-            <h3>by Andrew Graves</h3>
+    <div class="paper-wrapper">
+         <div class="paper">
+            <div class="paper__header">
+                <h1>A Collection of Work(s)</h1>
+                <h3>by Andrew Graves</h3>
+            </div>
+            <div class="paper__content">
+                <div>
+                    I completed these projects as a software engineer at the UPMC Molecular & Genomic Pathology Lab.
+                </div>
+                <div>
+                    You can see some of my older personal projects 
+                    <a href="https://awgraves.github.io" target="_blank">here</a>.
+                </div>
+                <div class="table-section">
+                    <div><h4>Tools/Resources I Utilized to Create this Site:</h4></div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="https://nuxtjs.org/" target="_blank"><img src="/logos/nuxt.png"/></a>
+                                </td>
+                                <td class="description">NuxtJS static site generator extension for the Vue.js framework</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://fontawesome.com/" target="_blank"><img src="/logos/fontawesome.jpeg"></a>
+                                </td>
+                                <td class="description">Fontawesome Icons</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://sfgov.org/scorecards/sites/default/files/Images/rotatedevice_0.gif" target="_blank"><img src="/images/rotate_device.gif"></a>
+                                </td>
+                                <td class="description">Rotate mobile device gif found on google images</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="https://firebase.com" target="_blank"><img src="/logos/firebase.jpeg"></a>
+                                </td>
+                                <td class="description">Google Firebase web hosting</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-section">
+                    <div><h4>I'd also like to credit these sources that served as conceptual inspiration:</h4></div>
+                    <ul>
+                        <li>
+                            <a href="https://tympanus.net/Development/3DBookShowcase/index.html" target="_blank">
+                                3D Book Showcase
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://css-tricks.com/animate-a-container-on-mouse-over-using-perspective-and-transform/" target="_blank">
+                                Mouseover Perspective Rotation
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://codepen.io/diemoritat/pen/LKROYZ" target="_blank">
+                                Flipping Book
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="paper__content">
-            <div>
-                I completed these projects as a software engineer at the UPMC Molecular & Genomic Pathology Lab.
-            </div>
-            <div>
-                You can see some of my older personal projects 
-                <a href="https://awgraves.github.io" target="_blank">here</a>.
-            </div>
-            <div class="table-section">
-                <div><h4>Tools/Resources I Utilized to Create this Site:</h4></div>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="https://nuxtjs.org/" target="_blank"><img src="/logos/nuxt.png"/></a>
-                        </td>
-                        <td class="description">NuxtJS static site generator extension for the Vue.js framework</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://fontawesome.com/" target="_blank"><img src="/logos/fontawesome.jpeg"></a>
-                        </td>
-                        <td class="description">Fontawesome Icons</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://sfgov.org/scorecards/sites/default/files/Images/rotatedevice_0.gif" target="_blank"><img src="/images/rotate_device.gif"></a>
-                        </td>
-                        <td class="description">Rotate mobile device gif found on google images</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://firebase.com" target="_blank"><img src="/logos/firebase.jpeg"></a>
-                        </td>
-                        <td class="description">Google Firebase web hosting</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="table-section">
-                <div><h4>I'd also like to credit these sources that served as conceptual inspiration:</h4></div>
-                <ul>
-                    <li>
-                        <a href="https://tympanus.net/Development/3DBookShowcase/index.html" target="_blank">
-                            3D Book Showcase
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://css-tricks.com/animate-a-container-on-mouse-over-using-perspective-and-transform/" target="_blank">
-                            Mouseover Perspective Rotation
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://codepen.io/diemoritat/pen/LKROYZ" target="_blank">
-                            Flipping Book
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    </div>
+    <div id="btm-copyright" class="copyright copyright--rel">
+      <small>
+        2020 © Andrew Graves
+      </small>
     </div>
   </div>
 </template>
@@ -101,6 +110,10 @@ export default {
   box-sizing: border-box;
 }
 
+#btm-copyright {
+    margin: 1em 0;
+}
+
 // fix home button on mobile devices
 @media screen and (max-width: 450px) {
     .homebtn-container {
@@ -108,12 +121,22 @@ export default {
         text-align: right;
         padding: 2.5vmin;
         box-sizing: border-box;
+        display: inline-block;
     }
     .homebtn {
         position: relative;
         top: unset;
         right: unset;
     }
+}
+
+.paper-wrapper {
+    flex: 1;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .paper {
@@ -187,7 +210,6 @@ export default {
 @media screen and (max-width: 450px) {
     // increase width for mobile
     .paper {
-        margin: 3rem 0 2rem 0;
         width: 90%;
     }
 }
