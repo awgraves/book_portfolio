@@ -86,7 +86,7 @@
     </div>
     <div class="copyright copyright--rel">
       <small>
-        2020 © Andrew Graves
+        © 2020 Andrew Graves
       </small>
     </div>
   </div>

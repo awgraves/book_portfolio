@@ -7,7 +7,7 @@
                     <br><br>Click a page to flip it.
                     <div id="in-book-copyright" class="copyright copyright--abs">
                         <small>
-                            2020 © Andrew Graves
+                            © 2020 Andrew Graves
                         </small>
                     </div>
                 </div>
