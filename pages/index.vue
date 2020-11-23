@@ -3,8 +3,9 @@
     <div id="title-area">
       <h1>A Collection of Work(s)</h1>
       <h3>by Andrew Graves</h3>
+      <div id="browser-note" style="color: grey;"><small><i>* Best viewed in Google Chrome *</i></small></div>
       <div id="top-about-btn">
-        <AboutBtn key="top-about">Info</AboutBtn>
+        <AboutBtn key="top-about">Site Info</AboutBtn>
       </div>
     </div>
     <div id="bottom-about-btn">
@@ -161,7 +162,7 @@ export default {
 }
 
 #top-about-btn {
-  display: flex;
+  display: inline-flex;
   position: absolute;
   top: 2.5vmin;
   right: 2.5vmin;
@@ -173,6 +174,9 @@ export default {
     // scale down the whole book in proportion to fit smaller screens
     #top-about-btn {
         display: none;
+    }
+    #browser-note {
+      display: none;
     }
     #bottom-about-btn {
       display: inline-block;

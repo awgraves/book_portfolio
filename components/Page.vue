@@ -99,7 +99,16 @@ $flipSpeed: 1s;
 }
 .page--flipped {
     transform-origin: left;
+    transform-style: preserve-3d;
     transform: rotate3D(0, 1, 0, -180deg);
     transition: transform $flipSpeed;
+    -webkit-transform-origin: left;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotate3D(0, 1, 0, -180deg);
+    -webkit-transition: -webkit-transform $flipSpeed;
+    -moz-transform-origin: left;
+    -moz-transform-style: preserve-3d;
+    -moz-transform: rotate3D(0, 1, 0, -180deg);
+    -moz-transition: -webkit-transform $flipSpeed;
 }
 </style>
