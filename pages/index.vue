@@ -3,7 +3,7 @@
     <div id="title-area">
       <h1>A Collection of Work(s)</h1>
       <h3>by Andrew Graves</h3>
-      <div id="browser-note" style="color: grey;"><small><i>* Best viewed in Google Chrome *</i></small></div>
+      <div id="browser-note" style="color: grey;"><small><i>* Best viewed in Safari browser *</i></small></div>
       <div id="top-about-btn">
         <AboutBtn key="top-about">Site Info</AboutBtn>
       </div>
