@@ -5,9 +5,7 @@
       <Page :pageIndex="0" :canFlip="true" key="ct-0">
         <template v-slot:front>
           <div class="page__title">Introduction</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_params.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_params.png">
           <p style="margin-top: 5%;">
             Our lab needed a fast, easy way to provide our patients with relevant clinical trials on their reports.
             <br><br>
@@ -17,9 +15,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Automated Email Reports</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_email.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_email.png">
           <p>
             Every morning the system automatically scans 
             <a href="https://clinicaltrials.gov/" target="_blank">
@@ -34,9 +30,7 @@
       <Page :pageIndex="1" :canFlip="true" key="ct-1">
         <template v-slot:front>
           <div class="page__title">Keyword Mappings</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/clinicaltrials/oncotree_keyword_manager.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/clinicaltrials/oncotree_keyword_manager.png">
           <p>
             The core text mining algorithm relies on keywords to determine which type(s) of cancer a trial is targeting.
             <br><br>An Oncotree Keywords Manager UI makes it easy to add/modify keyword associations for all
@@ -48,9 +42,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Embedded Search Widget</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_results.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_results.png">
           <p style="margin-top: 5%;">
             Each patient's case page has a trials widget.  Their age, sample tissue type, and genetic alterations are 
             autopopulated as search params.
@@ -62,9 +54,7 @@
       <Page :pageIndex="2" :canFlip="true" key="ct-2">
         <template v-slot:front>
           <div class="page__title">Single-Click Inclusion</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_NCT.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_NCT.png">
           <p style="margin-top: 5%;">
             Qualified users simply click a checkbox to include a trial on a patient's final report.
             <br><br>Orange genes signify relevancy to the patient.  At least one will be orange, but multiple can be specified if appropriate.
@@ -73,9 +63,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Seamless Report Integration</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/clinicaltrials/trials_on_report.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/clinicaltrials/trials_on_report.png">
           <p style="margin-top: 5%;">
             Selected trials are listed on a patient's final report.
             <br><br>If both the patient and the trial are local, the <b><i>*Available in Pittsburgh</i></b>

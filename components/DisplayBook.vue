@@ -47,8 +47,6 @@ export default {
             y: 0,
             perspectiveCSS: {  // bound to book element for dynamic updates for rotation
                 "transform": "",
-                "-webkit-transform": "",
-                "-ms-transform": "",
             },
             eventHub: {  // default to placeholder anonymous funcs for small mobile devices (no mouse events for rotation)
                 "e": ()=>{},
@@ -97,7 +95,8 @@ export default {
         updatePersp(xRotate, yRotate){
             // update all book transform styles
             let style = `rotateX(${xRotate}deg) rotateY(${yRotate}deg)`;
-            Object.keys(this.perspectiveCSS).forEach(k=>{this.perspectiveCSS[k] = style});            
+            this.perspectiveCSS["transform"] = style;
+            // Object.keys(this.perspectiveCSS).forEach(k=>{this.perspectiveCSS[k] = style});
         },
         clearPersp(){
             this.bookOriginX = 0;
@@ -124,7 +123,7 @@ $bookThickness: 40px;
     height: $bookHeight;
     z-index: 100;
     margin: 2em;
-    -webkit-perspective: 1800px;
+    // -webkit-perspective: 1800px;
     perspective: 1800px;
     cursor: pointer;
 }
@@ -141,9 +140,9 @@ $bookThickness: 40px;
     position: absolute;
     width: 100%;
     height: $bookHeight;
-    -webkit-transform-style: preserve-3d;
+    // -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    -webkit-transition: -webkit-transform .3s;
+    // -webkit-transition: -webkit-transform .3s;
     transition: transform linear .3s;
 
     &__front, &__back {
@@ -164,20 +163,20 @@ $bookThickness: 40px;
         width: 295px;
         height: $bookThickness;
         top: -15px;
-        -webkit-backface-visibility: hidden;
+        // -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         display: block;
         position: absolute;
     }
 
     &__front {
-        -webkit-transform-style: preserve-3d;
+        // -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
-        -webkit-transform-origin: 0% 50%;
+        // -webkit-transform-origin: 0% 50%;
         transform-origin: 0% 50%;
-        -webkit-transition: -webkit-transform .5s;
+        // -webkit-transition: -webkit-transform .5s;
         transition: transform .5s;
-        -webkit-transform: translate3d(0,0,20px);
+        // -webkit-transform: translate3d(0,0,20px);
         transform: translate3d(0,0,20px);
         z-index: 100;
 
@@ -187,15 +186,15 @@ $bookThickness: 40px;
             z-index: 100;
             width: $bookWidth;
             height: $bookHeight;
-            -webkit-backface-visibility: hidden;
+            // -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            -webkit-transform-style: preserve-3d;
+            // -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
         }
     }
 
     &__back {
-        -webkit-transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
+        // -webkit-transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
         transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
         box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
         border-radius: 3px 0 0 3px;
@@ -226,23 +225,23 @@ $bookThickness: 40px;
         display: block;
         position: absolute;
         background-color: #000;
-        -webkit-transform: rotate3d(0,1,0,-179deg);
+        // -webkit-transform: rotate3d(0,1,0,-179deg);
         transform: rotate3d(0,1,0,-179deg);
     }
 
     &__right {
         height: 390px;
         top: 5px;
-        -webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
-        -moz-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
+        // -webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
+        // -moz-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
         transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
-        -webkit-backface-visibility: hidden;
+        // -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
     }
 
     &__left {
         height: $bookHeight;
-        -webkit-transform: rotate3d(0,1,0,-90deg);
+        // -webkit-transform: rotate3d(0,1,0,-90deg);
         transform: rotate3d(0,1,0,-90deg);
 
         h2 {
@@ -253,10 +252,10 @@ $bookThickness: 40px;
             text-align: right;
             width: 400px;
             height: 40px;
-            -webkit-transform-origin: 0 0;
-            -moz-transform-origin: 0 0;
+            // -webkit-transform-origin: 0 0;
+            // -moz-transform-origin: 0 0;
             transform-origin: 0 0;
-            -webkit-transform: rotate(90deg) translateY(-40px) translateX(-40px);
+            // -webkit-transform: rotate(90deg) translateY(-40px) translateX(-40px);
             transform: rotate(90deg) translateY(-40px) translateX(-40px);
 
             span:first-child {
@@ -272,12 +271,12 @@ $bookThickness: 40px;
     }
 
     &__top {
-        -webkit-transform: rotate3d(1,0,0,90deg);
+        // -webkit-transform: rotate3d(1,0,0,90deg);
         transform: rotate3d(1,0,0,90deg);
     }
 
     &__bottom {
-        -webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
+        // -webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
         transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
     }
     // colors and content &__page, 
@@ -344,11 +343,11 @@ $bookThickness: 40px;
 
 @media screen and (max-width: 450px) {
     .book{
-        -webkit-transform: rotate3D(1, 1, 0, 30deg);
+        // -webkit-transform: rotate3D(1, 1, 0, 30deg);
         transform: rotate3D(1, 1, 0, 30deg);
     }
     .book.book--opened {
-        -webkit-transform: rotate3D(1, 1, 0, 0deg) translateX(25px);
+        // -webkit-transform: rotate3D(1, 1, 0, 0deg) translateX(25px);
         transform: rotate3D(1, 1, 0, 0deg) translateX(25px);
     }
 }
@@ -356,7 +355,7 @@ $bookThickness: 40px;
 .book--opened {
     .book__front {
         transition: transform .5s;
-        -webkit-transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg);  // translate3d(0,0,20px) 
+        // -webkit-transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg);  // translate3d(0,0,20px) 
         transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg); // translate3d(0,0,20px)
     }
 }

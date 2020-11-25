@@ -5,9 +5,7 @@
       <Page :pageIndex="0" :canFlip="true" key="hd-0">
         <template v-slot:front>
             <div class="page__title">Introduction</div>
-            <picture>
-              <img @click.stop="zoom($event)" src="/images/helpdesk/helpdesk_dash.png">
-            </picture>
+            <img @click.stop="zoom($event)" src="/images/helpdesk/helpdesk_dash.png">
             <p>
               Email just wasn't cutting it.  We needed a better way to communicate and track technical issues.
               <br><br>
@@ -17,9 +15,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Easily Accessible</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/helpdesk/autodetect_current_page.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/helpdesk/autodetect_current_page.png">
           <p>
             The 'Get Help' button is always available in the bottom left of our application.
             <br><br>If a user clicks to open a new ticket while viewing a case page, info about this page can be auto-included so they won't have to type it.
@@ -30,9 +26,7 @@
       <Page :pageIndex="1" :canFlip="true" key="hd-1">
         <template v-slot:front>
           <div class="page__title">Streamlined Submission Process</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/helpdesk/most_frequent_issues.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/helpdesk/most_frequent_issues.png">
           <p>
             'Speed dial' options and targeted prompts have worked well.
             <br><br>Users can enter tickets in a few clicks, and we on the BI team are sure to receive the details we need.
@@ -41,9 +35,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Live Monitoring</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/helpdesk/follow_a_ticket.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/helpdesk/follow_a_ticket.png">
           <p>
             Each ticket shows the current status and who on the BI team is working on it.  Users can monitor other tickets they find in addition to their own.
             <br><br>Active tickets display at the top of any associated case pages.  A user need only click a button to begin monitoring it.
@@ -54,9 +46,7 @@
       <Page :pageIndex="2" :canFlip="true" key="hd-2">
         <template v-slot:front>
           <div class="page__title">Admin Process</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/helpdesk/completing_a_ticket.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/helpdesk/completing_a_ticket.png">
           <p>
             A new ticket triggers a batch email to all BI team members with details and a link to the Help Desk admin dashboard.
             <br><br>A team member assigns it to themselves, then marks it as 'completed' once finished.
@@ -65,9 +55,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">In-App Notifications</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/helpdesk/user_confirms_ticket_resolution.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/helpdesk/user_confirms_ticket_resolution.png">
           <p>
             A 'completed' ticket triggers the Help Desk window to open on the initiator of the ticket.
             <br><br>Confirming the ticket closes it and alerts all who are monitoring.  Declining provides an optional textbox to explain, then
@@ -79,9 +67,7 @@
       <Page :pageIndex="3" :canFlip="true" key="hd-3">
         <template v-slot:front>
           <div class="page__title">Admin Stats</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/helpdesk/helpdesk_stats.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/helpdesk/helpdesk_stats.png">
           <p>
             It's useful to track the frequency and types of issues we get over time.
             <br><br>Line and bar charts can visualize data from the previous 7 days up to 1 year.
@@ -91,9 +77,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Detailed Records</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/helpdesk/helpdesk_details.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/helpdesk/helpdesk_details.png">
           <p>
             More granular data about our tickets are available by category.
             <br><br>The table has sortable columns and a search bar to filter for specific keywords.

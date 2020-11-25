@@ -5,9 +5,7 @@
       <Page :pageIndex="0" :canFlip="true" key="qa-0">
         <template v-slot:front>
           <div class="page__title">Introduction</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/signoutqas/main_QA_results.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/signoutqas/main_QA_results.png">
           <p>
             Why use paper to record case QAs when we can make them electronic and fully integrated?
             <br><br>
@@ -18,9 +16,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Available Directly on Case Pages</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/signoutqas/signout_qa_dropdown.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/signoutqas/signout_qa_dropdown.png">
           <p>
             Pathologists and fellows in our lab have a 'Signout QA' button available at the top of each case.
             <br><br>Users simply click to start recording feedback about the case they are on.
@@ -31,9 +27,7 @@
       <Page :pageIndex="1" :canFlip="true" key="qa-1">
         <template v-slot:front>
           <div class="page__title">Entering a QA</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/signoutqas/selecting_agree.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/signoutqas/selecting_agree.png">
           <p>
             Reviewers can be a single person or the 'Consensus' group of pathologists who meet every week to discuss cases together.
             <br><br>The reviewer(s) also have the ability to mark a case as 'interesting' by
@@ -43,9 +37,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Viewing a QA</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/signoutqas/view_existing_on_case.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/signoutqas/view_existing_on_case.png">
           <p>
             Viewing a QA is as easy as entering one.  They can be accessed via the same button menu at the top of the page.
             <br><br>QA details also specify whether the QA happened before or after the final report was signed out and sent to the physician.
@@ -56,9 +48,7 @@
       <Page :pageIndex="2" :canFlip="true" key="qa-2">
         <template v-slot:front>
           <div class="page__title">All QAs Together</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/signoutqas/main_QA_results.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/signoutqas/main_QA_results.png">
           <p>
             QAs not only appear on each individual case but also collectively in a centralized 'QA Manager'.
             Clicking a case from the list will open it in a new tab.
@@ -68,9 +58,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">'Interesting' Cases</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/signoutqas/only_interesting_QAs_cropped.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/signoutqas/only_interesting_QAs_cropped.png">
           <p>
             Sometimes the pathologists bookmark special cases to bring up for future discussion.
             <br><br>Clicking the star at the top next to the 
@@ -82,9 +70,7 @@
       <Page :pageIndex="3" :canFlip="true" key="qa-3">
         <template v-slot:front>
           <div class="page__title">Refined Searches</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/signoutqas/filtered_MET.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/signoutqas/filtered_MET.png">
           <p>
             Results can be refined even further with the searchbar in the top right.
             <br><br>In this example, we can see the bookmarked cases within our date range that discussed the MET gene.
@@ -93,9 +79,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Exporting</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/signoutqas/export_options.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/signoutqas/export_options.png">
           <p>
             Pathologists sometimes desire a printed out list of cases to reference, and lab management sometimes wants to have QA data for 
             internal reporting.

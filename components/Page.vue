@@ -28,10 +28,9 @@ export default {
             if(this.canFlip){
                 this.isFlipped = !this.isFlipped;
                 if(this.isFlipped){
-                    setTimeout(()=>{this.pageZIndex = this.pageIndex; this.$forceUpdate();}, 500);
+                    setTimeout(()=>{this.pageZIndex = this.pageIndex;}, 500);
                 }else{
                     this.pageZIndex = 999 - this.pageIndex;
-                    this.$forceUpdate();
                 }
             }
         }
@@ -74,7 +73,7 @@ $flipSpeed: 1s;
         position: absolute;
         width: 100%;
         height: 100%;
-        -webkit-backface-visibility: hidden; /* Safari */
+        // -webkit-backface-visibility: hidden; /* Safari */
         backface-visibility: hidden;
         background-color: white;
         display: flex;

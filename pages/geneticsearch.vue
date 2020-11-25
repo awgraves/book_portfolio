@@ -5,9 +5,7 @@
       <Page :pageIndex="0" :canFlip="true" key="gs-0">
         <template v-slot:front>
             <div class="page__title">Introduction</div>
-            <picture>
-              <img @click.stop="zoom($event)" src="/images/geneticsearch/TDB_home.png">
-            </picture>
+            <img @click.stop="zoom($event)" src="/images/geneticsearch/TDB_home.png">
             <p>
               Our lab had no way to search our full ThyroSeq* case archive for specific genetic or demographic criteria; at least until now!
               <br><br>
@@ -20,9 +18,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Collapsable Filter Groups</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/geneticsearch/uncollapsed_section.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/geneticsearch/uncollapsed_section.png">
           <p>
             There are 48 total queriable fields & subfields that can be combined however the user wants.
             <br><br>To keep the UI clean, query filters are grouped under general category boxes that expand/collapse.
@@ -33,9 +29,7 @@
       <Page :pageIndex="1" :canFlip="true" key="gs-1">
         <template v-slot:front>
           <div class="page__title">Alteration Query Subfields</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/geneticsearch/opened_variants.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/geneticsearch/opened_variants.png">
           <p>
             Each type of genetic alteration can have multiple entries, such as multiple variants the user wants to be present in the resulting cases.
             <br><br>Users describe each alteration using 1 or more subfields then click to add that alteration to the main query list.
@@ -44,9 +38,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Results Screen</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/geneticsearch/results_tooltip_case.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/geneticsearch/results_tooltip_case.png">
           <p>
             The query panel collapses once the server sends back the search results.
             <br><br>Icons on the left indicate which types and how many filters are active.
@@ -58,9 +50,7 @@
       <Page :pageIndex="2" :canFlip="true" key="gs-2">
         <template v-slot:front>
           <div class="page__title">Altering the Query</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/geneticsearch/reopened_params.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/geneticsearch/reopened_params.png">
           <p>
             The query panel can expand out again for the user to add, modify, or remove search criteria.
             <br><br>There is also a reset button to easily clear all inputs and start fresh.
@@ -69,9 +59,7 @@
         </template>
         <template v-slot:back>
           <div class="page__title">Export</div>
-          <picture>
-            <img @click.stop="zoom($event)" src="/images/geneticsearch/export_reports.png">
-          </picture>
+          <img @click.stop="zoom($event)" src="/images/geneticsearch/export_reports.png">
           <p>
             Full data for resulting cases can be exported to Excel.  This data includes more info about the case than the results table preview shows.
             <br><br>Larger exports (greater than 20 cases) take longer to compile, so a download link is sent to the user once the file is prepared.
