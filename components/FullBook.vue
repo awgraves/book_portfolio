@@ -11,7 +11,7 @@
                         </small>
                     </div>
                 </div>
-                <div class="fullbook__page_wrapper">
+                <div class="fullbook__pages_wrapper">
                     <slot name="content"></slot>
                 </div>
             </div>
@@ -83,14 +83,17 @@ $bookWidth: 925px; // 900px;
     border-radius: 3px;
     font-family: "Times", Times, serif;
     font-size: 18px;
-    z-index: 5;
+    // z-index: 5;
 
-    &__page_wrapper {
-        position: relative;
+    &__pages_wrapper {
+        position: absolute;
         top: 0;
         left: 50%;
         height: 100%;
         width: 50%;
+        z-index: 50;
+        transform: translateZ(1px);
+        transform-style: preserve-3d;
     }
 }
 

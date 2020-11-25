@@ -67,13 +67,13 @@ $flipSpeed: 1s;
         right: 50%;
         left: 50%;
         white-space: nowrap;
+        backface-visibility: hidden;
     }
 
     &__front, &__back {
         position: absolute;
         width: 100%;
         height: 100%;
-        // -webkit-backface-visibility: hidden; /* Safari */
         backface-visibility: hidden;
         background-color: white;
         display: flex;
