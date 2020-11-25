@@ -2,18 +2,18 @@
   <div>
     <FullBook>
       <template v-slot:content>
-      <Page :pageIndex="0" :canFlip="true">
+      <Page :pageIndex="0" :canFlip="true" key="ct-0">
         <template v-slot:front>
-            <div class="page__title">Introduction</div>
-            <picture>
-              <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_params.png">
-            </picture>
-            <p style="margin-top: 5%;">
-              Our lab needed a fast, easy way to provide our patients with relevant clinical trials on their reports.
-              <br><br>
-              I built a system from the ground up that has saved our lab $700 a month since we no longer need to pay a 3rd party for a similar service.
-            </p>
-            <div class="page__number">1 of 6</div>
+          <div class="page__title">Introduction</div>
+          <picture>
+            <img @click.stop="zoom($event)" src="/images/clinicaltrials/search_params.png">
+          </picture>
+          <p style="margin-top: 5%;">
+            Our lab needed a fast, easy way to provide our patients with relevant clinical trials on their reports.
+            <br><br>
+            I built a system from the ground up that has saved our lab $700 a month since we no longer need to pay a 3rd party for a similar service.
+          </p>
+          <div class="page__number">1 of 6</div>
         </template>
         <template v-slot:back>
           <div class="page__title">Automated Email Reports</div>
@@ -31,7 +31,7 @@
           <div class="page__number">2 of 6</div>
         </template>
       </Page>
-      <Page :pageIndex="1" :canFlip="true">
+      <Page :pageIndex="1" :canFlip="true" key="ct-1">
         <template v-slot:front>
           <div class="page__title">Keyword Mappings</div>
           <picture>
@@ -47,19 +47,19 @@
           <div class="page__number">3 of 6</div>
         </template>
         <template v-slot:back>
-            <div class="page__title">Embedded Search Widget</div>
-            <picture>
-              <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_results.png">
-            </picture>
-            <p style="margin-top: 5%;">
-              Each patient's case page has a trials widget.  Their age, sample tissue type, and genetic alterations are 
-              autopopulated as search params.
-              <br><br>Results are sorted according to popularity in our system and local availability if patient is from UPMC.
-            </p>
-            <div class="page__number">4 of 6</div>
+          <div class="page__title">Embedded Search Widget</div>
+          <picture>
+            <img @click.stop="zoom($event)" src="/images/clinicaltrials/trial_results.png">
+          </picture>
+          <p style="margin-top: 5%;">
+            Each patient's case page has a trials widget.  Their age, sample tissue type, and genetic alterations are 
+            autopopulated as search params.
+            <br><br>Results are sorted according to popularity in our system and local availability if patient is from UPMC.
+          </p>
+          <div class="page__number">4 of 6</div>
         </template>
       </Page>
-      <Page :pageIndex="2" :canFlip="true">
+      <Page :pageIndex="2" :canFlip="true" key="ct-2">
         <template v-slot:front>
           <div class="page__title">Single-Click Inclusion</div>
           <picture>

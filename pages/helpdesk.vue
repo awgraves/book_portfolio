@@ -2,7 +2,7 @@
   <div>
     <FullBook>
       <template v-slot:content>
-      <Page :pageIndex="0" :canFlip="true">
+      <Page :pageIndex="0" :canFlip="true" key="hd-0">
         <template v-slot:front>
             <div class="page__title">Introduction</div>
             <picture>
@@ -27,7 +27,7 @@
           <div class="page__number">2 of 8</div>
         </template>
       </Page>
-      <Page :pageIndex="1" :canFlip="true">
+      <Page :pageIndex="1" :canFlip="true" key="hd-1">
         <template v-slot:front>
           <div class="page__title">Streamlined Submission Process</div>
           <picture>
@@ -51,7 +51,7 @@
           <div class="page__number">4 of 8</div>
         </template>
       </Page>
-      <Page :pageIndex="2" :canFlip="true">
+      <Page :pageIndex="2" :canFlip="true" key="hd-2">
         <template v-slot:front>
           <div class="page__title">Admin Process</div>
           <picture>
@@ -76,7 +76,7 @@
           <div class="page__number">6 of 8</div>
         </template>
       </Page>
-      <Page :pageIndex="3" :canFlip="true">
+      <Page :pageIndex="3" :canFlip="true" key="hd-3">
         <template v-slot:front>
           <div class="page__title">Admin Stats</div>
           <picture>

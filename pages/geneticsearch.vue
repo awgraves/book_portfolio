@@ -2,7 +2,7 @@
   <div>
     <FullBook>
       <template v-slot:content>
-      <Page :pageIndex="0" :canFlip="true">
+      <Page :pageIndex="0" :canFlip="true" key="gs-0">
         <template v-slot:front>
             <div class="page__title">Introduction</div>
             <picture>
@@ -30,7 +30,7 @@
           <div class="page__number">2 of 6</div>
         </template>
       </Page>
-      <Page :pageIndex="1" :canFlip="true">
+      <Page :pageIndex="1" :canFlip="true" key="gs-1">
         <template v-slot:front>
           <div class="page__title">Alteration Query Subfields</div>
           <picture>
@@ -55,7 +55,7 @@
           <div class="page__number">4 of 6</div>
         </template>
       </Page>
-      <Page :pageIndex="2" :canFlip="true">
+      <Page :pageIndex="2" :canFlip="true" key="gs-2">
         <template v-slot:front>
           <div class="page__title">Altering the Query</div>
           <picture>

@@ -65,7 +65,7 @@ $bookWidth: 925px; // 900px;
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
-    z-index: 1;
+    z-index: 10;
 }
 
 #in-book-copyright {
@@ -78,14 +78,12 @@ $bookWidth: 925px; // 900px;
     bottom: 0;
     left: 0;
     right: 0;
-    -webkit-perspective: 1500px;
     perspective: 1500px;
     transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
     border-radius: 3px;
     font-family: "Times", Times, serif;
     font-size: 18px;
-    z-index: 1;
+    z-index: 5;
 
     &__page_wrapper {
         position: relative;

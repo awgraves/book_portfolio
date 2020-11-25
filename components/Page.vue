@@ -28,9 +28,10 @@ export default {
             if(this.canFlip){
                 this.isFlipped = !this.isFlipped;
                 if(this.isFlipped){
-                    setTimeout(()=>{this.pageZIndex = this.pageIndex;}, 500);
+                    setTimeout(()=>{this.pageZIndex = this.pageIndex; this.$forceUpdate();}, 500);
                 }else{
                     this.pageZIndex = 999 - this.pageIndex;
+                    this.$forceUpdate();
                 }
             }
         }
@@ -102,13 +103,5 @@ $flipSpeed: 1s;
     transform-style: preserve-3d;
     transform: rotate3D(0, 1, 0, -180deg);
     transition: transform $flipSpeed;
-    -webkit-transform-origin: left;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: rotate3D(0, 1, 0, -180deg);
-    -webkit-transition: -webkit-transform $flipSpeed;
-    -moz-transform-origin: left;
-    -moz-transform-style: preserve-3d;
-    -moz-transform: rotate3D(0, 1, 0, -180deg);
-    -moz-transition: -webkit-transform $flipSpeed;
 }
 </style>
