@@ -1,12 +1,21 @@
 <template>
     <a href="/">
-        <fa-icon class="homebtn" icon="home" title="Go to the Collection"></fa-icon>
+        <fa-icon class="homebtn" icon="home" title="Go to the Collection" :style="{'display': displayVal}"></fa-icon>
     </a>
 </template>
 
 <script>
 export default {
     name: "HomeBtn",
+    data(){
+        return {
+            displayVal: "none"  // initialize hidden
+        }
+    },
+    mounted() {
+        // show the icon after page fully loads to avoid visual resizing process.
+        this.displayVal = "unset";
+    }
 }
 </script>
 

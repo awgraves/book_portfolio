@@ -80,6 +80,8 @@ $bookWidth: 925px; // 900px;
     right: 0;
     -webkit-perspective: 1500px;
     perspective: 1500px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     border-radius: 3px;
     font-family: "Times", Times, serif;
     font-size: 18px;

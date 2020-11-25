@@ -1,7 +1,7 @@
 <template>
     <a :href="to" class="nounderline">
         <div class="readbtn">
-            <fa-icon id="read-icon" icon="book-open"></fa-icon>Read More<small>...</small>
+            <fa-icon id="read-icon" icon="book-open" :style="{'display': displayVal}"></fa-icon>Read More<small>...</small>
         </div>
     </a>
 </template>
@@ -10,6 +10,15 @@
 export default {
     props: ['to'],
     name: "ReadBtn",
+    data(){
+        return {
+            displayVal: "none"  // initialize hidden
+        }
+    },
+    mounted() {
+        // show the icon after page fully loads to avoid visual resizing process.
+        this.displayVal = "unset";
+    }
 }
 </script>
 

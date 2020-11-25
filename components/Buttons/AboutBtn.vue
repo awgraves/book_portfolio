@@ -1,7 +1,7 @@
 <template>
     <a href="/about" class="nounderline">
         <div class="aboutbtn">
-            <fa-icon class="about-icon" icon="info"></fa-icon>
+            <fa-icon class="about-icon" icon="info" :style="{'display': displayVal}"></fa-icon>
             <slot></slot>
         </div>
     </a>
@@ -10,6 +10,15 @@
 <script>
 export default {
     name: "AboutBtn",
+    data(){
+        return {
+            displayVal: "none"  // initialize hidden
+        }
+    },
+    mounted() {
+        // show the icon after page fully loads to avoid visual resizing process.
+        this.displayVal = "unset";
+    }
 }
 </script>
 
