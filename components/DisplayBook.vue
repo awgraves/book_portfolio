@@ -22,10 +22,12 @@
             <div class="book__back"></div>
             <div class="book__right"></div>
             <div class="book__left">
-                <h2>
-                    <span>{{ title }}</span>
-                    <span>A. Graves</span>
-                </h2>
+                <div class="book__spine_wrapper">
+                    <h2>
+                        <span>{{ title }}</span>
+                        <span>A. Graves</span>
+                    </h2>
+                </div>
             </div>
             <div class="book__top"></div>
             <div class="book__bottom"></div>
@@ -237,6 +239,10 @@ $pageFrameZOffset: 4px;
         left: -20px;
         transform: rotate3d(0,1,0,-90deg);
 
+        .book__spine_wrapper {
+            backface-visibility: hidden;
+        }
+
         h2 {
             color: #fff;
             font-size: 15px;
@@ -346,6 +352,10 @@ $pageFrameZOffset: 4px;
     .book__front {
         transition: transform .5s;
         transform: translate3d(1px, 0, 10px) rotate3d(0,1,0,-100deg);
+    }
+    .book__page {
+        left: 0;
+        width: $pageWidth + 1;
     }
 }
 </style>
