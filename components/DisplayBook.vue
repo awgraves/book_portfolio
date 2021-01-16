@@ -115,7 +115,13 @@ export default {
 
 $bookHeight: 400px;
 $bookWidth: 300px;
-$bookThickness: 40px;
+$bookThickness: 39px;
+
+$pageHeight: $bookHeight - 10px;
+$pageWidth: $bookWidth - 8px;
+$pageThickness: $bookThickness - 6px;
+
+$pageFrameZOffset: 4px;
 
 .book-wrapper {
     position: relative;
@@ -123,7 +129,6 @@ $bookThickness: 40px;
     height: $bookHeight;
     z-index: 100;
     margin: 2em;
-    // -webkit-perspective: 1800px;
     perspective: 1800px;
     cursor: pointer;
 }
@@ -140,9 +145,7 @@ $bookThickness: 40px;
     position: absolute;
     width: 100%;
     height: $bookHeight;
-    // -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    // -webkit-transition: -webkit-transform .3s;
     transition: transform linear .3s;
 
     &__front, &__back {
@@ -153,31 +156,24 @@ $bookThickness: 40px;
     }
 
     &__left, &__right {
-        width: $bookThickness;
-        left: -20px;
         display: block;
         position: absolute;
     }
 
     &__top, &__bottom {
-        width: 295px;
-        height: $bookThickness;
-        top: -15px;
-        // -webkit-backface-visibility: hidden;
+        width: $pageWidth;
+        height: $pageThickness;
+        left: 1px;
         backface-visibility: hidden;
         display: block;
         position: absolute;
     }
 
     &__front {
-        // -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
-        // -webkit-transform-origin: 0% 50%;
         transform-origin: 0% 50%;
-        // -webkit-transition: -webkit-transform .5s;
         transition: transform .5s;
-        // -webkit-transform: translate3d(0,0,20px);
-        transform: translate3d(0,0,20px);
+        transform: translate3d(0,0,19px);
         z-index: 100;
 
         div {
@@ -186,15 +182,12 @@ $bookThickness: 40px;
             z-index: 100;
             width: $bookWidth;
             height: $bookHeight;
-            // -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            // -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
         }
     }
 
     &__back {
-        // -webkit-transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
         transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
         box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
         border-radius: 3px 0 0 3px;
@@ -204,6 +197,7 @@ $bookThickness: 40px;
         display: block;
         position: absolute;
         font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+        border-radius: 0 3px 3px 0;
         h2 {
             position: absolute;
             bottom: 0;
@@ -225,23 +219,22 @@ $bookThickness: 40px;
         display: block;
         position: absolute;
         background-color: #000;
-        // -webkit-transform: rotate3d(0,1,0,-179deg);
         transform: rotate3d(0,1,0,-179deg);
+        border-radius: 3px 0px 0px 3px;
     }
 
     &__right {
-        height: 390px;
+        height: $pageHeight;
+        width: $pageThickness;
         top: 5px;
-        // -webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
-        // -moz-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
-        transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
-        // -webkit-backface-visibility: hidden;
+        transform: rotate3d(0,1,0,90deg) translate3d(2px,0,276px);
         backface-visibility: hidden;
     }
 
     &__left {
         height: $bookHeight;
-        // -webkit-transform: rotate3d(0,1,0,-90deg);
+        width: $bookThickness;
+        left: -20px;
         transform: rotate3d(0,1,0,-90deg);
 
         h2 {
@@ -252,32 +245,32 @@ $bookThickness: 40px;
             text-align: right;
             width: 400px;
             height: 40px;
-            // -webkit-transform-origin: 0 0;
-            // -moz-transform-origin: 0 0;
             transform-origin: 0 0;
-            // -webkit-transform: rotate(90deg) translateY(-40px) translateX(-40px);
             transform: rotate(90deg) translateY(-40px) translateX(-40px);
+            backface-visibility: hidden;
 
             span:first-child {
                 text-transform: uppercase;
                 font-weight: 400;
                 font-size: 13px;
                 padding-right: 20px;
+                backface-visibility: hidden;
             }
             span:last-child {
                 font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+                backface-visibility: hidden;
             }
         }
     }
 
     &__top {
-        // -webkit-transform: rotate3d(1,0,0,90deg);
-        transform: rotate3d(1,0,0,90deg);
+        height: $pageThickness;
+        top: -11px;
+        transform: rotate3d(1,0,0,90deg) translate3d(0,-$pageFrameZOffset,0px);
     }
 
     &__bottom {
-        // -webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
-        transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
+        transform: rotate3d(1,0,0,-90deg) translate3d(0,$pageFrameZOffset, $pageHeight - 12);
     }
     // colors and content &__page, 
     &__right, &__top, &__bottom {
@@ -285,20 +278,19 @@ $bookThickness: 40px;
     }
 
     &__front > div {
-        border-radius: 0 3px 3px 0;
         box-shadow: 
             inset 4px 0 10px rgba(0, 0, 0, 0.1);
     }
 
     &__page {
-        height: $bookHeight - 10px;
-        width: $bookWidth - 5px;
+        height: $pageHeight;
+        width: $pageWidth;
         top: 5px;
-        transform: translateZ(18px);
+        left: 1px;
+        transform: translateZ(14px);
         background-color: white;
         display: block;
         position: absolute;
-        // z-index: 1;
 
         &__content {
             position: relative;
@@ -343,11 +335,9 @@ $bookThickness: 40px;
 
 @media screen and (max-width: 450px) {
     .book{
-        // -webkit-transform: rotate3D(1, 1, 0, 30deg);
         transform: rotate3D(1, 1, 0, 30deg);
     }
     .book.book--opened {
-        // -webkit-transform: rotate3D(1, 1, 0, 0deg) translateX(25px);
         transform: rotate3D(1, 1, 0, 0deg) translateX(25px);
     }
 }
@@ -355,8 +345,7 @@ $bookThickness: 40px;
 .book--opened {
     .book__front {
         transition: transform .5s;
-        // -webkit-transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg);  // translate3d(0,0,20px) 
-        transform: translate3d(0px, 0, 20px) rotate3d(0,1,0,-100deg); // translate3d(0,0,20px)
+        transform: translate3d(1px, 0, 10px) rotate3d(0,1,0,-100deg);
     }
 }
 </style>

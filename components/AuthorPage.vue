@@ -6,7 +6,7 @@
                 <img @click.stop="zoom($event)" src="/images/light.png" style="width: 55%; margin-left: auto; margin-right: auto; display: block;">
             </picture>
             <p>
-                I'm a fullstack software engineer with over 2 years experience at the UPMC Molecular & Genomic Pathology Laboratory.
+                I'm a fullstack software engineer with over 2.5 years experience at the UPMC Molecular & Genomic Pathology Laboratory.
             </p>
             <div>
                 I code in python and javascript using Django and Vue.js frameworks and have experience with:
