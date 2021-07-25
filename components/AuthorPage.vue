@@ -6,7 +6,7 @@
                 <img @click.stop="zoom($event)" src="/images/light.png" style="width: 55%; margin-left: auto; margin-right: auto; display: block;">
             </picture>
             <p>
-                I'm a fullstack software engineer with 3 years of professional experience.
+                I'm a fullstack software engineer with 3+ years of industry experience.
             </p>
             <div>
                 I code in python & javascript and offer expertise in the following:
