@@ -1,22 +1,11 @@
 <template>
-    <a href="/">
-        <fa-icon class="homebtn" icon="home" title="Go to the Collection" :style="{'display': displayVal}"></fa-icon>
-    </a>
+  <a href="/">
+    <IconHouse class="homebtn" title="Go to the Collection" />
+  </a>
 </template>
 
-<script>
-export default {
-    name: "HomeBtn",
-    data(){
-        return {
-            displayVal: "none"  // initialize hidden
-        }
-    },
-    mounted() {
-        // show the icon after page fully loads to avoid visual resizing process.
-        this.displayVal = "unset";
-    }
-}
+<script setup>
+import IconHouse from "~/assets/house-chimney.svg";
 </script>
 
 <style lang="scss">
@@ -32,7 +21,7 @@ export default {
   border-radius: 50%;
   padding: 5px;
   box-sizing: border-box;
-  opacity: .5;
+  opacity: 0.5;
 
   &:hover {
     background-color: #494949;

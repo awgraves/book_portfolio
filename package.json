@@ -1,24 +1,20 @@
 {
-  "name": "book_portfolio",
-  "version": "1.0.0",
+  "name": "book_portfolio_andrew_graves",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "nuxt dev",
+    "build": "nuxt build --prerender",
+    "serve": "npx serve .output/public"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/vue-fontawesome": "^2.0.0",
-    "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "nuxt": "^3.16.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
   "devDependencies": {
-    "babel": "^6.23.0",
-    "babel-eslint": "^10.1.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.3"
+    "nuxt-svgo": "^4.0.15",
+    "sass-embedded": "^1.85.1"
   }
 }

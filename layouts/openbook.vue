@@ -1,36 +1,33 @@
 <template>
   <div id="whole-page">
-    <div v-show="loading" id="loading-overlay">
-      <fa-icon icon="book-open" id="loading-icon"></fa-icon>
-      <h2>Opening...</h2>
-    </div>
-    <template v-show="!loading">
-      <HomeBtn/>
-      <div id="rotatemsg">
-          <span>Try viewing in landscape mode!</span><img src="/images/rotate_device.gif">
+    <template v-if="loading">
+      <div id="loading-overlay">
+        <IconBook id="loading-icon" />
+        <h2>Opening...</h2>
       </div>
-      <Nuxt />
+    </template>
+    <template v-else>
+      <HomeBtn />
+      <div id="rotatemsg">
+        <span>Try viewing in landscape mode!</span>
+        <img src="~/public/images/rotate_device.gif" />
+      </div>
+      <slot />
     </template>
   </div>
 </template>
-<script>
-import HomeBtn from '~/components/Buttons/HomeBtn.vue';
 
-export default {
-  name: 'openbook',
-  components: {'HomeBtn': HomeBtn},
-  data(){
-    return {
-      loading: true, // let css scale happen first, then remove loading screen
-    }
-  },
-  mounted(){
-    this.$nextTick(function () {
-      setTimeout(()=>{this.loading=false}, 1000);
-    })
-  }
-}
+<script setup>
+import { onMounted } from "vue";
+import IconBook from "~/assets/book-open.svg";
+
+const loading = useState("loading", () => true);
+
+onMounted(() => {
+  setTimeout(() => (loading.value = false), 1000);
+});
 </script>
+
 <style lang="scss">
 body {
   margin: 0 !important;
@@ -39,7 +36,6 @@ body {
   height: 100vh;
   background-color: burlywood;
   position: absolute;
-  overflow-x: hidden;
 }
 #whole-page {
   height: 100vh;
@@ -64,7 +60,7 @@ body {
   z-index: 100;
   color: #494949;
   padding: 10px 10px 0px 10px;
-  box-sizing:border-box;
+  box-sizing: border-box;
   border-radius: 4px;
   border: #494949 solid 2px;
   width: 90%;
@@ -73,13 +69,13 @@ body {
   text-align: center;
 
   &::after {
-    content: ''; 
-    width: 100%; 
+    content: "";
+    width: 100%;
     height: 100%;
     background-color: white;
-    opacity: 0.9; 
-    position: absolute; 
-    top: 0; 
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
     left: 0;
     z-index: -1;
   }
@@ -91,8 +87,7 @@ body {
 @media screen and (max-width: 450px) {
   // scale down the whole book in proportion to fit smaller screens
   #rotatemsg {
-      display: flex;
+    display: flex;
   }
 }
-
 </style>
