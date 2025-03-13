@@ -2,7 +2,9 @@
   <div id="whole-index-page">
     <div id="title-area">
       <h1>A Collection of Work(s)</h1>
-      <h3>by Andrew Graves</h3>
+      <div style="margin-bottom: 1em; font-weight: bold; font-size: 20px">
+        by Andrew Graves
+      </div>
       <div id="browser-note" style="color: grey">
         <small><i>* Best viewed in Chrome based browsers *</i></small>
       </div>
@@ -15,15 +17,17 @@
     </div>
     <div id="main-area">
       <DisplayBook
-        stylingClass="book--clinical-trials"
-        title="Clinical Trial Recommender"
+        v-for="book in books"
+        :key="book.title"
+        :title="book.title"
+        :bgColor="book.bgColor"
       >
         <template v-slot:preview>
           <Page :pageIndex="0" :canFlip="false">
             <template v-slot:front>
               <div class="page__title">Introduction</div>
               <picture>
-                <img src="/images/clinicaltrials/search_params.png" />
+                <img :src="book.previewImage" />
               </picture>
               <p
                 style="
@@ -32,82 +36,9 @@
                   font-family: 'Times', Times, serif;
                 "
               >
-                Our lab needed a fast, easy way to provide our patients with
-                relevant clinical trials on their reports.
+                {{ book.previewBlurb }}
               </p>
-              <ReadBtn to="/clinicaltrials"></ReadBtn>
-            </template>
-          </Page>
-        </template>
-      </DisplayBook>
-      <DisplayBook stylingClass="book--help-desk" title="Help Desk System">
-        <template v-slot:preview>
-          <Page :pageIndex="0" :canFlip="false">
-            <template v-slot:front>
-              <div class="page__title">Introduction</div>
-              <picture>
-                <img src="/images/helpdesk/helpdesk_dash.png" />
-              </picture>
-              <p
-                style="
-                  text-align: center;
-                  font-size: 12pt;
-                  font-family: 'Times', Times, serif;
-                "
-              >
-                Email just wasn't cutting it. We needed a better way to
-                communicate and track technical issues.
-              </p>
-              <ReadBtn to="/helpdesk"></ReadBtn>
-            </template>
-          </Page>
-        </template>
-      </DisplayBook>
-      <DisplayBook stylingClass="book--signout-qa" title="Sign-out QAs">
-        <template v-slot:preview>
-          <Page :pageIndex="0" :canFlip="false">
-            <template v-slot:front>
-              <div class="page__title">Introduction</div>
-              <picture>
-                <img src="/images/signoutqas/main_QA_results.png" />
-              </picture>
-              <p
-                style="
-                  text-align: center;
-                  font-size: 12pt;
-                  font-family: 'Times', Times, serif;
-                "
-              >
-                Why use paper to record case QAs when we can make them
-                electronic and fully integrated?
-              </p>
-              <ReadBtn to="/signoutqas"></ReadBtn>
-            </template>
-          </Page>
-        </template>
-      </DisplayBook>
-      <DisplayBook
-        stylingClass="book--genetic-search"
-        title="Genetic Search DB"
-      >
-        <template v-slot:preview>
-          <Page :pageIndex="0" :canFlip="false">
-            <template v-slot:front>
-              <div class="page__title">Introduction</div>
-              <picture>
-                <img src="/images/geneticsearch/TDB_home.png" />
-              </picture>
-              <p
-                style="
-                  text-align: center;
-                  font-size: 12pt;
-                  font-family: 'Times', Times, serif;
-                "
-              >
-                Our lab had no way to search our full ThyroSeq case archive for
-                specific genetic or demographic criteria; at least until now!
-              </p>
-              <ReadBtn to="/geneticsearch"></ReadBtn>
+              <ReadBtn :to="book.fullBookUrl" />
             </template>
           </Page>
         </template>
@@ -169,135 +100,6 @@
   #bottom-about-btn {
     display: inline-block;
     margin-top: 2em;
-  }
-}
-
-/* Individual book styles */
-.book--clinical-trials {
-  .book__front > div,
-  .book__back,
-  .book__left,
-  .book__front:after {
-    background-color: #205493;
-  }
-
-  .book__cover {
-    font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia,
-      serif;
-    h2 {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
-      text-align: center;
-
-      span {
-        display: block;
-      }
-    }
-    &-back {
-      background-color: #205493;
-    }
-  }
-}
-
-.book--help-desk {
-  .book__front > div,
-  .book__back,
-  .book__left,
-  .book__front:after {
-    background-color: seagreen;
-  }
-
-  .book__cover {
-    font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia,
-      serif;
-    h2 {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
-      text-align: center;
-
-      span {
-        display: block;
-      }
-    }
-    &-back {
-      background-color: seagreen;
-    }
-  }
-}
-
-.book--signout-qa {
-  .book__front > div,
-  .book__back,
-  .book__left,
-  .book__front:after {
-    background-color: #ff924a;
-  }
-
-  .book__cover {
-    font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia,
-      serif;
-    h2 {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
-      text-align: center;
-
-      span {
-        display: block;
-      }
-    }
-    &-back {
-      background-color: #ff924a;
-    }
-  }
-}
-
-.book--genetic-search {
-  .book__front > div,
-  .book__back,
-  .book__left,
-  .book__front:after {
-    background-color: rgb(138, 31, 31);
-  }
-
-  .book__cover {
-    font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia,
-      serif;
-    h2 {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
-      text-align: center;
-
-      span {
-        display: block;
-      }
-    }
-    &-back {
-      background-color: rgb(138, 31, 31);
-    }
   }
 }
 </style>
