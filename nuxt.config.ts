@@ -2,13 +2,16 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: false },
+  typescript: {
+    typeCheck: true,
+  },
   components: [
     {
       path: "~/components",
       pathPrefix: false,
     },
   ],
-  modules: ["nuxt-svgo"],
+  modules: ["nuxt-svgo", "@nuxt/eslint"],
   css: ["~/assets/css/main.css"],
   app: {
     head: {
