@@ -1,21 +1,16 @@
 <template>
-  <div
+  <li
     class="book-wrapper"
-    ref="bookwrapper"
     @click="toggleBookOpen"
-    @mouseenter="eventHub.e"
-    @mousemove="eventHub.m"
-    @mouseleave="eventHub.l"
+    :style="{ zIndex: bookOpened ? 999 : defaultZIndex }"
   >
     <!--- book itself --->
     <div
       class="book"
-      :class="[bookOpened ? 'book--opened' : '']"
+      :class="[bookOpened ? 'book--opened' : 'book--closed']"
       ref="book"
-      :style="perspectiveCSS"
     >
       <div class="book__front" :style="{ backgroundColor: bgColor }">
-        <div class="book__cover-back" :style="{ backgroundColor: bgColor }" />
         <div class="book__cover">
           <h2>
             <span>{{ title }}</span>
@@ -25,8 +20,8 @@
       <div class="book__page">
         <slot name="preview"></slot>
       </div>
-      <div class="book__back" :style="{ backgroundColor: bgColor }" />
-      <div class="book__right" />
+      <div class="book__back" :style="{ backgroundColor: bgColor }"></div>
+      <div class="book__right" :style="{ backgroundColor: bgColor }"></div>
       <div class="book__left" :style="{ backgroundColor: bgColor }">
         <div class="book__spine_wrapper">
           <h2>
@@ -38,86 +33,22 @@
       <div class="book__top"></div>
       <div class="book__bottom"></div>
     </div>
-  </div>
+  </li>
 </template>
 
-<script>
-export default {
-  name: "DisplayBook",
-  props: ["title", "stylingClass", "bgColor"],
-  data() {
-    return {
-      bookOpened: false, // whether user is viewing the back
-      requiresOriginSet: true, // will have pause before recalc
-      bookOriginX: 0, // x coord for center of book relative to viewport
-      bookOriginY: 0,
-      x: 0, // user's curs x coord relative to center of book
-      y: 0,
-      perspectiveCSS: {
-        // bound to book element for dynamic updates for rotation
-        transform: "",
-      },
-      eventHub: {
-        // default to placeholder anonymous funcs for small mobile devices (no mouse events for rotation)
-        e: () => {},
-        m: () => {},
-        l: () => {},
-      },
-    };
-  },
-  beforeMount() {
-    if (!(window.screen.availWidth < 450 || window.screen.availHeight < 450)) {
-      // bind the real funcs to the eventHub if window is larger than mobile phone size
-      this.eventHub = {
-        e: this.initPerspective,
-        m: this.trackMouse,
-        l: this.clearPersp,
-      };
-    }
-  },
-  methods: {
-    toggleBookOpen() {
-      this.bookOpened = !this.bookOpened;
-    },
-    initPerspective() {
-      // calc the x / y coords for the book relative to HTML doc.
-      let div = this.$refs.bookwrapper;
+<script setup lang="ts">
+interface BookProps {
+  title: string;
+  bgColor: string;
+  defaultZIndex: number;
+  bookOpened: boolean;
+}
+const props = defineProps<BookProps>();
+const emit = defineEmits(["set-opened-book"]);
 
-      this.bookOriginX = div.offsetLeft + Math.floor(div.offsetWidth / 2);
-      this.bookOriginY = div.offsetTop + Math.floor(div.offsetHeight / 2);
-      this.requiresOriginSet = false;
-    },
-    trackMouse(event) {
-      // make sure initial origin was calculated before updating
-      if (!this.requiresOriginSet) {
-        let book = this.$refs.book;
-
-        var e = event || window.event;
-        this.x = e.pageX - this.bookOriginX;
-        this.y = (e.pageY - this.bookOriginY) * -1;
-
-        let xRotate = (this.y / book.offsetWidth / 0.0345).toFixed(1);
-        let yRotate = (this.x / book.offsetHeight / 0.0145).toFixed(1);
-
-        this.updatePersp(xRotate, yRotate);
-      }
-    },
-    updatePersp(xRotate, yRotate) {
-      // update all book transform styles
-      let style = `rotateX(${xRotate}deg) rotateY(${yRotate}deg)`;
-      this.perspectiveCSS["transform"] = style;
-      // Object.keys(this.perspectiveCSS).forEach(k=>{this.perspectiveCSS[k] = style});
-    },
-    clearPersp() {
-      this.bookOriginX = 0;
-      this.bookOriginY = 0;
-      this.x = 0;
-      this.y = 0;
-      this.requiresOriginSet = true;
-      this.updatePersp(0, 0);
-    },
-  },
-};
+function toggleBookOpen() {
+  emit("set-opened-book", props.bookOpened ? "" : props.title);
+}
 </script>
 
 <style lang="scss" scoped>
@@ -125,38 +56,28 @@ export default {
 
 $bookHeight: 400px;
 $bookWidth: 300px;
-$bookThickness: 39px;
+$bookThickness: 40px;
 
 $pageHeight: $bookHeight - 10px;
-$pageWidth: $bookWidth - 8px;
-$pageThickness: $bookThickness - 6px;
-
-$pageFrameZOffset: 4px;
+$pageWidth: $bookWidth - 10px;
+$pageThickness: $bookThickness - 60px;
 
 .book-wrapper {
   position: relative;
-  width: $bookWidth;
-  height: $bookHeight;
-  z-index: 100;
-  margin: 2em;
-  perspective: 1800px;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 450px) {
-  // scale down the whole book in proportion to fit smaller screens
-  .book-wrapper {
-    margin: 5px 0px;
-    transform: scale(0.8);
-  }
+  width: 40px;
+  height: 400px;
+  margin: 0px 0px 0px 0px;
+  transform-style: preserve-3d;
 }
 
 .book {
+  cursor: pointer;
   position: absolute;
   width: 100%;
   height: $bookHeight;
   transform-style: preserve-3d;
-  transition: transform linear 0.3s;
+  transition: transform 0.5s;
+  transform: rotate3D(0, 1, 0, 90deg);
 
   &__front,
   &__back {
@@ -164,19 +85,22 @@ $pageFrameZOffset: 4px;
     height: $bookHeight;
     display: block;
     position: absolute;
+    transform-style: preserve-3d;
   }
 
   &__left,
   &__right {
+    width: $bookThickness;
+    left: -21px;
     display: block;
     position: absolute;
   }
 
   &__top,
   &__bottom {
-    width: $pageWidth;
-    height: $pageThickness;
-    left: 1px;
+    width: 300px;
+    height: 38px;
+    top: -15px;
     backface-visibility: hidden;
     display: block;
     position: absolute;
@@ -185,7 +109,7 @@ $pageFrameZOffset: 4px;
   &__front {
     transform-style: preserve-3d;
     transform-origin: 0% 50%;
-    transition: transform 0.5s;
+    // transition: transform 0.5s 0s;
     transform: translate3d(0, 0, 19px);
     z-index: 100;
 
@@ -202,7 +126,6 @@ $pageFrameZOffset: 4px;
 
   &__back {
     transform: rotate3d(0, 1, 0, -180deg) translate3d(0, 0, 20px);
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
     border-radius: 3px 0 0 3px;
   }
 
@@ -238,59 +161,49 @@ $pageFrameZOffset: 4px;
   }
 
   &__right {
-    height: $pageHeight;
-    width: $pageThickness;
-    top: 5px;
     transform: rotate3d(0, 1, 0, 90deg) translate3d(2px, 0, 276px);
     backface-visibility: hidden;
   }
 
   &__left {
-    height: $bookHeight;
-    width: $bookThickness;
-    left: -20px;
+    height: 400px;
     transform: rotate3d(0, 1, 0, -90deg);
 
     .book__spine_wrapper {
-      backface-visibility: hidden;
-    }
-
-    h2 {
-      color: #fff;
-      font-size: 15px;
-      line-height: 40px;
-      padding-right: 10px;
-      text-align: right;
-      width: 400px;
-      height: 40px;
-      transform-origin: 0 0;
-      transform: rotate(90deg) translateY(-40px) translateX(-40px);
+      transform-style: preserve-3d;
       backface-visibility: hidden;
 
-      span:first-child {
-        text-transform: uppercase;
-        font-weight: 400;
-        font-size: 13px;
-        padding-right: 20px;
-        backface-visibility: hidden;
-      }
-      span:last-child {
-        font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia,
-          serif;
-        backface-visibility: hidden;
+      h2 {
+        color: #fff;
+        font-size: 15px;
+        line-height: 40px;
+        padding-right: 10px;
+        text-align: right;
+        width: 400px;
+        height: 40px;
+        transform-origin: 0 0;
+        transform: rotate(90deg) translateY(-40px) translateX(-40px);
+
+        span:first-child {
+          text-transform: uppercase;
+          font-weight: 400;
+          font-size: 13px;
+          padding-right: 20px;
+        }
+        span:last-child {
+          font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype",
+            Georgia, serif;
+        }
       }
     }
   }
 
   &__top {
-    height: $pageThickness;
-    top: -11px;
-    transform: rotate3d(1, 0, 0, 90deg) translate3d(0, -$pageFrameZOffset, 0px);
+    transform: rotate3d(1, 0, 0, 90deg);
   }
 
   &__bottom {
-    transform: rotate3d(1, 0, 0, -90deg)
-      translate3d(0, $pageFrameZOffset, $pageHeight - 12);
+    transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, 390px);
   }
   // colors and content &__page,
   &__right,
@@ -307,8 +220,8 @@ $pageFrameZOffset: 4px;
     height: $pageHeight;
     width: $pageWidth;
     top: 5px;
-    left: 1px;
-    transform: translateZ(14px);
+    left: 5px;
+    transform: translateZ(18px);
     background-color: white;
     display: block;
     position: absolute;
@@ -354,24 +267,56 @@ $pageFrameZOffset: 4px;
   }
 }
 
-@media screen and (max-width: 450px) {
-  .book {
-    transform: rotate3D(1, 1, 0, 30deg);
+@keyframes bookOffShelf {
+  50% {
+    transform: rotate3d(0, 1, 0, 90deg) translateX(-300px);
   }
-  .book.book--opened {
-    transform: rotate3D(1, 1, 0, 0deg) translateX(25px);
+  100% {
+    transform: rotate3d(0, 0, 0, 0deg) translateX(-100px) translateZ(100px);
   }
 }
 
-.book--opened {
-  .book__front {
-    transition: transform 0.5s;
-    transform: translate3d(1px, 0, 10px) rotate3d(0, 1, 0, -100deg);
+@media screen and (max-width: 450px) {
+  // scale down the whole book in proportion to fit smaller screens
+  .book-wrapper {
+    margin: 5px 0px;
+    transform: scale(0.8);
+    perspective: 1800px;
+    perspective-origin: 50% 15%;
   }
-  .book__page {
-    left: 0;
-    width: $pageWidth + 1;
+  .book {
+    transition: transform 0.5s 0s;
+    transform: rotateY(40deg) translateX(-120px);
+  }
+  .book__front {
+    transition: transform 0.5s 0s;
+  }
+  .book--opened {
+    animation: none;
+    transform: rotate3D(0, 0, 0, 0deg) translateX(-100px) translateZ(100px);
+    .book__front {
+      transition: transform 0.5s;
+      transform: translate3d(1px, 0, 10px) rotate3d(0, 1, 0, -100deg);
+    }
+  }
+}
+
+@media screen and (min-width: 451px) {
+  .book--closed:hover {
+    -webkit-transform: rotateY(90deg) rotateZ(-15deg) translate3d(-100px, 0, 0);
+    transform: rotateY(90deg) rotateZ(-15deg) translate3d(-100px, 0, 0);
+  }
+
+  .book--opened {
+    position: absolute;
+    z-index: 900;
+    animation: bookOffShelf 0.75s forwards;
+    // transform: rotate3d(0, 0, 0, 0deg) translateX(-100px) translateZ(100px);
+
+    .book__front {
+      transition: transform 0.5s 0.8s;
+      transform: translate3d(1px, 0, 10px) rotate3d(0, 1, 0, -100deg);
+    }
   }
 }
 </style>
-

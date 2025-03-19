@@ -16,39 +16,60 @@
       <AboutBtn key="bottom-about">Site Info</AboutBtn>
     </div>
     <div id="main-area">
-      <DisplayBook
-        v-for="book in books"
-        :key="book.title"
-        :title="book.title"
-        :bgColor="book.bgColor"
-      >
-        <template v-slot:preview>
-          <Page :pageIndex="0" :canFlip="false">
-            <template v-slot:front>
-              <div class="page__title">Introduction</div>
-              <picture>
-                <img :src="book.previewImage" />
-              </picture>
-              <p
-                style="
-                  text-align: center;
-                  font-size: 12pt;
-                  font-family: 'Times', Times, serif;
-                "
-              >
-                {{ book.previewBlurb }}
-              </p>
-              <ReadBtn :to="book.fullBookUrl" />
-            </template>
-          </Page>
-        </template>
-      </DisplayBook>
+      <ul class="book-list">
+        <DisplayBook
+          v-for="(book, idx) in books"
+          :key="book.title"
+          :title="book.title"
+          :bgColor="book.bgColor"
+          :defaultZIndex="getDefaultZIndex(idx, books.length)"
+          @set-opened-book="(title) => (openedBook = title)"
+          :bookOpened="book.title === openedBook"
+        >
+          <template v-slot:preview>
+            <Page :pageIndex="0" :canFlip="false">
+              <template v-slot:front>
+                <div class="page__title">Introduction</div>
+                <picture>
+                  <img :src="book.previewImage" />
+                </picture>
+                <p
+                  style="
+                    text-align: center;
+                    font-size: 12pt;
+                    font-family: 'Times', Times, serif;
+                  "
+                >
+                  {{ book.previewBlurb }}
+                </p>
+                <ReadBtn @click.stop :to="book.fullBookUrl" />
+              </template>
+            </Page>
+          </template>
+        </DisplayBook>
+      </ul>
+      <div class="bookshelf">
+        <div class="bookshelf__top" />
+        <div class="bookshelf__front" />
+      </div>
     </div>
     <div class="copyright copyright--rel">
       <small> © 2020 - 2025 Andrew Graves </small>
     </div>
   </div>
 </template>
+
+<script setup>
+const openedBook = ref("");
+
+function getDefaultZIndex(idx, total) {
+  if (idx < total / 2) {
+    return idx;
+  } else {
+    return total - idx;
+  }
+}
+</script>
 
 <style lang="scss">
 #whole-index-page {
@@ -77,7 +98,60 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
+}
+
+.book-list {
+  list-style: none;
+  position: relative;
+  perspective: 1800px;
+  perspective-origin: 50% 15%;
+  display: flex;
+  margin: 0 auto;
+  padding: 0;
+  z-index: 1;
+  gap: 1px;
+}
+
+.bookshelf {
+  perspective: 200px;
+  perspective-origin: 50% 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 0;
+  position: relative;
+  bottom: 26px;
+}
+.bookshelf__top {
+  width: 250px;
+  height: 50px;
+  transform: rotate3d(1, 0, 0, 80deg);
+  background-color: #c46e12;
+  margin: 0;
+  padding: 0;
+}
+.bookshelf__front {
+  position: relative;
+  bottom: 20;
+  width: 284px;
+  height: 16px;
+  transform: translateY(-18px);
+  background-color: #a35c0f;
+}
+
+@media screen and (max-width: 450px) {
+  // scale down the whole book in proportion to fit smaller screens
+  .book-list {
+    flex-direction: column;
+    perspective: none;
+  }
+
+  .bookshelf {
+    display: none;
+  }
 }
 
 #top-about-btn {
@@ -89,8 +163,8 @@
 #bottom-about-btn {
   display: none;
 }
+
 @media screen and (max-width: 8in) {
-  // scale down the whole book in proportion to fit smaller screens
   #top-about-btn {
     display: none;
   }
