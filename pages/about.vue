@@ -82,14 +82,6 @@
               </li>
               <li>
                 <a
-                  href="https://css-tricks.com/animate-a-container-on-mouse-over-using-perspective-and-transform/"
-                  target="_blank"
-                >
-                  Mouseover Perspective Rotation
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://codepen.io/diemoritat/pen/LKROYZ"
                   target="_blank"
                 >
