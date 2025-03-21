@@ -106,7 +106,6 @@ $flipSpeed: 1s;
     right: 50%;
     left: 50%;
     white-space: nowrap;
-    backface-visibility: hidden;
   }
 
   &__front,
