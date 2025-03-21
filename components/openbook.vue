@@ -24,7 +24,7 @@ import IconBook from "~/assets/book-open.svg";
 const loading = useState("loading", () => true);
 
 onMounted(() => {
-  setTimeout(() => (loading.value = false), 500);
+  setTimeout(() => (loading.value = false), 1000);
 });
 </script>
 
