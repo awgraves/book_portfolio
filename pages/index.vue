@@ -31,7 +31,7 @@
               <template v-slot:front-title> Introduction </template>
               <template v-slot:front-image>
                 <picture>
-                  <img :src="book.previewImage" />
+                  <img :src="book.previewImg" />
                 </picture>
               </template>
               <template v-slot:front-text>
@@ -44,7 +44,7 @@
                 >
                   {{ book.previewBlurb }}
                 </p>
-                <ReadBtn :to="book.fullBookUrl" />
+                <ReadBtn :to="book.path" />
               </template>
             </Page>
           </template>
@@ -71,6 +71,9 @@ function getDefaultZIndex(idx, total) {
     return total - idx;
   }
 }
+const { data: books } = await useAsyncData("allBooks", () => {
+  return queryCollection("books").all();
+});
 </script>
 
 <style lang="scss">

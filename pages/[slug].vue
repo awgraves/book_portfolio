@@ -1,35 +1,37 @@
 <template>
-  <div>
-    <NewFullBook :bgColor="book.bgColor">
-      <template v-slot:content>
-        <ContentRenderer :value="book" class="content" :prose="true" />
-      </template>
-    </NewFullBook>
-    <div
-      @click="closeModal"
-      v-if="zoomedImgUrl !== null"
-      class="pic-modal-wrapper"
-    >
-      <div style="position: relative; height: 100%; width: 100%">
-        <div class="pic-modal-overlay"></div>
-        <div class="pic-modal">
-          <picture>
-            <img :src="zoomedImgUrl" />
-          </picture>
+  <Openbook>
+    <template v-if="book">
+      <FullBook :bgColor="book.bgColor">
+        <template v-slot:content>
+          <ContentRenderer :value="book" class="content" :prose="true" />
+        </template>
+      </FullBook>
+      <div
+        @click="closeModal"
+        v-if="zoomedImgUrl !== null"
+        class="pic-modal-wrapper"
+      >
+        <div style="position: relative; height: 100%; width: 100%">
+          <div class="pic-modal-overlay"></div>
+          <div class="pic-modal">
+            <picture>
+              <img :src="zoomedImgUrl" />
+            </picture>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </template>
+    <template v-else>
+      <div>Not found</div>
+    </template>
+  </Openbook>
 </template>
 
 <script setup>
+const route = useRoute();
 const { data: book } = await useAsyncData("books", () =>
-  queryCollection("books").where("slug", "=", "clinicaltrials").first()
+  queryCollection("books").path(route.path).first()
 );
-
-definePageMeta({
-  layout: "openbook",
-});
 
 const zoomedImgUrl = useZoomedImgUrl();
 

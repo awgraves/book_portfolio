@@ -7,11 +7,9 @@ export default defineContentConfig({
       type: "page",
       schema: z.object({
         title: z.string(),
-        slug: z.string(),
         bgColor: z.string(),
         previewBlurb: z.string(),
         previewImg: z.string(),
-        fullBookUrl: z.string(),
         totalPages: z.number(),
       }),
     }),
