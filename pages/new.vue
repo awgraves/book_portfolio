@@ -1,13 +1,8 @@
 <template>
   <div>
-    <NewFullBook>
+    <NewFullBook :bgColor="book.bgColor">
       <template v-slot:content>
-        <ContentRenderer
-          :value="book"
-          class="content"
-          @zoom="zoom($event)"
-          :prose="true"
-        />
+        <ContentRenderer :value="book" class="content" :prose="true" />
       </template>
     </NewFullBook>
     <div
@@ -44,8 +39,6 @@ function closeModal() {
 </script>
 
 <style lang="scss">
-$coverColor: #205493;
-
 html,
 body {
   overflow: hidden;
@@ -89,16 +82,6 @@ body {
       max-height: 90vh;
       opacity: 1;
     }
-  }
-}
-
-.fullbook--styled {
-  background-color: $coverColor; // color of the cover
-  border: $coverColor solid 8px;
-
-  img {
-    width: 100%;
-    cursor: zoom-in;
   }
 }
 

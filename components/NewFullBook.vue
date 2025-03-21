@@ -1,7 +1,13 @@
 <template>
   <div id="scaling-wrapper" :style="{ transform: 'scale(' + bookScale + ')' }">
     <div id="wrapper" ref="bookWrapper">
-      <div class="fullbook fullbook--styled">
+      <div
+        class="fullbook"
+        :style="{
+          backgroundColor: bgColor,
+          border: '8px solid ' + bgColor,
+        }"
+      >
         <div id="instructions">
           Tap a pic to view fullscreen.
           <br /><br />Click a page to flip it.
@@ -18,6 +24,9 @@
 <script>
 export default {
   name: "FullBook",
+  props: {
+    bgColor: String,
+  },
   data() {
     return {
       bookScale: 1,
@@ -94,4 +103,3 @@ $bookWidth: 925px; // 900px;
   align-items: center;
 }
 </style>
-

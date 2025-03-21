@@ -143,6 +143,7 @@ $flipSpeed: 1s;
   img {
     width: 100%;
     margin-bottom: 0.5em;
+    cursor: zoom-in;
   }
 }
 .page--flipped {
