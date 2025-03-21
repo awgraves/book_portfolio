@@ -90,6 +90,7 @@ $flipSpeed: 1s;
 
   p {
     margin: 10px 0;
+    text-align: start;
   }
 
   &__title {

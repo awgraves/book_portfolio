@@ -31,20 +31,14 @@
               <template v-slot:front-title> Introduction </template>
               <template v-slot:front-image>
                 <picture>
-                  <img :src="book.previewImg" />
+                  <img :src="book.previewImg" style="cursor: pointer" />
                 </picture>
               </template>
               <template v-slot:front-text>
-                <p
-                  style="
-                    text-align: center;
-                    font-size: 12pt;
-                    font-family: 'Times', Times, serif;
-                  "
-                >
+                <p>
                   {{ book.previewBlurb }}
                 </p>
-                <ReadBtn :to="book.path" />
+                <ReadBtn :to="book.path" style="margin-top: 0.5em" />
               </template>
             </Page>
           </template>
