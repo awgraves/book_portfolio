@@ -1,5 +1,5 @@
 <template>
-  <a :href="to" class="nounderline">
+  <a @click.stop :href="to" class="nounderline">
     <div class="readbtn">
       <IconBook class="read-icon" />Read More<small>...</small>
     </div>

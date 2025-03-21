@@ -11,7 +11,7 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  modules: ["nuxt-svgo", "@nuxt/eslint"],
+  modules: ["nuxt-svgo", "@nuxt/eslint", "@nuxt/content"],
   css: ["~/assets/css/main.css"],
   app: {
     head: {
@@ -25,3 +25,4 @@ export default defineNuxtConfig({
     },
   },
 });
+

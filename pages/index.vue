@@ -28,11 +28,13 @@
         >
           <template v-slot:preview>
             <Page :pageIndex="0" :canFlip="false">
-              <template v-slot:front>
-                <div class="page__title">Introduction</div>
+              <template v-slot:front-title> Introduction </template>
+              <template v-slot:front-image>
                 <picture>
                   <img :src="book.previewImage" />
                 </picture>
+              </template>
+              <template v-slot:front-text>
                 <p
                   style="
                     text-align: center;
@@ -42,7 +44,7 @@
                 >
                   {{ book.previewBlurb }}
                 </p>
-                <ReadBtn @click.stop :to="book.fullBookUrl" />
+                <ReadBtn :to="book.fullBookUrl" />
               </template>
             </Page>
           </template>
