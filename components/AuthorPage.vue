@@ -16,17 +16,20 @@
       </picture>
     </template>
     <template #front-text>
+      <p style="margin: 0 0 10px 0">
+        <small>(Photograph from the time period!)</small>
+      </p>
       <p>
-        I'm a fullstack software engineer with 3+ years of industry experience.
+        I designed and built this project as a full-stack engineer while
+        employed at the UPMC MGP lab between 2018 - 2021.
       </p>
       <div>
-        I code in python & javascript and offer expertise in the following:
+        I coded in Python & JavaScript on the following stack:
         <ul>
           <li>Vue.js</li>
           <li>Django</li>
-          <li>RESTful APIs</li>
-          <li>Python scripting</li>
-          <li>Postgres & SQL</li>
+          <li>Postgres</li>
+          <li>Docker on OpenShift</li>
         </ul>
       </div>
     </template>
@@ -44,4 +47,3 @@ const zoom = () => {
 </script>
 
 <style lang="scss"></style>
-
