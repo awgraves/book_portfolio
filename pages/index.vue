@@ -107,7 +107,7 @@ const { data: books } = await useAsyncData("allBooks", () => {
   perspective: 1800px;
   perspective-origin: 50% 15%;
   display: flex;
-  margin: 0 auto;
+  margin: 50px 0 0 0;
   padding: 0;
   z-index: 1;
   gap: 1px;
