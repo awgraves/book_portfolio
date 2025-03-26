@@ -5,7 +5,7 @@
       <picture>
         <img
           @click.stop="zoom"
-          :src="imgUrl"
+          :src="copy.imgUrl"
           style="
             height: 150px;
             margin-left: auto;
@@ -17,19 +17,15 @@
     </template>
     <template #front-text>
       <p style="margin: 0 0 10px 0">
-        <small>Full-Stack Engineer @ UPMC (2018 - 2021)</small>
+        <small>{{ copy.jobTitle }}</small>
       </p>
       <p>
-        I designed and built this project while employed at the UPMC Molecular &
-        Genomic Pathology Lab.
+        {{ copy.generalBlurb }}
       </p>
-      <div>
-        I coded in Python & JavaScript on the following stack:
+      <div style="width: 100%">
+        {{ copy.techStackBlurb }}
         <ul>
-          <li>Vue.js</li>
-          <li>Django</li>
-          <li>Postgres</li>
-          <li>Docker on OpenShift</li>
+          <li v-for="point in copy.techStackPoints">{{ point }}</li>
         </ul>
       </div>
     </template>
@@ -39,10 +35,60 @@
 <script setup lang="ts">
 const zoomedImgUrl = useZoomedImgUrl();
 
-const imgUrl = ref("/images/headshot_upmc.png");
+const props = defineProps({
+  version: {
+    type: Number,
+    default: 1,
+  },
+});
+
+interface PageVersion {
+  imgUrl: string;
+  jobTitle: string;
+  generalBlurb: string;
+  techStackBlurb: string;
+  techStackPoints: string[];
+}
+
+const pageVersions: PageVersion[] = [
+  {
+    imgUrl: "/images/headshot_upmc.png",
+    jobTitle: "Full-Stack Engineer @ UPMC (2018 - 2021)",
+    generalBlurb:
+      "I designed and built this project while employed at the UPMC Molecular & Genomic Pathology Laboratory.",
+    techStackBlurb: "During this time I worked with:",
+    techStackPoints: [
+      "Python",
+      "Django",
+      "JavaScript",
+      "Vue.js",
+      "Postgres",
+      "Docker",
+      "OpenShift",
+    ],
+  },
+  {
+    imgUrl: "/images/headshot_cc.png",
+    jobTitle: "Full-Stack Engineer @ Codecademy (2021 - current)",
+    generalBlurb:
+      "I completed this work while employed at Codecademy as a product engineer on our DotCom team.",
+    techStackBlurb: "During this time I've worked with:",
+    techStackPoints: [
+      "Typescript",
+      "React",
+      "Next.js",
+      "GraphQL",
+      "Golang",
+      "Ruby on Rails",
+      "Kubernetes on AWS",
+    ],
+  },
+];
+
+const copy = ref(pageVersions[props.version - 1]);
 
 const zoom = () => {
-  zoomedImgUrl.value = imgUrl.value;
+  zoomedImgUrl.value = copy.value.imgUrl;
 };
 </script>
 

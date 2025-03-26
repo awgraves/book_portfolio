@@ -60,7 +60,7 @@ const openedBook = ref("");
 
 function getDefaultZIndex(idx, total) {
   if (idx < total / 2) {
-    return idx;
+    return idx + 1;
   } else {
     return total - idx;
   }

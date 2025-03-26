@@ -93,6 +93,11 @@ $flipSpeed: 1s;
     text-align: start;
   }
 
+  ul {
+    margin: 0;
+    width: 100%;
+  }
+
   &__title {
     font-style: italic;
     text-decoration: underline;
