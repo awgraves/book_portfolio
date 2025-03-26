@@ -7,7 +7,7 @@
           @click.stop="zoom"
           :src="imgUrl"
           style="
-            width: 55%;
+            height: 150px;
             margin-left: auto;
             margin-right: auto;
             display: block;
@@ -17,11 +17,11 @@
     </template>
     <template #front-text>
       <p style="margin: 0 0 10px 0">
-        <small>(Photograph from the time period!)</small>
+        <small>Full-Stack Engineer @ UPMC (2018 - 2021)</small>
       </p>
       <p>
-        I designed and built this project as a full-stack engineer while
-        employed at the UPMC MGP lab between 2018 - 2021.
+        I designed and built this project while employed at the UPMC Molecular &
+        Genomic Pathology Lab.
       </p>
       <div>
         I coded in Python & JavaScript on the following stack:
@@ -39,7 +39,7 @@
 <script setup lang="ts">
 const zoomedImgUrl = useZoomedImgUrl();
 
-const imgUrl = ref("/images/light.png");
+const imgUrl = ref("/images/headshot_upmc.png");
 
 const zoom = () => {
   zoomedImgUrl.value = imgUrl.value;
