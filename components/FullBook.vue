@@ -12,7 +12,7 @@
           Tap a pic to view fullscreen.
           <br /><br />Click a page to flip it.
           <div id="in-book-copyright" class="copyright copyright--abs">
-            <small> © 2020 Andrew Graves </small>
+            <small> © {{ bookYear }} Andrew Graves </small>
           </div>
         </div>
         <slot name="content"></slot>
@@ -24,9 +24,12 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, useTemplateRef } from "vue";
 
-defineProps({
+const props = defineProps({
   bgColor: String,
+  bookVolume: Number,
 });
+
+const bookYear = ref(props.bookVolume === 1 ? "2020" : "2025");
 
 const bookScale = ref(1);
 const bookWrapperRef = useTemplateRef("bookWrapper");

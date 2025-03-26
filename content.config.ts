@@ -6,6 +6,7 @@ export default defineContentConfig({
       source: "*.md",
       type: "page",
       schema: z.object({
+        volume: z.number(),
         title: z.string(),
         bgColor: z.string(),
         previewBlurb: z.string(),

@@ -1,7 +1,7 @@
 <template>
   <Openbook>
     <template v-if="book">
-      <FullBook :bgColor="book.bgColor">
+      <FullBook :bgColor="book.bgColor" :bookVolume="book.volume">
         <template v-slot:content>
           <ContentRenderer :value="book" class="content" :prose="true" />
         </template>
