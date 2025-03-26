@@ -12,8 +12,8 @@
         <span>Try viewing in landscape mode!</span>
         <img src="~/public/images/rotate_device.gif" />
       </div>
-      <slot />
     </template>
+    <slot />
   </div>
 </template>
 
