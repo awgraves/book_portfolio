@@ -8,6 +8,7 @@
           :src="copy.imgUrl"
           style="
             height: 150px;
+            width: auto;
             margin-left: auto;
             margin-right: auto;
             display: block;
