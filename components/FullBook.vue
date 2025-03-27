@@ -26,10 +26,10 @@ import { onMounted, onBeforeUnmount, useTemplateRef } from "vue";
 
 const props = defineProps({
   bgColor: String,
-  bookVolume: Number,
+  company: String,
 });
 
-const bookYear = ref(props.bookVolume === 1 ? "2020" : "2025");
+const bookYear = ref(props.company === "UPMC" ? "2020" : "2025");
 
 const bookScale = ref(1);
 const bookWrapperRef = useTemplateRef("bookWrapper");

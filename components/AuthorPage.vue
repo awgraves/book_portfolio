@@ -36,9 +36,9 @@
 const zoomedImgUrl = useZoomedImgUrl();
 
 const props = defineProps({
-  version: {
-    type: Number,
-    default: 1,
+  company: {
+    type: String,
+    default: "UPMC",
   },
 });
 
@@ -50,8 +50,8 @@ interface PageVersion {
   techStackPoints: string[];
 }
 
-const pageVersions: PageVersion[] = [
-  {
+const pageVersions: Record<string, PageVersion> = {
+  UPMC: {
     imgUrl: "/images/headshot_upmc.png",
     jobTitle: "Full-Stack Engineer @ UPMC (2018 - 2021)",
     generalBlurb:
@@ -67,7 +67,7 @@ const pageVersions: PageVersion[] = [
       "OpenShift",
     ],
   },
-  {
+  Codecademy: {
     imgUrl: "/images/headshot_cc.png",
     jobTitle: "Full-Stack Engineer @ Codecademy (2021 - current)",
     generalBlurb:
@@ -83,9 +83,9 @@ const pageVersions: PageVersion[] = [
       "Kubernetes on AWS",
     ],
   },
-];
+};
 
-const copy = ref(pageVersions[props.version - 1]);
+const copy = ref(pageVersions[props.company]);
 
 const zoom = () => {
   zoomedImgUrl.value = copy.value.imgUrl;

@@ -24,6 +24,7 @@
       <div class="book__right" :style="{ backgroundColor: bgColor }"></div>
       <div class="book__left" :style="{ backgroundColor: bgColor }">
         <div class="book__spine_wrapper">
+          <img :src="companyImg.url" :alt="companyImg.alt" />
           <h2>
             <span>{{ title }}</span>
             <span>A. Graves</span>
@@ -40,11 +41,18 @@
 interface BookProps {
   title: string;
   bgColor: string;
+  company: string;
   defaultZIndex: number;
   bookOpened: boolean;
 }
 const props = defineProps<BookProps>();
 const emit = defineEmits(["set-opened-book"]);
+
+const companyImg = computed(() => {
+  return props.company === "UPMC"
+    ? { url: "/logos/upmc.jpg", alt: "UPMC logo" }
+    : { url: "/logos/codecademy.jpg", alt: "Codecademy logo" };
+});
 
 function toggleBookOpen() {
   emit("set-opened-book", props.bookOpened ? "" : props.title);
@@ -91,7 +99,7 @@ $pageThickness: $bookThickness - 60px;
   &__left,
   &__right {
     width: $bookThickness;
-    left: -21px;
+    left: -20px;
     display: block;
     position: absolute;
   }
@@ -167,13 +175,22 @@ $pageThickness: $bookThickness - 60px;
 
   &__left {
     height: 400px;
+    transform-style: preserve-3d;
     transform: rotate3d(0, 1, 0, -90deg);
 
     .book__spine_wrapper {
       transform-style: preserve-3d;
       backface-visibility: hidden;
+      position: relative;
+
+      img {
+        position: absolute;
+        width: 35px;
+        left: 2px;
+      }
 
       h2 {
+        backface-visibility: hidden;
         color: #fff;
         font-size: 15px;
         line-height: 40px;
@@ -286,7 +303,7 @@ $pageThickness: $bookThickness - 60px;
   }
   .book {
     transition: transform 0.5s 0s;
-    transform: rotateY(40deg) translateX(-120px);
+    transform: rotateY(0deg) translateX(-120px);
   }
   .book__front {
     transition: transform 0.5s 0s;

@@ -22,6 +22,7 @@
           :key="book.title"
           :title="book.title"
           :bgColor="book.bgColor"
+          :company="book.company"
           :defaultZIndex="getDefaultZIndex(idx, books.length)"
           @set-opened-book="(title) => (openedBook = title)"
           :bookOpened="book.title === openedBook"

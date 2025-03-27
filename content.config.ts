@@ -6,7 +6,7 @@ export default defineContentConfig({
       source: "*.md",
       type: "page",
       schema: z.object({
-        volume: z.number(),
+        company: z.enum(["UPMC", "Codecademy"]),
         title: z.string(),
         bgColor: z.string(),
         previewBlurb: z.string(),
