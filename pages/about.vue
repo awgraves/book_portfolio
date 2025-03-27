@@ -11,10 +11,12 @@
         </div>
         <div class="paper__content">
           <div>
-            I completed these projects as a software engineer at the UPMC
-            Molecular & Genomic Pathology Lab.
-          </div>
-          <div>
+            I completed these projects while employed at:
+            <ul>
+              <li>The UPMC Molecular & Genomic Pathology Lab (2018 - 2021)</li>
+              <li>Codecademy (2021 - current)</li>
+            </ul>
+
             You can see some of my older personal projects
             <a href="https://awgraves.github.io" target="_blank">here</a>.
           </div>
@@ -28,10 +30,7 @@
                       ><img src="/logos/nuxt.png"
                     /></a>
                   </td>
-                  <td class="description">
-                    NuxtJS static site generator extension for the Vue.js
-                    framework
-                  </td>
+                  <td class="description">NuxtJS framework for Vue.js</td>
                 </tr>
                 <tr>
                   <td>
@@ -170,6 +169,11 @@
     position: relative;
     font-family: div {
       margin-bottom: 1em;
+    }
+
+    ul {
+      max-width: 300px;
+      text-align: left;
     }
 
     img {
