@@ -81,7 +81,8 @@ body {
       display: block;
       margin-left: auto;
       margin-right: auto;
-      max-height: 90vh;
+      max-height: 100vh;
+      max-width: 80%;
       opacity: 1;
     }
   }
