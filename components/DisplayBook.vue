@@ -75,6 +75,7 @@ $pageThickness: $bookThickness - 60px;
   width: 40px;
   height: 400px;
   margin: 0px 0px 0px 0px;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
@@ -83,8 +84,11 @@ $pageThickness: $bookThickness - 60px;
   position: absolute;
   width: 100%;
   height: $bookHeight;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
+  -webkit-transform: rotate3D(0, 1, 0, 90deg);
   transform: rotate3D(0, 1, 0, 90deg);
 
   &__front,
@@ -93,6 +97,7 @@ $pageThickness: $bookThickness - 60px;
     height: $bookHeight;
     display: block;
     position: absolute;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
 
@@ -109,15 +114,19 @@ $pageThickness: $bookThickness - 60px;
     width: 300px;
     height: 38px;
     top: -15px;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     display: block;
     position: absolute;
   }
 
   &__front {
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    -webkit-transform-origin: 0% 50%;
     transform-origin: 0% 50%;
     // transition: transform 0.5s 0s;
+    -webkit-transfrom: translate3d(0, 0, 19px);
     transform: translate3d(0, 0, 19px);
     z-index: 100;
 
@@ -127,12 +136,15 @@ $pageThickness: $bookThickness - 60px;
       z-index: 100;
       width: $bookWidth;
       height: $bookHeight;
+      -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+      -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d;
     }
   }
 
   &__back {
+    -webkit-transform: rotate3d(0, 1, 0, -180deg) translate3d(0, 0, 20px);
     transform: rotate3d(0, 1, 0, -180deg) translate3d(0, 0, 20px);
     border-radius: 3px 0 0 3px;
   }
@@ -164,22 +176,29 @@ $pageThickness: $bookThickness - 60px;
     display: block;
     position: absolute;
     background-color: #000;
+    -webkit-transform: rotate3d(0, 1, 0, -179deg);
     transform: rotate3d(0, 1, 0, -179deg);
     border-radius: 3px 0px 0px 3px;
   }
 
   &__right {
+    -webkit-transform: rotate3d(0, 1, 0, 90deg) translate3d(2px, 0, 276px);
     transform: rotate3d(0, 1, 0, 90deg) translate3d(2px, 0, 276px);
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
 
   &__left {
     height: 400px;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    -webkit-transform: rotate3d(0, 1, 0, -90deg);
     transform: rotate3d(0, 1, 0, -90deg);
 
     .book__spine_wrapper {
+      -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       position: relative;
 
@@ -190,6 +209,7 @@ $pageThickness: $bookThickness - 60px;
       }
 
       h2 {
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         color: #fff;
         font-size: 15px;
@@ -198,7 +218,9 @@ $pageThickness: $bookThickness - 60px;
         text-align: right;
         width: 400px;
         height: 40px;
+        -webkit-transform-origin: 0 0;
         transform-origin: 0 0;
+        -webkit-transform: rotate(90deg) translateY(-40px) translateX(-40px);
         transform: rotate(90deg) translateY(-40px) translateX(-40px);
 
         span:first-child {
@@ -216,10 +238,12 @@ $pageThickness: $bookThickness - 60px;
   }
 
   &__top {
+    -webkit-transform: rotate3d(1, 0, 0, 90deg);
     transform: rotate3d(1, 0, 0, 90deg);
   }
 
   &__bottom {
+    -webkit-transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, 390px);
     transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, 390px);
   }
   // colors and content &__page,
@@ -238,6 +262,7 @@ $pageThickness: $bookThickness - 60px;
     width: $pageWidth;
     top: 5px;
     left: 5px;
+    -webkit-transform: translateZ(18px);
     transform: translateZ(18px);
     background-color: white;
     display: block;
@@ -286,9 +311,12 @@ $pageThickness: $bookThickness - 60px;
 
 @keyframes bookOffShelf {
   50% {
+    -webkit-transform: rotate3d(0, 1, 0, 90deg) translateX(-300px);
     transform: rotate3d(0, 1, 0, 90deg) translateX(-300px);
   }
   100% {
+    -webkit-transform: rotate3d(0, 1, 0, 90deg) translateX(-100px)
+      translateZ(100px);
     transform: rotate3d(0, 0, 0, 0deg) translateX(-100px) translateZ(100px);
   }
 }
@@ -297,22 +325,32 @@ $pageThickness: $bookThickness - 60px;
   // scale down the whole book in proportion to fit smaller screens
   .book-wrapper {
     margin: 5px 0px;
+    -webkit-transform: scale(0.8);
     transform: scale(0.8);
+    -webkit-perspective: 1800px;
     perspective: 1800px;
+    -webkit-perspective-origin: 50% 15%;
     perspective-origin: 50% 15%;
   }
   .book {
+    -webkit-transition: -webkit-transform 0.5s;
     transition: transform 0.5s 0s;
+    -webkit-transform: rotateY(0deg) translateX(-120px);
     transform: rotateY(0deg) translateX(-120px);
   }
   .book__front {
+    -webkit-transition: -webkit-transform 0.5s 0s;
     transition: transform 0.5s 0s;
   }
   .book--opened {
     animation: none;
+    -webkit-transform: rotate3d(0, 0, 0, 0deg) translateX(-100px)
+      translateZ(100px);
     transform: rotate3D(0, 0, 0, 0deg) translateX(-100px) translateZ(100px);
     .book__front {
+      -webkit-transition: -webkit-transform 0.5s;
       transition: transform 0.5s;
+      -webkit-transform: translate3d(1px, 0, 10px) rotate3d(0, 1, 0, -100deg);
       transform: translate3d(1px, 0, 10px) rotate3d(0, 1, 0, -100deg);
     }
   }
@@ -331,7 +369,9 @@ $pageThickness: $bookThickness - 60px;
     // transform: rotate3d(0, 0, 0, 0deg) translateX(-100px) translateZ(100px);
 
     .book__front {
+      -webkit-transition: -webkit-transform 0.5s 0.8s;
       transition: transform 0.5s 0.8s;
+      -webkit-transform: translate3d(1px, 0, 10px) rotate3d(0, 1, 0, -100deg);
       transform: translate3d(1px, 0, 10px) rotate3d(0, 1, 0, -100deg);
     }
   }

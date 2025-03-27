@@ -105,7 +105,9 @@ const { data: books } = await useAsyncData("allBooks", () => {
 .book-list {
   list-style: none;
   position: relative;
+  -webkit-perspective: 1800px;
   perspective: 1800px;
+  -webkit-perspective-origin: 50% 15%;
   perspective-origin: 50% 15%;
   display: flex;
   margin: 50px 0 0 0;
