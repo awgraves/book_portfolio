@@ -104,7 +104,7 @@ $pageThickness: $bookThickness - 60px;
   &__left,
   &__right {
     width: $bookThickness;
-    left: -20px;
+    left: -21px; // fixes flicker in safari at 21px
     display: block;
     position: absolute;
   }
@@ -128,12 +128,12 @@ $pageThickness: $bookThickness - 60px;
     // transition: transform 0.5s 0s;
     -webkit-transfrom: translate3d(0, 0, 19px);
     transform: translate3d(0, 0, 19px);
-    z-index: 100;
+    z-index: 1;
 
     div {
       display: block;
       position: absolute;
-      z-index: 100;
+      z-index: 2;
       width: $bookWidth;
       height: $bookHeight;
       -webkit-backface-visibility: hidden;
