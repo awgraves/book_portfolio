@@ -1,14 +1,14 @@
 <template>
   <li
     class="book-wrapper"
-    @click="toggleBookOpen"
     :style="{ zIndex: bookOpened ? 999 : defaultZIndex }"
+    @click="toggleBookOpen"
   >
     <!--- book itself --->
     <div
+      ref="book"
       class="book"
       :class="[bookOpened ? 'book--opened' : 'book--closed']"
-      ref="book"
     >
       <div class="book__front" :style="{ backgroundColor: bgColor }">
         <div class="book__cover">
@@ -18,21 +18,21 @@
         </div>
       </div>
       <div class="book__page">
-        <slot name="preview"></slot>
+        <slot name="preview" />
       </div>
-      <div class="book__back" :style="{ backgroundColor: bgColor }"></div>
-      <div class="book__right" :style="{ backgroundColor: bgColor }"></div>
+      <div class="book__back" :style="{ backgroundColor: bgColor }"/>
+      <div class="book__right" :style="{ backgroundColor: bgColor }"/>
       <div class="book__left" :style="{ backgroundColor: bgColor }">
         <div class="book__spine_wrapper">
-          <img :src="companyImg.url" :alt="companyImg.alt" />
+          <img :src="companyImg.url" :alt="companyImg.alt" >
           <h2>
             <span>{{ title }}</span>
             <span>A. Graves</span>
           </h2>
         </div>
       </div>
-      <div class="book__top"></div>
-      <div class="book__bottom"></div>
+      <div class="book__top"/>
+      <div class="book__bottom"/>
     </div>
   </li>
 </template>
