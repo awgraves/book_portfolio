@@ -70,10 +70,10 @@ const pageVersions: Record<string, PageVersion> = {
   },
   Codecademy: {
     imgUrl: "/images/headshot_cc.png",
-    jobTitle: "Full-Stack Engineer @ Codecademy (2021 - current)",
+    jobTitle: "Full-Stack Engineer @ Codecademy (2021 - 2026)",
     generalBlurb:
-      "I completed this work while employed at Codecademy as a product engineer on our DotCom team.",
-    techStackBlurb: "During this time I've worked with:",
+      "I completed this work while employed at Codecademy.",
+    techStackBlurb: "During this time I worked with:",
     techStackPoints: [
       "Typescript",
       "React",

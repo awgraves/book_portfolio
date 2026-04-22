@@ -14,7 +14,7 @@
             I completed these projects while employed at:
             <ul>
               <li>The UPMC Molecular & Genomic Pathology Lab (2018 - 2021)</li>
-              <li>Codecademy (2021 - current)</li>
+              <li>Codecademy (2021 - 2026)</li>
             </ul>
 
             You can see some of my older personal projects
