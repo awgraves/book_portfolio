@@ -93,7 +93,7 @@
       </div>
     </div>
     <div id="btm-copyright" class="copyright copyright--rel">
-      <small> © 2020 - 2025 Andrew Graves </small>
+      <small> © 2020 - 2026 Andrew Graves </small>
     </div>
   </div>
 </template>
