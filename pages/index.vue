@@ -128,7 +128,7 @@ const { data: books } = await useAsyncData("allBooks", () => {
   bottom: 26px;
 }
 .bookshelf__top {
-  width: 300px;
+  width: 355px;
   height: 50px;
   transform: rotate3d(1, 0, 0, 80deg);
   background-color: #c46e12;
@@ -138,7 +138,7 @@ const { data: books } = await useAsyncData("allBooks", () => {
 .bookshelf__front {
   position: relative;
   bottom: 20;
-  width: 340px;
+  width: 405px;
   height: 16px;
   transform: translateY(-18px);
   background-color: #a35c0f;

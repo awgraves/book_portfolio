@@ -57,7 +57,7 @@ const pageVersions: Record<string, PageVersion> = {
     jobTitle: "Full-Stack Engineer @ UPMC (2018 - 2021)",
     generalBlurb:
       "I designed and built this project while employed at the UPMC Molecular & Genomic Pathology Laboratory.",
-    techStackBlurb: "During this time I worked with:",
+    techStackBlurb: "During my time there, I worked with:",
     techStackPoints: [
       "Python",
       "Django",
@@ -73,7 +73,7 @@ const pageVersions: Record<string, PageVersion> = {
     jobTitle: "Full-Stack Engineer @ Codecademy (2021 - 2026)",
     generalBlurb:
       "I completed this work while employed at Codecademy.",
-    techStackBlurb: "During this time I worked with:",
+    techStackBlurb: "During my time there, I worked with:",
     techStackPoints: [
       "Typescript",
       "React",

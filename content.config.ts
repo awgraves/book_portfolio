@@ -8,6 +8,7 @@ export default defineContentConfig({
       schema: z.object({
         company: z.enum(["UPMC", "Codecademy"]),
         title: z.string(),
+        bookYear: z.string(),
         bgColor: z.string(),
         previewBlurb: z.string(),
         previewImg: z.string(),
